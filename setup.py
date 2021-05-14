@@ -9,5 +9,11 @@ setup(
     license='',
     author='Afrizal Herlambnag',
     author_email='Afrizal.Herlambang@gmail.com',
-    description='GUI application'
+    description='GUI application',
+
+    entry_points={
+        "console_scripts": [
+            "conan-blade=conanblade.app:main"
+        ]
+    }
 )
