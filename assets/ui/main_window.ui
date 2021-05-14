@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>1131</width>
-    <height>810</height>
+    <height>772</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -43,7 +43,7 @@
      <number>2</number>
     </property>
     <item>
-     <widget class="QFrame" name="frame_4">
+     <widget class="QFrame" name="frameMain">
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -64,7 +64,7 @@
         <number>2</number>
        </property>
        <property name="bottomMargin">
-        <number>2</number>
+        <number>0</number>
        </property>
        <item>
         <widget class="QFrame" name="frame">
@@ -250,12 +250,41 @@
            <number>2</number>
           </property>
           <item>
+           <widget class="QLabel" name="label_10">
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Double Click</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QCheckBox" name="checkBoxOpenExplorer">
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="text">
              <string>Open Explorer</string>
             </property>
             <property name="checked">
              <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkBoxCopyClipboard">
+            <property name="text">
+             <string>Copy to Clipboard</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -268,6 +297,9 @@
           <enum>Qt::Vertical</enum>
          </property>
          <widget class="QTabWidget" name="tabWidget">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
             <horstretch>0</horstretch>
@@ -281,7 +313,10 @@
            </size>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
+          </property>
+          <property name="movable">
+           <bool>true</bool>
           </property>
           <widget class="QWidget" name="tab">
            <attribute name="title">
@@ -336,7 +371,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>Recipe folder</string>
+                  <string>Recipe Folder</string>
                  </property>
                 </widget>
                </item>
@@ -390,7 +425,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>Install folder</string>
+                  <string>Install Folder</string>
                  </property>
                 </widget>
                </item>
@@ -440,7 +475,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>Build folder</string>
+                  <string>Build Folder</string>
                  </property>
                 </widget>
                </item>
@@ -490,7 +525,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>Source folder</string>
+                  <string>Source Folder</string>
                  </property>
                 </widget>
                </item>
@@ -540,7 +575,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>Package folder</string>
+                  <string>Package Folder</string>
                  </property>
                 </widget>
                </item>
@@ -662,7 +697,7 @@
                 <number>2</number>
                </property>
                <property name="leftMargin">
-                <number>2</number>
+                <number>0</number>
                </property>
                <property name="topMargin">
                 <number>2</number>
@@ -708,6 +743,19 @@
                  </property>
                 </widget>
                </item>
+               <item>
+                <spacer name="horizontalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
               </layout>
              </widget>
             </item>
@@ -725,11 +773,6 @@
              </spacer>
             </item>
            </layout>
-          </widget>
-          <widget class="QWidget" name="tab_2">
-           <attribute name="title">
-            <string>Tab 2</string>
-           </attribute>
           </widget>
          </widget>
          <widget class="QFrame" name="frame_6">
@@ -753,7 +796,7 @@
             <number>2</number>
            </property>
            <property name="bottomMargin">
-            <number>2</number>
+            <number>0</number>
            </property>
            <item>
             <widget class="QLabel" name="label_4">
@@ -847,7 +890,11 @@
             </widget>
            </item>
            <item>
-            <widget class="QTableView" name="tableViewRemoteList"/>
+            <widget class="QTableView" name="tableViewRemoteList">
+             <property name="horizontalScrollMode">
+              <enum>QAbstractItemView::ScrollPerPixel</enum>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -873,12 +920,13 @@
     </property>
     <addaction name="actionViewRecipe"/>
     <addaction name="actionViewProfile"/>
-    <addaction name="actionViewRemote"/>
+    <addaction name="actionViewConsole"/>
    </widget>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionFileExit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -889,19 +937,41 @@
    <addaction name="menuView"/>
    <addaction name="menuHelp"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QDockWidget" name="dockWidget_2">
+  <widget class="QStatusBar" name="statusBar">
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QDockWidget" name="dockWidgetRecipe">
    <property name="enabled">
     <bool>true</bool>
    </property>
    <property name="windowTitle">
-    <string>Package</string>
+    <string>Recipe</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_3">
     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="spacing">
+      <number>5</number>
+     </property>
+     <property name="leftMargin">
+      <number>2</number>
+     </property>
+     <property name="topMargin">
+      <number>2</number>
+     </property>
+     <property name="rightMargin">
+      <number>2</number>
+     </property>
+     <property name="bottomMargin">
+      <number>2</number>
+     </property>
      <item>
       <widget class="QSplitter" name="splitter_3">
        <property name="orientation">
@@ -912,7 +982,7 @@
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QTreeView" name="treeView"/>
+       <widget class="QTreeView" name="treeViewRecipeInspect"/>
       </widget>
      </item>
     </layout>
@@ -947,7 +1017,7 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QDockWidget" name="dockWidget">
+  <widget class="QDockWidget" name="dockWidgetProfile">
    <property name="windowTitle">
     <string>Profile</string>
    </property>
@@ -990,7 +1060,7 @@
     </layout>
    </widget>
   </widget>
-  <widget class="QDockWidget" name="dockWidget_5">
+  <widget class="QDockWidget" name="dockWidgetConsole">
    <property name="windowTitle">
     <string>Console</string>
    </property>
@@ -1069,6 +1139,9 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Recipe</string>
    </property>
@@ -1077,19 +1150,95 @@
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Profile</string>
    </property>
   </action>
-  <action name="actionViewRemote">
+  <action name="actionViewConsole">
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
-    <string>Remote</string>
+    <string>Console</string>
+   </property>
+  </action>
+  <action name="actionFileExit">
+   <property name="text">
+    <string>Exit</string>
    </property>
   </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionViewProfile</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dockWidgetProfile</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1000</x>
+     <y>296</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionViewConsole</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dockWidgetConsole</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>565</x>
+     <y>676</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionViewRecipe</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dockWidgetRecipe</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>129</x>
+     <y>296</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionFileExit</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>565</x>
+     <y>404</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

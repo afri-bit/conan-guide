@@ -26,13 +26,16 @@ class ConanProfileDetailController:
         self.conan_api = conan_api
 
         self.model = QStandardItemModel()
+        self.model.setColumnCount(2)
+        self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Property")
+        self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Value")
         self.view.setModel(self.model)
 
     def show_detail(self, profile_name: str):
         self.model.clear()
         self.model.setColumnCount(2)
 
-        self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Attribute")
+        self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Property")
         self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Value")
 
         profile = self.conan_api.read_profile(profile_name)
