@@ -70,3 +70,91 @@ class ConanApi(Conan):
             package_path = real_path
 
         return real_path, package_path
+
+    @staticmethod
+    def build_command_install(install_folder: str,
+                              user: str,
+                              channel: str,
+                              profile: str,
+                              params: str,
+                              path_recipe: str) -> list:
+        cmd = ["conan", "install", os.path.abspath(path_recipe)]
+        if user != "" and channel != "":
+            cmd.append(user + "/" + channel)
+        if install_folder != "":
+            cmd.extend(["-if", os.path.abspath(install_folder)])
+        if profile != "":
+            cmd.extend(["-pr", profile])
+        if params != "":
+            cmd.extend(params.split(" "))
+
+        return cmd
+
+    @staticmethod
+    def build_command_build(build_folder: str,
+                            install_folder: str,
+                            package_folder: str,
+                            source_folder: str,
+                            params: str,
+                            path_recipe: str) -> list:
+
+        cmd = ["conan", "build", os.path.abspath(path_recipe)]
+        if build_folder != "":
+            cmd.extend(["-bf", os.path.abspath(build_folder)])
+        if install_folder != "":
+            cmd.extend(["-if", os.path.abspath(install_folder)])
+        if package_folder != "":
+            cmd.extend(["-pf", os.path.abspath(package_folder)])
+        if source_folder != "":
+            cmd.extend(["-sf", os.path.abspath(source_folder)])
+        if params != "":
+            cmd.extend(params.split(" "))
+        return cmd
+
+    @staticmethod
+    def build_command_source(source_folder: str, install_folder: str, path_recipe: str) -> list:
+        cmd = ["conan", "source", os.path.abspath(path_recipe)]
+        if source_folder != "":
+            cmd.extend(["-sf", os.path.abspath(source_folder)])
+        if install_folder != "":
+            cmd.extend(["-if", os.path.abspath(install_folder)])
+
+        return cmd
+
+    @staticmethod
+    def build_command_package(build_folder: str, install_folder: str, package_folder: str, source_folder: str,
+                              path_recipe: str) -> list:
+        cmd = ["conan", "package", os.path.abspath(path_recipe)]
+        if build_folder != "":
+            cmd.extend(["-bf", os.path.abspath(build_folder)])
+        if install_folder != "":
+            cmd.extend(["-if", os.path.abspath(install_folder)])
+        if package_folder != "":
+            cmd.extend(["-pf", os.path.abspath(package_folder)])
+        if source_folder != "":
+            cmd.extend(["-sf", os.path.abspath(source_folder)])
+        return cmd
+
+    @staticmethod
+    def build_command_export(params: str, path_recipe: str) -> list:
+        cmd = ["conan", "export", os.path.abspath(path_recipe)]
+        if params != "":
+            cmd.extend(params.split(" "))
+        return cmd
+
+    @staticmethod
+    def build_command_export_package(build_folder: str, install_folder: str, package_folder: str,
+                                     source_folder: str, params: str, path_recipe: str):
+        cmd = ["conan", "export-pkg", os.path.abspath(path_recipe)]
+        if build_folder != "":
+            cmd.extend(["-bf", os.path.abspath(build_folder)])
+        if install_folder != "":
+            cmd.extend(["-if", os.path.abspath(install_folder)])
+        if package_folder != "":
+            cmd.extend(["-pf", os.path.abspath(package_folder)])
+        if source_folder != "":
+            cmd.extend(["-sf", os.path.abspath(source_folder)])
+        if params != "":
+            cmd.extend(params.split(" "))
+
+        return cmd
