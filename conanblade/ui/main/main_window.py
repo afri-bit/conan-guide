@@ -266,7 +266,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ui_config.add_value("install_path", self.lineEditInstallPath.text())
         self.ui_config.add_value("build_path", self.lineEditBuildPath.text())
         self.ui_config.add_value("source_path", self.lineEditSourcePath.text())
-        self.ui_config.add_value("package_path", self.lineEditPackagePath.text())
+        self.ui_config.add_value("package_path", self.lineEditPackageExpPath.text())
         self.ui_config.add_value("parameter", self.lineEditAdditionalParams.text())
         self.ui_config.add_value("profile", self.comboBoxProfile.currentText())
 
@@ -324,7 +324,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.lineEditInstallPath.setText(config["install_path"])
             self.lineEditBuildPath.setText(config["build_path"])
             self.lineEditSourcePath.setText(config["source_path"])
-            self.lineEditPackagePath.setText(config["package_path"])
+            self.lineEditPackageExpPath.setText(config["package_path"])
             self.lineEditAdditionalParams.setText(config["parameter"])
             self.comboBoxProfile.setCurrentText(config["profile"])
 

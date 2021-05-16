@@ -2,7 +2,7 @@ import unittest
 from conanblade.data.conan_recipe import *
 
 
-class TestConanPackageInfo(unittest.TestCase):
+class TestConanRecipeInfo(unittest.TestCase):
     def setUp(self):
         self.conan_package_attribute = RecipeAttribute("user", "testing")
         self.conan_package_info_attr = RecipeInfo("pack_foo", "1.0", self.conan_package_attribute)
