@@ -742,6 +742,19 @@
                 <number>2</number>
                </property>
                <item>
+                <widget class="QPushButton" name="btnCreate">
+                 <property name="minimumSize">
+                  <size>
+                   <width>85</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Create</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
                 <widget class="QPushButton" name="btnInstall">
                  <property name="minimumSize">
                   <size>
@@ -761,25 +774,6 @@
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="btnSource">
-                 <property name="minimumSize">
-                  <size>
-                   <width>85</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>85</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Source</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QPushButton" name="btnBuild">
                  <property name="minimumSize">
                   <size>
@@ -795,6 +789,25 @@
                  </property>
                  <property name="text">
                   <string>Build</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="btnSource">
+                 <property name="minimumSize">
+                  <size>
+                   <width>85</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>85</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Source</string>
                  </property>
                 </widget>
                </item>
@@ -916,6 +929,8 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionRefresh"/>
+    <addaction name="separator"/>
     <addaction name="actionFileExit"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
@@ -1333,10 +1348,22 @@
    </widget>
   </widget>
   <widget class="QToolBar" name="toolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="minimumSize">
     <size>
      <width>0</width>
      <height>0</height>
+    </size>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>0</width>
+     <height>50</height>
     </size>
    </property>
    <property name="windowTitle">
@@ -1347,12 +1374,15 @@
    </property>
    <property name="iconSize">
     <size>
-     <width>50</width>
-     <height>50</height>
+     <width>30</width>
+     <height>30</height>
     </size>
    </property>
    <property name="toolButtonStyle">
     <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -1360,6 +1390,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionRefresh"/>
   </widget>
   <action name="actionViewRecipe">
    <property name="checkable">
@@ -1405,6 +1436,15 @@
    </property>
    <property name="text">
     <string>Remote</string>
+   </property>
+  </action>
+  <action name="actionRefresh">
+   <property name="icon">
+    <iconset>
+     <normaloff>C:/Users/afrizal/Desktop/1200px-Refresh_icon.svg.png</normaloff>C:/Users/afrizal/Desktop/1200px-Refresh_icon.svg.png</iconset>
+   </property>
+   <property name="text">
+    <string>Refresh</string>
    </property>
   </action>
  </widget>
@@ -1469,8 +1509,8 @@
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>565</x>
-     <y>676</y>
+     <x>1130</x>
+     <y>751</y>
     </hint>
    </hints>
   </connection>
@@ -1497,8 +1537,8 @@
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>556</x>
-     <y>571</y>
+     <x>595</x>
+     <y>583</y>
     </hint>
     <hint type="destinationlabel">
      <x>625</x>

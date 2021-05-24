@@ -98,57 +98,64 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def on_command_progress(self, data: str):
         self.log_to_console(data)
 
+    def on_btnCreate_pressed(self):
+        self.run_command(self.conan_api.build_command_create(path_recipe=self.lineEditRecipePath.text(),
+                                                             user=self.lineEditUser.text(),
+                                                             channel=self.lineEditChannel.text(),
+                                                             profile=self.comboBoxProfile.currentText(),
+                                                             params=self.lineEditAdditionalParams.text()))
+
     def on_btnInstall_pressed(self):
         if self.lineEditInstallPath.text() == "":
             self.log_to_console("ERROR: Please specify the installation path.", dt=True)
             return
 
-        self.run_command(self.conan_api.build_command_install(install_folder=self.lineEditInstallPath.text(),
+        self.run_command(self.conan_api.build_command_install(path_recipe=self.lineEditRecipePath.text(),
+                                                              install_folder=self.lineEditInstallPath.text(),
                                                               user=self.lineEditUser.text(),
                                                               channel=self.lineEditChannel.text(),
                                                               profile=self.comboBoxProfile.currentText(),
-                                                              params=self.lineEditAdditionalParams.text(),
-                                                              path_recipe=self.lineEditRecipePath.text()))
+                                                              params=self.lineEditAdditionalParams.text()))
 
     def on_btnBuild_pressed(self):
         if self.lineEditBuildPath.text() == "":
             self.log_to_console("ERROR: Please specify the build path.", dt=True)
             return
 
-        self.run_command(self.conan_api.build_command_build(build_folder=self.lineEditBuildPath.text(),
+        self.run_command(self.conan_api.build_command_build(path_recipe=self.lineEditRecipePath.text(),
+                                                            build_folder=self.lineEditBuildPath.text(),
                                                             install_folder=self.lineEditInstallPath.text(),
                                                             package_folder=self.lineEditPackagePath.text(),
                                                             source_folder=self.lineEditSourcePath.text(),
-                                                            params=self.lineEditAdditionalParams.text(),
-                                                            path_recipe=self.lineEditRecipePath.text()))
+                                                            params=self.lineEditAdditionalParams.text()))
 
     def on_btnSource_pressed(self):
         if self.lineEditSourcePath.text() == "":
             self.log_to_console("ERROR: Please specify the source path.", dt=True)
             return
 
-        self.run_command(self.conan_api.build_command_source(source_folder=self.lineEditSourcePath.text(),
-                                                             install_folder=self.lineEditInstallPath.text(),
-                                                             path_recipe=self.lineEditRecipePath.text()))
+        self.run_command(self.conan_api.build_command_source(path_recipe=self.lineEditRecipePath.text(),
+                                                             source_folder=self.lineEditSourcePath.text(),
+                                                             install_folder=self.lineEditInstallPath.text()))
 
     def on_btnPackage_pressed(self):
-        self.run_command(self.conan_api.build_command_package(build_folder=self.lineEditBuildPath.text(),
+        self.run_command(self.conan_api.build_command_package(path_recipe=self.lineEditRecipePath.text(),
+                                                              build_folder=self.lineEditBuildPath.text(),
                                                               install_folder=self.lineEditInstallPath.text(),
                                                               package_folder=self.lineEditPackagePath.text(),
-                                                              source_folder=self.lineEditSourcePath.text(),
-                                                              path_recipe=self.lineEditRecipePath.text()))
+                                                              source_folder=self.lineEditSourcePath.text()))
 
     def on_btnExport_pressed(self):
-        self.run_command(self.conan_api.build_command_export(params=self.lineEditAdditionalParams.text(),
-                                                             path_recipe=self.lineEditRecipePath.text()))
+        self.run_command(self.conan_api.build_command_export(path_recipe=self.lineEditRecipePath.text(),
+                                                             params=self.lineEditAdditionalParams.text()))
 
     def on_btnExportPackage_pressed(self):
-        self.run_command(self.conan_api.build_command_export_package(build_folder=self.lineEditBuildPath.text(),
+        self.run_command(self.conan_api.build_command_export_package(path_recipe=self.lineEditRecipePath.text(),
+                                                                     build_folder=self.lineEditBuildPath.text(),
                                                                      install_folder=self.lineEditInstallPath.text(),
                                                                      package_folder=self.lineEditPackagePath.text(),
                                                                      source_folder=self.lineEditSourcePath.text(),
-                                                                     params=self.lineEditAdditionalParams.text(),
-                                                                     path_recipe=self.lineEditRecipePath.text()))
+                                                                     params=self.lineEditAdditionalParams.text()))
 
     def run_command(self, cmd):
         self.command_runner.set_command(cmd)
@@ -273,7 +280,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # Main Window
         self.ui_config.add_header("main_window")
         self.ui_config.add_value("x", self.pos().x(), "main_window")
-        self.ui_config.add_value("y", self.pos().y(), "main_window")
+        self.ui_config.add_value("y", self.pos().y() + 30, "main_window")
         self.ui_config.add_value("width", self.width(), "main_window")
         self.ui_config.add_value("height", self.height(), "main_window")
 

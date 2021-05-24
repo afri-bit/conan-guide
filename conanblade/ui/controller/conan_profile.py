@@ -31,7 +31,11 @@ class ConanProfileDetailController:
         self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Value")
         self.view.setModel(self.model)
 
+        self.header_width = []
+
     def show_detail(self, profile_name: str):
+        self.__store_column_width()
+
         self.model.clear()
         self.model.setColumnCount(2)
 
@@ -87,3 +91,14 @@ class ConanProfileDetailController:
 
         # Expand the tree view
         self.view.expandAll()
+
+        self.__set_column_width()
+
+    def __store_column_width(self):
+        self.header_width = []
+        for i in range(0, self.view.header().count()):
+            self.header_width.append(self.view.columnWidth(i))
+
+    def __set_column_width(self):
+        for i in range(0, len(self.header_width)):
+            self.view.setColumnWidth(i, self.header_width[i])

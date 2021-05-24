@@ -38,7 +38,11 @@ class ConanRecipeInspectController:
         self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Value")
         self.view.setModel(self.model)
 
+        self.header_width = []
+
     def inspect(self, recipe_id: str):
+        self.__store_column_width()
+
         inspect_info = self.conan_api.inspect(recipe_id, None)
 
         self.model.clear()
@@ -69,3 +73,14 @@ class ConanRecipeInspectController:
             item_value.setEditable(False)
 
             self.model.appendRow([item_key, item_value])
+
+        self.__set_column_width()
+
+    def __store_column_width(self):
+        self.header_width = []
+        for i in range(0, self.view.header().count()):
+            self.header_width.append(self.view.columnWidth(i))
+
+    def __set_column_width(self):
+        for i in range(0, len(self.header_width)):
+            self.view.setColumnWidth(i, self.header_width[i])

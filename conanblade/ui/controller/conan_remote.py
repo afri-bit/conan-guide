@@ -11,8 +11,14 @@ class ConanRemoteListController:
 
         self.model = QStandardItemModel()
         self.view.setModel(self.model)
+        self.view.horizontalHeader().setStretchLastSection(False)
+        self.view.setShowGrid(True)
+
+        self.header_width = []
 
     def update(self):
+        self.__store_column_width()
+
         self.model.clear()
         self.model.setColumnCount(3)
 
@@ -32,3 +38,18 @@ class ConanRemoteListController:
             item_ssl = QStandardItem(str(remote.verify_ssl))
 
             self.model.appendRow([item_name, item_url, item_ssl])
+
+        self.view.horizontalHeader().setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+
+        self.__set_column_width()
+
+    def __store_column_width(self):
+        self.header_width = []
+        for i in range(0, self.view.horizontalHeader().count()):
+            self.header_width.append(self.view.columnWidth(i))
+
+    def __set_column_width(self):
+        for i in range(0, len(self.header_width)):
+            self.view.setColumnWidth(i, self.header_width[i])
+
+
