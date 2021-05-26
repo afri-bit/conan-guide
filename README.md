@@ -1,7 +1,7 @@
 # Conan Blade
 Conan Blade is Qt based Graphical User Interface (GUI) to interact with conan package manager. Conan Blade provides user an easy overview of the information from the local cache without any further effort of typing in the terminal. One of the core functionalities from this application is to provide user the possibility to execute the conan development flow from the existing conan recipe.
 
-![](doc/img/main_window.png)
+![](resources/img/main_window.png)
 
 **⚠ WARNING:** Currently only tested in Windows
 

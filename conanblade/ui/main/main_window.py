@@ -1,17 +1,15 @@
-import os
-import subprocess
-
 import datetime
+import os
 
 import pyperclip
 from PyQt5 import QtWidgets
 
 from conanblade.api.conan_api import ConanApi
+from conanblade.client.runner.command_runner import ConanCommandRunner
+from conanblade.ui.config.ui_config import UIConfiguration
 from conanblade.ui.controller.conan_profile import ConanProfileController, ConanProfileDetailController
 from conanblade.ui.controller.conan_recipe import ConanRecipeController, ConanRecipeInspectController
 from conanblade.ui.controller.conan_remote import ConanRemoteListController
-from conanblade.ui.config.ui_config import UIConfiguration
-from conanblade.client.runner.command_runner import ConanCommandRunner
 from conanblade.ui.main.main_window_ui import Ui_MainWindow
 
 
@@ -98,64 +96,26 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def on_command_progress(self, data: str):
         self.log_to_console(data)
 
-    def on_btnCreate_pressed(self):
-        self.run_command(self.conan_api.build_command_create(path_recipe=self.lineEditRecipePath.text(),
-                                                             user=self.lineEditUser.text(),
-                                                             channel=self.lineEditChannel.text(),
-                                                             profile=self.comboBoxProfile.currentText(),
-                                                             params=self.lineEditAdditionalParams.text()))
+    def on_actionConanCreate_triggered(self):
+        self.__execute_conan_create()
 
-    def on_btnInstall_pressed(self):
-        if self.lineEditInstallPath.text() == "":
-            self.log_to_console("ERROR: Please specify the installation path.", dt=True)
-            return
+    def on_actionConanInstall_triggered(self):
+        self.__execute_conan_install()
 
-        self.run_command(self.conan_api.build_command_install(path_recipe=self.lineEditRecipePath.text(),
-                                                              install_folder=self.lineEditInstallPath.text(),
-                                                              user=self.lineEditUser.text(),
-                                                              channel=self.lineEditChannel.text(),
-                                                              profile=self.comboBoxProfile.currentText(),
-                                                              params=self.lineEditAdditionalParams.text()))
+    def on_actionConanBuild_triggered(self):
+        self.__execute_conan_build()
 
-    def on_btnBuild_pressed(self):
-        if self.lineEditBuildPath.text() == "":
-            self.log_to_console("ERROR: Please specify the build path.", dt=True)
-            return
+    def on_actionConanSource_triggered(self):
+        self.__execute_conan_source()
 
-        self.run_command(self.conan_api.build_command_build(path_recipe=self.lineEditRecipePath.text(),
-                                                            build_folder=self.lineEditBuildPath.text(),
-                                                            install_folder=self.lineEditInstallPath.text(),
-                                                            package_folder=self.lineEditPackagePath.text(),
-                                                            source_folder=self.lineEditSourcePath.text(),
-                                                            params=self.lineEditAdditionalParams.text()))
+    def on_actionConanPackage_triggered(self):
+        self.__execute_conan_package()
 
-    def on_btnSource_pressed(self):
-        if self.lineEditSourcePath.text() == "":
-            self.log_to_console("ERROR: Please specify the source path.", dt=True)
-            return
+    def on_actionConanExport_triggered(self):
+        self.__execute_conan_export()
 
-        self.run_command(self.conan_api.build_command_source(path_recipe=self.lineEditRecipePath.text(),
-                                                             source_folder=self.lineEditSourcePath.text(),
-                                                             install_folder=self.lineEditInstallPath.text()))
-
-    def on_btnPackage_pressed(self):
-        self.run_command(self.conan_api.build_command_package(path_recipe=self.lineEditRecipePath.text(),
-                                                              build_folder=self.lineEditBuildPath.text(),
-                                                              install_folder=self.lineEditInstallPath.text(),
-                                                              package_folder=self.lineEditPackagePath.text(),
-                                                              source_folder=self.lineEditSourcePath.text()))
-
-    def on_btnExport_pressed(self):
-        self.run_command(self.conan_api.build_command_export(path_recipe=self.lineEditRecipePath.text(),
-                                                             params=self.lineEditAdditionalParams.text()))
-
-    def on_btnExportPackage_pressed(self):
-        self.run_command(self.conan_api.build_command_export_package(path_recipe=self.lineEditRecipePath.text(),
-                                                                     build_folder=self.lineEditBuildPath.text(),
-                                                                     install_folder=self.lineEditInstallPath.text(),
-                                                                     package_folder=self.lineEditPackagePath.text(),
-                                                                     source_folder=self.lineEditSourcePath.text(),
-                                                                     params=self.lineEditAdditionalParams.text()))
+    def on_actionConanExportPackage_triggered(self):
+        self.__execute_conan_export_package()
 
     def run_command(self, cmd):
         self.command_runner.set_command(cmd)
@@ -181,18 +141,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def on_btnOpenPackagePath_pressed(self):
         os.startfile(self.lineEditPackagePath.text())
-
-    def on_dockWidgetRecipe_visibilityChanged(self):
-        self.actionViewRecipe.setChecked(self.dockWidgetRecipe.isVisible())
-
-    def on_dockWidgetProfile_visibilityChanged(self):
-        self.actionViewProfile.setChecked(self.dockWidgetProfile.isVisible())
-
-    def on_dockWidgetRemote_visibilityChanged(self):
-        self.actionViewRemote.setChecked(self.dockWidgetRemote.isVisible())
-
-    def on_dockWidgetConsole_visibilityChanged(self):
-        self.actionViewConsole.setChecked(self.dockWidgetConsole.isVisible())
 
     def on_treeViewRecipe_clicked(self):
         if self.treeViewRecipe.currentIndex().parent().data() is not None:
@@ -246,17 +194,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if self.toolButtonConsoleScrollToEnd.isChecked():
             self.console.verticalScrollBar().setValue(self.console.verticalScrollBar().maximum())
 
-    def __set_folder_path(self, view: QtWidgets.QLineEdit):
-        folder_path = QtWidgets.QFileDialog.getExistingDirectory(self, "Select Folder")
-
-        if folder_path != "":
-            view.setText(os.path.abspath(folder_path))
-
     def set_loading_state(self, state: bool):
-        self.dockWidgetProfile.setEnabled(not state)
-        self.dockWidgetRecipe.setEnabled(not state)
-        self.dockWidgetRemote.setEnabled(not state)
-        self.frameMain.setEnabled(not state)
+        self.groupBoxWorkspace.setEnabled(not state)
 
         if state:
             self.progressBar.setMaximum(0)
@@ -264,6 +203,71 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             self.labelStatusMessage.setText("")
             self.progressBar.setMaximum(100)
+
+    def __execute_conan_create(self):
+        self.run_command(self.conan_api.build_command_create(path_recipe=self.lineEditRecipePath.text(),
+                                                             user=self.lineEditUser.text(),
+                                                             channel=self.lineEditChannel.text(),
+                                                             profile=self.comboBoxProfile.currentText(),
+                                                             params=self.lineEditAdditionalParams.text()))
+
+    def __execute_conan_install(self):
+        if self.lineEditInstallPath.text() == "":
+            self.log_to_console("ERROR: Please specify the installation path.", dt=True)
+            return
+
+        self.run_command(self.conan_api.build_command_install(path_recipe=self.lineEditRecipePath.text(),
+                                                              install_folder=self.lineEditInstallPath.text(),
+                                                              user=self.lineEditUser.text(),
+                                                              channel=self.lineEditChannel.text(),
+                                                              profile=self.comboBoxProfile.currentText(),
+                                                              params=self.lineEditAdditionalParams.text()))
+
+    def __execute_conan_build(self):
+        if self.lineEditBuildPath.text() == "":
+            self.log_to_console("ERROR: Please specify the build path.", dt=True)
+            return
+
+        self.run_command(self.conan_api.build_command_build(path_recipe=self.lineEditRecipePath.text(),
+                                                            build_folder=self.lineEditBuildPath.text(),
+                                                            install_folder=self.lineEditInstallPath.text(),
+                                                            package_folder=self.lineEditPackagePath.text(),
+                                                            source_folder=self.lineEditSourcePath.text(),
+                                                            params=self.lineEditAdditionalParams.text()))
+
+    def __execute_conan_source(self):
+        if self.lineEditSourcePath.text() == "":
+            self.log_to_console("ERROR: Please specify the source path.", dt=True)
+            return
+
+        self.run_command(self.conan_api.build_command_source(path_recipe=self.lineEditRecipePath.text(),
+                                                             source_folder=self.lineEditSourcePath.text(),
+                                                             install_folder=self.lineEditInstallPath.text()))
+
+    def __execute_conan_package(self):
+        self.run_command(self.conan_api.build_command_package(path_recipe=self.lineEditRecipePath.text(),
+                                                              build_folder=self.lineEditBuildPath.text(),
+                                                              install_folder=self.lineEditInstallPath.text(),
+                                                              package_folder=self.lineEditPackagePath.text(),
+                                                              source_folder=self.lineEditSourcePath.text()))
+
+    def __execute_conan_export(self):
+        self.run_command(self.conan_api.build_command_export(path_recipe=self.lineEditRecipePath.text(),
+                                                             params=self.lineEditAdditionalParams.text()))
+
+    def __execute_conan_export_package(self):
+        self.run_command(self.conan_api.build_command_export_package(path_recipe=self.lineEditRecipePath.text(),
+                                                                     build_folder=self.lineEditBuildPath.text(),
+                                                                     install_folder=self.lineEditInstallPath.text(),
+                                                                     package_folder=self.lineEditPackagePath.text(),
+                                                                     source_folder=self.lineEditSourcePath.text(),
+                                                                     params=self.lineEditAdditionalParams.text()))
+
+    def __set_folder_path(self, view: QtWidgets.QLineEdit):
+        folder_path = QtWidgets.QFileDialog.getExistingDirectory(self, "Select Folder")
+
+        if folder_path != "":
+            view.setText(os.path.abspath(folder_path))
 
     def __save_ui_state(self):
         # Configuration
@@ -286,37 +290,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # DockWidget - Recipe
         self.ui_config.add_header("dock_recipe")
-        self.ui_config.add_value("x", self.dockWidgetRecipe.pos().x(), "dock_recipe")
-        self.ui_config.add_value("y", self.dockWidgetRecipe.pos().y(), "dock_recipe")
-        self.ui_config.add_value("width", self.dockWidgetRecipe.width(), "dock_recipe")
-        self.ui_config.add_value("height", self.dockWidgetRecipe.height(), "dock_recipe")
-        self.ui_config.add_value("visible", self.dockWidgetRecipe.isVisible(), "dock_recipe")
         self.ui_config.add_value("open_explorer", self.checkBoxOpenExplorer.isChecked(), "dock_recipe")
         self.ui_config.add_value("copy_clipboard", self.checkBoxCopyClipboard.isChecked(), "dock_recipe")
 
-        # DockWidget - Profile
-        self.ui_config.add_header("dock_profile")
-        self.ui_config.add_value("x", self.dockWidgetProfile.pos().x(), "dock_profile")
-        self.ui_config.add_value("y", self.dockWidgetProfile.pos().y(), "dock_profile")
-        self.ui_config.add_value("width", self.dockWidgetProfile.width(), "dock_profile")
-        self.ui_config.add_value("height", self.dockWidgetProfile.height(), "dock_profile")
-        self.ui_config.add_value("visible", self.dockWidgetProfile.isVisible(), "dock_profile")
-
-        # DockWidget - Remote
-        self.ui_config.add_header("dock_remote")
-        self.ui_config.add_value("x", self.dockWidgetRemote.pos().x(), "dock_remote")
-        self.ui_config.add_value("y", self.dockWidgetRemote.pos().y(), "dock_remote")
-        self.ui_config.add_value("width", self.dockWidgetRemote.width(), "dock_remote")
-        self.ui_config.add_value("height", self.dockWidgetRemote.height(), "dock_remote")
-        self.ui_config.add_value("visible", self.dockWidgetRemote.isVisible(), "dock_remote")
-
         # DockWidget - Console
         self.ui_config.add_header("dock_console")
-        self.ui_config.add_value("x", self.dockWidgetConsole.pos().x(), "dock_console")
-        self.ui_config.add_value("y", self.dockWidgetConsole.pos().y(), "dock_console")
-        self.ui_config.add_value("width", self.dockWidgetConsole.width(), "dock_console")
-        self.ui_config.add_value("height", self.dockWidgetConsole.height(), "dock_console")
-        self.ui_config.add_value("visible", self.dockWidgetConsole.isVisible(), "dock_console")
         self.ui_config.add_value("scroll_end", self.toolButtonConsoleScrollToEnd.isChecked(), "dock_console")
 
         self.ui_config.save_config()
@@ -342,32 +320,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
                              config["main_window"]["height"])
 
             # DockWidget - Recipe
-            self.dockWidgetRecipe.setGeometry(config["dock_recipe"]["x"],
-                                              config["dock_recipe"]["y"],
-                                              config["dock_recipe"]["width"],
-                                              config["dock_recipe"]["height"])
-            self.actionViewRecipe.setChecked(config["dock_recipe"]["visible"])
             self.checkBoxOpenExplorer.setChecked(config["dock_recipe"]["open_explorer"])
             self.checkBoxCopyClipboard.setChecked(config["dock_recipe"]["copy_clipboard"])
 
-            # DockWidget - Profile
-            self.dockWidgetProfile.setGeometry(config["dock_profile"]["x"],
-                                               config["dock_profile"]["y"],
-                                               config["dock_profile"]["width"],
-                                               config["dock_profile"]["height"])
-            self.actionViewProfile.setChecked(config["dock_profile"]["visible"])
-
-            # DockWidget - Remote
-            self.dockWidgetRemote.setGeometry(config["dock_remote"]["x"],
-                                              config["dock_remote"]["y"],
-                                              config["dock_remote"]["width"],
-                                              config["dock_remote"]["height"])
-            self.actionViewRemote.setChecked(config["dock_remote"]["visible"])
-
             # DockWidget - Console
-            self.dockWidgetConsole.setGeometry(config["dock_console"]["x"],
-                                               config["dock_console"]["y"],
-                                               config["dock_console"]["width"],
-                                               config["dock_console"]["height"])
-            self.actionViewConsole.setChecked(config["dock_console"]["visible"])
             self.toolButtonConsoleScrollToEnd.setChecked(config["dock_console"]["scroll_end"])
