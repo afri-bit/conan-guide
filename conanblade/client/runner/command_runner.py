@@ -1,7 +1,4 @@
-import os
-import sys
 import subprocess
-import time
 
 from PyQt5 import QtCore
 
@@ -14,7 +11,7 @@ class WorkerSignal(QtCore.QObject):
     progress = QtCore.pyqtSignal(object)
 
 
-class ConanCommandRunner(QtCore.QThread):
+class CommandRunner(QtCore.QThread):
     def __init__(self):
         super().__init__()
 
@@ -24,7 +21,7 @@ class ConanCommandRunner(QtCore.QThread):
     def set_command(self, command: list):
         self.command = command
 
-    def run(self) -> None:
+    def run(self):
         # Start the thread
         self.signals.start.emit(" ".join(self.command))
 
@@ -33,8 +30,10 @@ class ConanCommandRunner(QtCore.QThread):
                              stdout=subprocess.PIPE,
                              stderr=subprocess.PIPE)
 
+        # Emitting signal on every output, it shows the progress of the command
         for c in iter(p.stdout.readline, b''):
             self.signals.progress.emit(c.decode("utf-8", errors='replace'))
+
         self.signals.progress.emit("\n")
 
         stdout, stderr = p.communicate()

@@ -5,12 +5,13 @@ import pyperclip
 from PyQt5 import QtWidgets
 
 from conanblade.api.conan_api import ConanApi
-from conanblade.client.runner.command_runner import ConanCommandRunner
+from conanblade.client.runner.command_runner import CommandRunner
 from conanblade.ui.config.ui_config import UIConfiguration
 from conanblade.ui.controller.conan_profile import ConanProfileController, ConanProfileDetailController
 from conanblade.ui.controller.conan_recipe import ConanRecipeController, ConanRecipeInspectController
 from conanblade.ui.controller.conan_remote import ConanRemoteListController
 from conanblade.ui.main.main_window_ui import Ui_MainWindow
+from conanblade.utils.cmd.command_builder import ConanCommandBuilder
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -66,7 +67,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # Initialize console
         self.console.ensureCursorVisible()
 
-        self.command_runner = ConanCommandRunner()
+        self.command_runner = CommandRunner()
         self.command_runner.signals.start.connect(self.on_command_start)
         self.command_runner.signals.error.connect(self.on_command_error)
         self.command_runner.signals.progress.connect(self.on_command_progress)
@@ -205,63 +206,65 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.progressBar.setMaximum(100)
 
     def __execute_conan_create(self):
-        self.run_command(self.conan_api.build_command_create(path_recipe=self.lineEditRecipePath.text(),
-                                                             user=self.lineEditUser.text(),
-                                                             channel=self.lineEditChannel.text(),
-                                                             profile=self.comboBoxProfile.currentText(),
-                                                             params=self.lineEditAdditionalParams.text()))
+        self.run_command(ConanCommandBuilder.build_command_create(path_recipe=self.lineEditRecipePath.text(),
+                                                                  user=self.lineEditUser.text(),
+                                                                  channel=self.lineEditChannel.text(),
+                                                                  profile=self.comboBoxProfile.currentText(),
+                                                                  params=self.lineEditAdditionalParams.text()))
 
     def __execute_conan_install(self):
         if self.lineEditInstallPath.text() == "":
             self.log_to_console("ERROR: Please specify the installation path.", dt=True)
             return
 
-        self.run_command(self.conan_api.build_command_install(path_recipe=self.lineEditRecipePath.text(),
-                                                              install_folder=self.lineEditInstallPath.text(),
-                                                              user=self.lineEditUser.text(),
-                                                              channel=self.lineEditChannel.text(),
-                                                              profile=self.comboBoxProfile.currentText(),
-                                                              params=self.lineEditAdditionalParams.text()))
+        self.run_command(ConanCommandBuilder.build_command_install(path_recipe=self.lineEditRecipePath.text(),
+                                                                   install_folder=self.lineEditInstallPath.text(),
+                                                                   user=self.lineEditUser.text(),
+                                                                   channel=self.lineEditChannel.text(),
+                                                                   profile=self.comboBoxProfile.currentText(),
+                                                                   params=self.lineEditAdditionalParams.text()))
 
     def __execute_conan_build(self):
         if self.lineEditBuildPath.text() == "":
             self.log_to_console("ERROR: Please specify the build path.", dt=True)
             return
 
-        self.run_command(self.conan_api.build_command_build(path_recipe=self.lineEditRecipePath.text(),
-                                                            build_folder=self.lineEditBuildPath.text(),
-                                                            install_folder=self.lineEditInstallPath.text(),
-                                                            package_folder=self.lineEditPackagePath.text(),
-                                                            source_folder=self.lineEditSourcePath.text(),
-                                                            params=self.lineEditAdditionalParams.text()))
+        self.run_command(ConanCommandBuilder.build_command_build(path_recipe=self.lineEditRecipePath.text(),
+                                                                 build_folder=self.lineEditBuildPath.text(),
+                                                                 install_folder=self.lineEditInstallPath.text(),
+                                                                 package_folder=self.lineEditPackagePath.text(),
+                                                                 source_folder=self.lineEditSourcePath.text(),
+                                                                 params=self.lineEditAdditionalParams.text()))
 
     def __execute_conan_source(self):
         if self.lineEditSourcePath.text() == "":
             self.log_to_console("ERROR: Please specify the source path.", dt=True)
             return
 
-        self.run_command(self.conan_api.build_command_source(path_recipe=self.lineEditRecipePath.text(),
-                                                             source_folder=self.lineEditSourcePath.text(),
-                                                             install_folder=self.lineEditInstallPath.text()))
+        self.run_command(ConanCommandBuilder.build_command_source(path_recipe=self.lineEditRecipePath.text(),
+                                                                  source_folder=self.lineEditSourcePath.text(),
+                                                                  install_folder=self.lineEditInstallPath.text()))
 
     def __execute_conan_package(self):
-        self.run_command(self.conan_api.build_command_package(path_recipe=self.lineEditRecipePath.text(),
-                                                              build_folder=self.lineEditBuildPath.text(),
-                                                              install_folder=self.lineEditInstallPath.text(),
-                                                              package_folder=self.lineEditPackagePath.text(),
-                                                              source_folder=self.lineEditSourcePath.text()))
+        self.run_command(ConanCommandBuilder.build_command_package(path_recipe=self.lineEditRecipePath.text(),
+                                                                   build_folder=self.lineEditBuildPath.text(),
+                                                                   install_folder=self.lineEditInstallPath.text(),
+                                                                   package_folder=self.lineEditPackagePath.text(),
+                                                                   source_folder=self.lineEditSourcePath.text()))
 
     def __execute_conan_export(self):
-        self.run_command(self.conan_api.build_command_export(path_recipe=self.lineEditRecipePath.text(),
-                                                             params=self.lineEditAdditionalParams.text()))
+        self.run_command(ConanCommandBuilder.build_command_export(path_recipe=self.lineEditRecipePath.text(),
+                                                                  params=self.lineEditAdditionalParams.text()))
 
     def __execute_conan_export_package(self):
-        self.run_command(self.conan_api.build_command_export_package(path_recipe=self.lineEditRecipePath.text(),
-                                                                     build_folder=self.lineEditBuildPath.text(),
-                                                                     install_folder=self.lineEditInstallPath.text(),
-                                                                     package_folder=self.lineEditPackagePath.text(),
-                                                                     source_folder=self.lineEditSourcePath.text(),
-                                                                     params=self.lineEditAdditionalParams.text()))
+        self.run_command(
+            ConanCommandBuilder.build_command_export_package(path_recipe=self.lineEditRecipePath.text(),
+                                                             build_folder=self.lineEditBuildPath.text(),
+                                                             install_folder=self.lineEditInstallPath.text(),
+                                                             package_folder=self.lineEditPackagePath.text(),
+                                                             source_folder=self.lineEditSourcePath.text(),
+                                                             params=self.lineEditAdditionalParams.text())
+        )
 
     def __set_folder_path(self, view: QtWidgets.QLineEdit):
         folder_path = QtWidgets.QFileDialog.getExistingDirectory(self, "Select Folder")

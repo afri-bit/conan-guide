@@ -464,7 +464,7 @@ class Ui_MainWindow(object):
         self.console = QtWidgets.QPlainTextEdit(self.groupBox_4)
         font = QtGui.QFont()
         font.setFamily("Consolas")
-        font.setPointSize(9)
+        font.setPointSize(8)
         self.console.setFont(font)
         self.console.setReadOnly(True)
         self.console.setPlainText("")

@@ -5,174 +5,91 @@ from conanblade.data.conan_recipe import *
 
 
 class ConanApi(Conan):
+    """
+    Extension of the conan client Python API
+    """
     def __init__(self):
         super().__init__()
 
     def get_all_recipes(self) -> list:
+        """
+        Get the all the recipes from the conan local cache
+        :return list<RecipeInfo>: List of recipe info object, contains name, version, user and channel information
+        """
         recipes = list()
 
+        # Search all the recipes by using 'None' as input parameter
         conan_recipes = self.search_recipes(None)
 
+        # Check if the return value contains error
+        # The return values are packed in a dictionary. One of the key gives the error status
         if conan_recipes["error"] is False:
             recipe_items = conan_recipes["results"][0]["items"]
 
+            # Iterate through all recipes and convert it to RecipeInfo object
             for r in recipe_items:
-                id = r["recipe"]["id"]
-                recipes.append(self.build_recipe_obj(id))
+                recipe_id = r["recipe"]["id"]
+                recipes.append(RecipeInfo.create_recipe_obj(recipe_id))
 
         return recipes
 
     def get_cache_folder(self) -> str:
+        """
+        Simplified function to return the local cache path
+        :return cache_folder: Absolute path to the local cache directory
+        """
         return self.factory()[0].cache_folder
 
-    def build_recipe_obj(self, recipe_id: str) -> RecipeInfo:
-
-        recipe_info = recipe_id.split("@")
-
-        recipe_attr = None
-
-        if len(recipe_info) > 1:
-            recipe_attr = recipe_info[1].split("/")
-            recipe_attr = RecipeAttribute(recipe_attr[0], recipe_attr[1])
-
-        recipe_info = recipe_info[0].split("/")
-
-        return RecipeInfo(recipe_info[0], recipe_info[1], recipe_attr)
-
     def get_package_list(self, recipe_id: str) -> list:
+        """
+        Simplified function to return packages that belongs to a recipe
+        :param recipe_id: ID of the recipe to search for packages 'name/version@user/channel'
+        :return list<dict>: list of dictionaries that contains all the information about the package
+        """
         return self.search_packages(recipe_id)["results"][0]["items"][0]["packages"]
 
     def get_package_cache_path(self, recipe_id: str, package_hash: str) -> [str, str]:
+        """
+        Function to return the package path and package real path based on the recipe ID and its hash.
+        On Windows there is an issue regarding the length of the path, so user has to change the conan settings in order
+        to come around this issue, which splits the package content and the real path of the package itself using a
+        reference link.
+        This can return exact same values, depends on the configuration
+        :param recipe_id: ID of the recipe to search for packages 'name/version@user/channel'
+        :param package_hash: Package hash id to be searched
+        :return real_path - str: The real path of the conan local cache
+                package_path - str: Path to the content of the package
+        """
         real_path = ""
         package_path = ""
 
-        recipe_obj = self.build_recipe_obj(recipe_id)
+        # Build an object out of the recipe id, so we don't have work with string
+        recipe_obj = RecipeInfo.create_recipe_obj(recipe_id)
 
+        # Get the data path, normally its located under 'cache_folder/data'
         data_path = os.path.join(os.path.abspath(self.get_cache_folder()), "data")
 
         # Build the path based on recipe info
         recipe_path = os.path.normpath(recipe_obj.name + "/" + recipe_obj.version)
-        if recipe_obj.attribute is None:
+
+        # Check if the recipe contains user and channel information
+        if recipe_obj.attribute is None:  # No user and channel information
             recipe_path = os.path.join(recipe_path, os.path.normpath("_/_"))
-        else:
+        else:  # Recipe has user and channel information
             recipe_path = os.path.join(recipe_path, os.path.normpath(recipe_obj.attribute.get_info()))
 
         recipe_path = os.path.join(data_path, recipe_path)
 
         real_path = os.path.join(recipe_path, os.path.normpath("package/" + package_hash))
 
+        # Check if the package real path contains '.conan_link' file, where the reference link is stored
         if os.path.isfile(os.path.join(real_path, ".conan_link")):
             conan_link = os.path.join(real_path, ".conan_link")
 
             with open(conan_link) as f:
+                # Package path will be filled with the information from the file
                 package_path = f.readline()
-        else:
+        else:  # No reference link, the content of the package is located directly under the real path
             package_path = real_path
 
         return real_path, package_path
-
-    @staticmethod
-    def build_command_create(path_recipe: str,
-                             user: str,
-                             channel: str,
-                             profile: str,
-                             params: str) -> list:
-        cmd = ["conan", "create", os.path.abspath(path_recipe)]
-
-        if user != "" and channel != "":
-            cmd.append(user + "/" + channel)
-        if profile != "":
-            cmd.extend(["-pr", profile])
-        if params != "":
-            cmd.extend(params.split(" "))
-
-        return cmd
-
-    @staticmethod
-    def build_command_install(path_recipe: str,
-                              install_folder: str,
-                              user: str,
-                              channel: str,
-                              profile: str,
-                              params: str) -> list:
-        cmd = ["conan", "install", os.path.abspath(path_recipe)]
-        if user != "" and channel != "":
-            cmd.append(user + "/" + channel)
-        if install_folder != "":
-            cmd.extend(["-if", os.path.abspath(install_folder)])
-        if profile != "":
-            cmd.extend(["-pr", profile])
-        if params != "":
-            cmd.extend(params.split(" "))
-
-        return cmd
-
-    @staticmethod
-    def build_command_build(path_recipe: str,
-                            build_folder: str,
-                            install_folder: str,
-                            package_folder: str,
-                            source_folder: str,
-                            params: str) -> list:
-
-        cmd = ["conan", "build", os.path.abspath(path_recipe)]
-        if build_folder != "":
-            cmd.extend(["-bf", os.path.abspath(build_folder)])
-        if install_folder != "":
-            cmd.extend(["-if", os.path.abspath(install_folder)])
-        if package_folder != "":
-            cmd.extend(["-pf", os.path.abspath(package_folder)])
-        if source_folder != "":
-            cmd.extend(["-sf", os.path.abspath(source_folder)])
-        if params != "":
-            cmd.extend(params.split(" "))
-        return cmd
-
-    @staticmethod
-    def build_command_source(path_recipe: str, source_folder: str, install_folder: str, ) -> list:
-        cmd = ["conan", "source", os.path.abspath(path_recipe)]
-        if source_folder != "":
-            cmd.extend(["-sf", os.path.abspath(source_folder)])
-        if install_folder != "":
-            cmd.extend(["-if", os.path.abspath(install_folder)])
-
-        return cmd
-
-    @staticmethod
-    def build_command_package(path_recipe: str, build_folder: str,
-                              install_folder: str, package_folder: str,
-                              source_folder: str) -> list:
-        cmd = ["conan", "package", os.path.abspath(path_recipe)]
-        if build_folder != "":
-            cmd.extend(["-bf", os.path.abspath(build_folder)])
-        if install_folder != "":
-            cmd.extend(["-if", os.path.abspath(install_folder)])
-        if package_folder != "":
-            cmd.extend(["-pf", os.path.abspath(package_folder)])
-        if source_folder != "":
-            cmd.extend(["-sf", os.path.abspath(source_folder)])
-        return cmd
-
-    @staticmethod
-    def build_command_export(path_recipe: str, params: str) -> list:
-        cmd = ["conan", "export", os.path.abspath(path_recipe)]
-        if params != "":
-            cmd.extend(params.split(" "))
-        return cmd
-
-    @staticmethod
-    def build_command_export_package(path_recipe: str, build_folder: str, install_folder: str, package_folder: str,
-                                     source_folder: str, params: str):
-        cmd = ["conan", "export-pkg", os.path.abspath(path_recipe)]
-        if build_folder != "":
-            cmd.extend(["-bf", os.path.abspath(build_folder)])
-        if install_folder != "":
-            cmd.extend(["-if", os.path.abspath(install_folder)])
-        if package_folder != "":
-            cmd.extend(["-pf", os.path.abspath(package_folder)])
-        if source_folder != "":
-            cmd.extend(["-sf", os.path.abspath(source_folder)])
-        if params != "":
-            cmd.extend(params.split(" "))
-
-        return cmd
