@@ -9,14 +9,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1114</width>
-    <height>837</height>
+    <width>948</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>800</width>
-    <height>600</height>
+    <height>800</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -104,8 +104,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>354</width>
-             <height>687</height>
+             <width>294</width>
+             <height>650</height>
             </rect>
            </property>
            <attribute name="label">
@@ -235,8 +235,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>354</width>
-             <height>687</height>
+             <width>294</width>
+             <height>650</height>
             </rect>
            </property>
            <attribute name="label">
@@ -364,19 +364,19 @@
                 </attribute>
                 <layout class="QVBoxLayout" name="verticalLayout_3">
                  <property name="spacing">
-                  <number>5</number>
+                  <number>2</number>
                  </property>
                  <property name="leftMargin">
-                  <number>5</number>
+                  <number>2</number>
                  </property>
                  <property name="topMargin">
-                  <number>5</number>
+                  <number>2</number>
                  </property>
                  <property name="rightMargin">
-                  <number>5</number>
+                  <number>2</number>
                  </property>
                  <property name="bottomMargin">
-                  <number>5</number>
+                  <number>2</number>
                  </property>
                  <item>
                   <widget class="QGroupBox" name="groupBox">
@@ -601,13 +601,13 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QGroupBox" name="groupBox_2">
+                  <widget class="QGroupBox" name="groupBoxWorkspace">
                    <property name="title">
                     <string>Workspace</string>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_9">
                     <property name="spacing">
-                     <number>2</number>
+                     <number>0</number>
                     </property>
                     <property name="leftMargin">
                      <number>2</number>
@@ -1027,173 +1027,6 @@
                       </layout>
                      </widget>
                     </item>
-                    <item>
-                     <widget class="QFrame" name="frame_15">
-                      <property name="frameShape">
-                       <enum>QFrame::StyledPanel</enum>
-                      </property>
-                      <property name="frameShadow">
-                       <enum>QFrame::Raised</enum>
-                      </property>
-                      <layout class="QHBoxLayout" name="horizontalLayout_14">
-                       <property name="spacing">
-                        <number>2</number>
-                       </property>
-                       <property name="leftMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="topMargin">
-                        <number>2</number>
-                       </property>
-                       <property name="rightMargin">
-                        <number>2</number>
-                       </property>
-                       <property name="bottomMargin">
-                        <number>2</number>
-                       </property>
-                       <item>
-                        <widget class="QPushButton" name="btnConanCreate">
-                         <property name="minimumSize">
-                          <size>
-                           <width>85</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="text">
-                          <string>Create</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="btnConanInstall">
-                         <property name="minimumSize">
-                          <size>
-                           <width>85</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>85</width>
-                           <height>16777215</height>
-                          </size>
-                         </property>
-                         <property name="text">
-                          <string>Install</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="btnConanBuild">
-                         <property name="minimumSize">
-                          <size>
-                           <width>85</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>85</width>
-                           <height>16777215</height>
-                          </size>
-                         </property>
-                         <property name="text">
-                          <string>Build</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="btnConanSource">
-                         <property name="minimumSize">
-                          <size>
-                           <width>85</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>85</width>
-                           <height>16777215</height>
-                          </size>
-                         </property>
-                         <property name="text">
-                          <string>Source</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="btnConanPackage">
-                         <property name="minimumSize">
-                          <size>
-                           <width>85</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>85</width>
-                           <height>16777215</height>
-                          </size>
-                         </property>
-                         <property name="text">
-                          <string>Package</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="btnConanExport">
-                         <property name="minimumSize">
-                          <size>
-                           <width>85</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>85</width>
-                           <height>16777215</height>
-                          </size>
-                         </property>
-                         <property name="text">
-                          <string>Export</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="btnConanExportPackage">
-                         <property name="minimumSize">
-                          <size>
-                           <width>85</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>85</width>
-                           <height>16777215</height>
-                          </size>
-                         </property>
-                         <property name="text">
-                          <string>Export Package</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <spacer name="horizontalSpacer_2">
-                         <property name="orientation">
-                          <enum>Qt::Horizontal</enum>
-                         </property>
-                         <property name="sizeHint" stdset="0">
-                          <size>
-                           <width>40</width>
-                           <height>20</height>
-                          </size>
-                         </property>
-                        </spacer>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
                    </layout>
                   </widget>
                  </item>
@@ -1472,7 +1305,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1114</width>
+     <width>948</width>
      <height>21</height>
     </rect>
    </property>
@@ -1705,118 +1538,6 @@
     <hint type="destinationlabel">
      <x>625</x>
      <y>574</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnConanCreate</sender>
-   <signal>pressed()</signal>
-   <receiver>actionConanCreate</receiver>
-   <slot>trigger()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>360</x>
-     <y>476</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnConanInstall</sender>
-   <signal>pressed()</signal>
-   <receiver>actionConanInstall</receiver>
-   <slot>trigger()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>447</x>
-     <y>476</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnConanBuild</sender>
-   <signal>pressed()</signal>
-   <receiver>actionConanBuild</receiver>
-   <slot>trigger()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>534</x>
-     <y>476</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnConanSource</sender>
-   <signal>pressed()</signal>
-   <receiver>actionConanSource</receiver>
-   <slot>trigger()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>621</x>
-     <y>476</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnConanPackage</sender>
-   <signal>pressed()</signal>
-   <receiver>actionConanPackage</receiver>
-   <slot>trigger()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>708</x>
-     <y>476</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnConanExport</sender>
-   <signal>pressed()</signal>
-   <receiver>actionConanExport</receiver>
-   <slot>trigger()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>795</x>
-     <y>476</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btnConanExportPackage</sender>
-   <signal>pressed()</signal>
-   <receiver>actionConanExportPackage</receiver>
-   <slot>trigger()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>882</x>
-     <y>476</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>-1</x>
-     <y>-1</y>
     </hint>
    </hints>
   </connection>

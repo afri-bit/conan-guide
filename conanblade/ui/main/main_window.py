@@ -195,7 +195,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.console.verticalScrollBar().setValue(self.console.verticalScrollBar().maximum())
 
     def set_loading_state(self, state: bool):
-        self.frameMain.setEnabled(not state)
+        self.groupBoxWorkspace.setEnabled(not state)
 
         if state:
             self.progressBar.setMaximum(0)
