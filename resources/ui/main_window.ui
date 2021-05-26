@@ -104,7 +104,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>294</width>
+             <width>354</width>
              <height>687</height>
             </rect>
            </property>
@@ -235,7 +235,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>294</width>
+             <width>354</width>
              <height>687</height>
             </rect>
            </property>
@@ -1565,26 +1565,16 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionRefresh"/>
-   <addaction name="actionSeparator"/>
+   <addaction name="separator"/>
    <addaction name="actionConanCreate"/>
    <addaction name="actionConanInstall"/>
    <addaction name="actionConanBuild"/>
    <addaction name="actionConanSource"/>
-   <addaction name="actionViewPackage"/>
+   <addaction name="actionConanPackage"/>
    <addaction name="actionConanExport"/>
+   <addaction name="separator"/>
    <addaction name="actionConanExportPackage"/>
   </widget>
-  <action name="actionViewPackage">
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-   <property name="text">
-    <string>Package</string>
-   </property>
-   <property name="toolTip">
-    <string>Package</string>
-   </property>
-  </action>
   <action name="actionViewProfile">
    <property name="checked">
     <bool>false</bool>
@@ -1600,64 +1590,91 @@
   </action>
   <action name="actionRefresh">
    <property name="icon">
-    <iconset>
-     <normaloff>C:/Users/afrizal/Desktop/1200px-Refresh_icon.svg.png</normaloff>C:/Users/afrizal/Desktop/1200px-Refresh_icon.svg.png</iconset>
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icon/ws_refresh.png</normaloff>:/icon/ws_refresh.png</iconset>
    </property>
    <property name="text">
     <string>Refresh</string>
    </property>
   </action>
   <action name="actionConanCreate">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icon/conan_create.png</normaloff>:/icon/conan_create.png</iconset>
+   </property>
    <property name="text">
     <string>Create</string>
    </property>
   </action>
   <action name="actionConanInstall">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icon/conan_install.png</normaloff>:/icon/conan_install.png</iconset>
+   </property>
    <property name="text">
     <string>Install</string>
    </property>
   </action>
   <action name="actionConanBuild">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icon/conan_build.png</normaloff>:/icon/conan_build.png</iconset>
+   </property>
    <property name="text">
     <string>Build</string>
    </property>
   </action>
   <action name="actionConanSource">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icon/conan_source.png</normaloff>:/icon/conan_source.png</iconset>
+   </property>
    <property name="text">
     <string>Source</string>
    </property>
   </action>
   <action name="actionConanPackage">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icon/conan_package.png</normaloff>:/icon/conan_package.png</iconset>
+   </property>
    <property name="text">
     <string>Package</string>
    </property>
   </action>
   <action name="actionConanExport">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icon/conan_export.png</normaloff>:/icon/conan_export.png</iconset>
+   </property>
    <property name="text">
     <string>Export</string>
    </property>
   </action>
   <action name="actionConanExportPackage">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icon/conan_package_export.png</normaloff>:/icon/conan_package_export.png</iconset>
+   </property>
    <property name="text">
     <string>Export Package</string>
    </property>
   </action>
-  <action name="actionSeparator">
-   <property name="enabled">
+  <action name="actionViewPackage">
+   <property name="checked">
     <bool>false</bool>
    </property>
    <property name="text">
-    <string> </string>
-   </property>
-   <property name="iconText">
-    <string> </string>
+    <string>Package</string>
    </property>
    <property name="toolTip">
-    <string/>
+    <string>Package</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>actionFileExit</sender>
