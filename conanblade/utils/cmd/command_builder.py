@@ -2,6 +2,9 @@ import os
 
 
 class ConanCommandBuilder:
+    """
+    Class contains static methods to build conan command for CLI
+    """
 
     @staticmethod
     def build_command_create(path_recipe: str,

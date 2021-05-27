@@ -5,6 +5,9 @@ from conanblade.api.conan_api import ConanApi
 
 
 class ConanProfileController:
+    """
+    Controller class to control view and model of the conan profile list
+    """
     def __init__(self, view: QtWidgets.QListView, conan_api: ConanApi):
         self.view = view
         self.model = QStandardItemModel()
@@ -13,6 +16,7 @@ class ConanProfileController:
         self.view.setModel(self.model)
 
     def update(self):
+        self.model.clear()
         profile_list = self.conan_api.profile_list()
         for profile in profile_list:
             item = QStandardItem(profile)
@@ -21,27 +25,41 @@ class ConanProfileController:
 
 
 class ConanProfileDetailController:
+    """
+    Controller class to control view and model of the conan profile detail tree view
+    """
     def __init__(self, view: QtWidgets.QTreeView, conan_api: ConanApi):
         self.view = view
         self.conan_api = conan_api
 
         self.model = QStandardItemModel()
+
+        # Initialize header at the beginning to show the column at the beginning
         self.model.setColumnCount(2)
         self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Property")
         self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Value")
         self.view.setModel(self.model)
 
+        # Place holder list to store previous header with, so the width will not be set to default after updating
         self.header_width = []
 
     def show_detail(self, profile_name: str):
+        """
+        Method to show the detail information of the selected profile to the tree view
+        :param profile_name: selected profile from the profile list
+        :return: -
+        """
+
+        # Store the current column width before deleting the model
         self.__store_column_width()
 
+        # Init the model with the header
         self.model.clear()
         self.model.setColumnCount(2)
-
         self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Property")
         self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Value")
 
+        # Get the profile information
         profile = self.conan_api.read_profile(profile_name)
 
         # Profile - settings section
@@ -92,13 +110,22 @@ class ConanProfileDetailController:
         # Expand the tree view
         self.view.expandAll()
 
+        # Set the column width with the previous value
         self.__set_column_width()
 
     def __store_column_width(self):
+        """
+        Store current column width to the class variable
+        :return: -
+        """
         self.header_width = []
         for i in range(0, self.view.header().count()):
             self.header_width.append(self.view.columnWidth(i))
 
     def __set_column_width(self):
+        """
+        Restore the previous column width
+        :return: -
+        """
         for i in range(0, len(self.header_width)):
             self.view.setColumnWidth(i, self.header_width[i])

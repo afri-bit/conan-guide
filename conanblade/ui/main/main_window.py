@@ -67,6 +67,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # Initialize console
         self.console.ensureCursorVisible()
 
+        # Initialize command runner thread
         self.command_runner = CommandRunner()
         self.command_runner.signals.start.connect(self.on_command_start)
         self.command_runner.signals.error.connect(self.on_command_error)
@@ -93,6 +94,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def on_command_finished(self):
         self.set_loading_state(False)
+        self.__refresh()
 
     def on_command_progress(self, data: str):
         self.log_to_console(data)
@@ -118,9 +120,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def on_actionConanExportPackage_triggered(self):
         self.__execute_conan_export_package()
 
-    def run_command(self, cmd):
-        self.command_runner.set_command(cmd)
-        self.command_runner.start()
+    def on_actionRefresh_triggered(self):
+        self.__refresh()
 
     def on_btnCopyCachePath_pressed(self):
         pyperclip.copy(self.lineEditConanPath.text())
@@ -186,6 +187,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def on_toolBtnExplorerPackagePath_pressed(self):
         self.__set_folder_path(self.lineEditPackageExpPath)
 
+    def run_command(self, cmd):
+        self.command_runner.set_command(cmd)
+        self.command_runner.start()
+
     def log_to_console(self, msg: str, dt=False):
         if dt:
             log_msg = str(datetime.datetime.now()) + " " + msg + "\n"
@@ -204,6 +209,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             self.labelStatusMessage.setText("")
             self.progressBar.setMaximum(100)
+
+    def __refresh(self):
+        self.ctrl_treeview_conan_recipe.update()
+        self.ctrl_tableview_conan_remote.update()
+        self.ctrl_listview_conan_profile.update()
 
     def __execute_conan_create(self):
         self.run_command(ConanCommandBuilder.build_command_create(path_recipe=self.lineEditRecipePath.text(),
