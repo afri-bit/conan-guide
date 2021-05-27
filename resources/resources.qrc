@@ -1,0 +1,12 @@
+<RCC>
+  <qresource>
+    <file>icon/conan_create.png</file>
+    <file>icon/conan_install.png</file>
+    <file>icon/conan_build.png</file>
+    <file>icon/conan_source.png</file>
+    <file>icon/conan_export.png</file>
+    <file>icon/conan_package.png</file>
+    <file>icon/conan_package_export.png</file>
+    <file>icon/ws_refresh.png</file>
+  </qresource>
+</RCC>
