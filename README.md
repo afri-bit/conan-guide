@@ -21,9 +21,10 @@ Conan Blade is Qt based Graphical User Interface (GUI) to interact with conan pa
 
 ## Features
 * Execution of conan development flow:
+    * `create`
     * `install`
-    * `source`
     * `build`
+    * `source`
     * `package`
     * `export`
     * `export-pkg`
@@ -37,8 +38,10 @@ Conan Blade is Qt based Graphical User Interface (GUI) to interact with conan pa
 ```
 git clone https://github.com/afri-bit/conan-blade.git
 cd conan-blade
-pip install -r requirements.txt
 pip install .
+
+# Start Conan Blade
+conan-blade
 ```
 
 ## Contribution
