@@ -1,5 +1,5 @@
-# Conan Blade
-Conan Blade is Qt based Graphical User Interface (GUI) to interact with conan package manager. Conan Blade provides user an easy overview of the information from the local cache without any further effort of typing in the terminal. One of the core functionalities from this application is to provide user the possibility to execute the conan development flow from the existing conan recipe.
+# Conan GUIde
+Conan GUIde is Qt based Graphical User Interface (GUI) to interact with conan package manager. Conan GUIde provides user an easy overview of the information from the local cache without any further effort of typing in the terminal. One of the core functionalities from this application is to provide user the possibility to execute the conan development flow from the existing conan recipe.
 
 ![](resources/img/main_window.png)
 
@@ -36,18 +36,18 @@ Conan Blade is Qt based Graphical User Interface (GUI) to interact with conan pa
 
 ## Usage
 ```
-git clone https://github.com/afri-bit/conan-blade.git
-cd conan-blade
+git clone https://github.com/afri-bit/conan-guide.git
+cd conan-guide
 pip install .
 
-# Start Conan Blade
-conan-blade
+# Start Conan GUIde
+conan-guide
 ```
 
 ## Contribution
 Please refer to [Contributing](doc/contributing.md).
 
 ## License
-**Conan Blade** is licensed under the MIT license.  
+**Conan GUIde** is licensed under the MIT license.  
 Copyright © 2021, Afrizal Herlambang
 

@@ -1,5 +1,5 @@
 import unittest
-from conanblade.data.conan_recipe import *
+from conanguide.data.conan_recipe import *
 
 
 class TestConanRecipeInfo(unittest.TestCase):

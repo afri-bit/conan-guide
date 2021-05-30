@@ -2,7 +2,7 @@ import sys
 
 from PyQt5 import QtWidgets
 
-from conanblade.ui.main.main_window import MainWindow
+from conanguide.ui.main.main_window import MainWindow
 
 
 def main():
