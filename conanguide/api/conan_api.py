@@ -1,7 +1,7 @@
 import os
 
 from conans.client.conan_api import Conan
-from conanblade.data.conan_recipe import *
+from conanguide.data.conan_recipe import *
 
 
 class ConanApi(Conan):

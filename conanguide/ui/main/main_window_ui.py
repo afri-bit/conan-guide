@@ -44,7 +44,7 @@ class Ui_MainWindow(object):
         self.toolBoxConan = QtWidgets.QToolBox(self.frame_6)
         self.toolBoxConan.setObjectName("toolBoxConan")
         self.pagePackage = QtWidgets.QWidget()
-        self.pagePackage.setGeometry(QtCore.QRect(0, 0, 294, 650))
+        self.pagePackage.setGeometry(QtCore.QRect(0, 0, 400, 650))
         self.pagePackage.setObjectName("pagePackage")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.pagePackage)
         self.verticalLayout_2.setContentsMargins(2, 2, 2, 2)
@@ -87,7 +87,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addWidget(self.splitter_3)
         self.toolBoxConan.addItem(self.pagePackage, "")
         self.pageProfile = QtWidgets.QWidget()
-        self.pageProfile.setGeometry(QtCore.QRect(0, 0, 294, 650))
+        self.pageProfile.setGeometry(QtCore.QRect(0, 0, 98, 153))
         self.pageProfile.setObjectName("pageProfile")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.pageProfile)
         self.verticalLayout_4.setContentsMargins(2, 2, 2, 2)
@@ -591,7 +591,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Conan Blade"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Conan GUIde"))
         self.label_10.setText(_translate("MainWindow", "Double Click"))
         self.checkBoxOpenExplorer.setText(_translate("MainWindow", "Open Explorer"))
         self.checkBoxCopyClipboard.setText(_translate("MainWindow", "Copy to Clipboard"))
@@ -647,4 +647,4 @@ class Ui_MainWindow(object):
         self.actionConanExportPackage.setText(_translate("MainWindow", "Export Package"))
         self.actionViewPackage.setText(_translate("MainWindow", "Package"))
         self.actionViewPackage.setToolTip(_translate("MainWindow", "Package"))
-from conanblade.ui.res import resources_rc
+from conanguide.ui.res import resources_rc

@@ -7,7 +7,7 @@ class UIConfiguration:
     def __init__(self):
         self.config = dict()
         self.config_name = "config.json"
-        self.config_location = os.path.join(os.path.expanduser("~"), os.path.normpath(".cb"))
+        self.config_location = os.path.join(os.path.expanduser("~"), os.path.normpath(".conanguide"))
         self.config_full_path = os.path.join(self.config_location, self.config_name)
 
     def get_config_location(self) -> str:

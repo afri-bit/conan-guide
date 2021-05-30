@@ -13,9 +13,9 @@ def get_requirements(filename):
 project_requirements = get_requirements("requirements.txt")
 
 setup(
-    name="conan-blade",
+    name="conan-guide",
     version="1.0.0",
-    url="https://github.com/afri-bit/conan-blade",
+    url="https://github.com/afri-bit/conan-guide",
     license="MIT",
     author="Afrizal Herlambnag",
     author_email="afri.bit@outlook.com",
@@ -33,7 +33,7 @@ setup(
 
     entry_points={
         "console_scripts": [
-            "conan-blade=conanblade.app:main"
+            "conan-guide=conanguide.app:main"
         ]
     }
 )
