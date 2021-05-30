@@ -45,9 +45,9 @@ conan-guide
 ```
 
 ## Contribution
-Please refer to [Contributing](doc/contributing.md).
+Please refer to [Contributing](CONTRIBUTING.md).
 
 ## License
-**Conan GUIde** is licensed under the MIT license.  
+**Conan GUIde** is licensed under the [MIT](LICENSE) license.
 Copyright © 2021, Afrizal Herlambang
 
