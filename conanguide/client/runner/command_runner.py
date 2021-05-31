@@ -1,14 +1,14 @@
 import subprocess
 
-from PyQt5 import QtCore
+from PySide2 import QtCore
 
 
 class WorkerSignal(QtCore.QObject):
-    start = QtCore.pyqtSignal(object)
-    finished = QtCore.pyqtSignal(object)
-    error = QtCore.pyqtSignal(object)
-    result = QtCore.pyqtSignal(object)
-    progress = QtCore.pyqtSignal(object)
+    start = QtCore.Signal(object)
+    finished = QtCore.Signal(object)
+    error = QtCore.Signal(object)
+    result = QtCore.Signal(object)
+    progress = QtCore.Signal(object)
 
 
 class CommandRunner(QtCore.QThread):

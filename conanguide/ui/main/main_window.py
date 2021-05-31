@@ -2,7 +2,7 @@ import datetime
 import os
 
 import pyperclip
-from PyQt5 import QtWidgets
+from PySide2 import QtWidgets
 
 from conanguide.api.conan_api import ConanApi
 from conanguide.client.runner.command_runner import CommandRunner
@@ -12,7 +12,6 @@ from conanguide.ui.controller.conan_recipe import ConanRecipeController, ConanRe
 from conanguide.ui.controller.conan_remote import ConanRemoteListController
 from conanguide.ui.main.main_window_ui import Ui_MainWindow
 from conanguide.utils.cmd.command_builder import ConanCommandBuilder
-
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, *args, obj=None, **kwargs):

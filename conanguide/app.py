@@ -1,6 +1,6 @@
 import sys
 
-from PyQt5 import QtWidgets
+from PySide2 import QtWidgets
 
 from conanguide.ui.main.main_window import MainWindow
 
@@ -10,7 +10,7 @@ def main():
 
     window = MainWindow()
     window.show()
-    app.exec()
+    app.exec_()
 
 
 if __name__ == "__main__":
