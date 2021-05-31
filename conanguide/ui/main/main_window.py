@@ -3,6 +3,7 @@ import os
 
 import pyperclip
 from PySide2 import QtWidgets
+from PySide2.QtCore import Slot
 
 from conanguide.api.conan_api import ConanApi
 from conanguide.client.runner.command_runner import CommandRunner
@@ -79,70 +80,90 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def closeEvent(self, event) -> None:
         self.__save_ui_state()
 
-    def on_command_start(self, data):
+    @Slot(str)
+    def on_command_start(self, data: str):
         self.set_loading_state(True)
         self.log_to_console("\n")
         self.log_to_console("--------------------------------------------", dt=True)
         self.log_to_console(data + "\n")
 
+    @Slot(str)
     def on_command_result(self, data: str):
         self.log_to_console(data)
 
+    @Slot(str)
     def on_command_error(self, data: str):
         self.log_to_console(data)
 
+    @Slot(object)
     def on_command_finished(self):
         self.set_loading_state(False)
         self.__refresh()
 
+    @Slot(str)
     def on_command_progress(self, data: str):
         self.log_to_console(data)
 
+    @Slot()
     def on_actionConanCreate_triggered(self):
         self.__execute_conan_create()
 
+    @Slot()
     def on_actionConanInstall_triggered(self):
         self.__execute_conan_install()
 
+    @Slot()
     def on_actionConanBuild_triggered(self):
         self.__execute_conan_build()
 
+    @Slot()
     def on_actionConanSource_triggered(self):
         self.__execute_conan_source()
 
+    @Slot()
     def on_actionConanPackage_triggered(self):
         self.__execute_conan_package()
 
+    @Slot()
     def on_actionConanExport_triggered(self):
         self.__execute_conan_export()
 
+    @Slot()
     def on_actionConanExportPackage_triggered(self):
         self.__execute_conan_export_package()
 
+    @Slot()
     def on_actionRefresh_triggered(self):
         self.__refresh()
 
+    @Slot()
     def on_btnCopyCachePath_pressed(self):
         pyperclip.copy(self.lineEditConanPath.text())
         self.statusBar.showMessage("Conan cache path is copied to clipboard!", 2000)
 
+    @Slot()
     def on_btnCopyRealPath_pressed(self):
         pyperclip.copy(self.lineEditRealPath.text())
         self.statusBar.showMessage("Conan package real path is copied to clipboard!", 2000)
 
+    @Slot()
     def on_btnCopyPackagePath_pressed(self):
         pyperclip.copy(self.lineEditPackagePath.text())
         self.statusBar.showMessage("Conan package path is copied to clipboard!", 2000)
 
+    @Slot()
     def on_btnOpenCachePath_pressed(self):
         os.startfile(self.lineEditConanPath.text())
 
+    @Slot()
     def on_btnOpenRealPath_pressed(self):
         os.startfile(self.lineEditRealPath.text())
 
+    @Slot()
     def on_btnOpenPackagePath_pressed(self):
         os.startfile(self.lineEditPackagePath.text())
 
+    @Slot()
     def on_treeViewRecipe_clicked(self):
         if self.treeViewRecipe.currentIndex().parent().data() is not None:
             recipe_id = self.treeViewRecipe.currentIndex().parent().data()
@@ -159,6 +180,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.lineEditRealPath.setText("")
             self.lineEditPackagePath.setText("")
 
+    @Slot()
     def on_treeViewRecipe_doubleClicked(self):
         if self.lineEditPackagePath.text() != "":
             if self.checkBoxCopyClipboard.isChecked():
@@ -168,21 +190,27 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             if self.checkBoxOpenExplorer.isChecked():
                 os.startfile(self.lineEditPackagePath.text())
 
+    @Slot()
     def on_listViewProfile_clicked(self):
         self.ctrl_treeview_conan_profile_detail.show_detail(self.listViewProfile.currentIndex().data())
 
+    @Slot()
     def on_toolBtnExplorerRecipePath_pressed(self):
         self.__set_folder_path(self.lineEditRecipePath)
 
+    @Slot()
     def on_toolBtnExplorerInstallPath_pressed(self):
         self.__set_folder_path(self.lineEditInstallPath)
 
+    @Slot()
     def on_toolBtnExplorerBuildPath_pressed(self):
         self.__set_folder_path(self.lineEditBuildPath)
 
+    @Slot()
     def on_toolBtnExplorerSourcePath_pressed(self):
         self.__set_folder_path(self.lineEditSourcePath)
 
+    @Slot()
     def on_toolBtnExplorerPackagePath_pressed(self):
         self.__set_folder_path(self.lineEditPackageExpPath)
 
