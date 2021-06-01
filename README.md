@@ -15,7 +15,7 @@ Conan GUIde is Qt based Graphical User Interface (GUI) to interact with conan pa
 ## Requirements
 * Python >= 3.5
 * Conan >= 1.35 - `pip install conan`
-* PyQt5 - `pip install PyQt5`
+* PySide2 - `pip install PySide2`
 * pyperclip - `pip install pyperclip`
 * Operating System with activated GUI
 

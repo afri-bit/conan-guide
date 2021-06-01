@@ -14,7 +14,7 @@ project_requirements = get_requirements("requirements.txt")
 
 setup(
     name="conan-guide",
-    version="1.0.0",
+    version="1.1.0",
     url="https://github.com/afri-bit/conan-guide",
     license="MIT",
     author="Afrizal Herlambnag",
@@ -29,7 +29,7 @@ setup(
     install_requires=project_requirements,
 
     # Project relation
-    keywords=["conan", "conan.io", "GUI", "Conan GUI", "PyQt5"],
+    keywords=["conan", "conan.io", "GUI", "Conan GUI", "PySide2"],
 
     entry_points={
         "console_scripts": [
