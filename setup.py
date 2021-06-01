@@ -1,4 +1,12 @@
+import pathlib
+
 from setuptools import setup, find_packages
+
+# The directory containing this file
+HERE = pathlib.Path(__file__).parent
+
+# The text of the README file
+README = (HERE / "README.md").read_text()
 
 
 def get_requirements(filename):
@@ -14,18 +22,15 @@ project_requirements = get_requirements("requirements.txt")
 
 setup(
     name="conan-guide",
-    version="1.1.0",
-    url="https://github.com/afri-bit/conan-guide",
-    license="MIT",
-    author="Afrizal Herlambnag",
-    author_email="afri.bit@outlook.com",
+    version="1.1.1",
     description="Qt based Graphical User Interface (GUI) to interact with conan package manager",
-
+    long_description=README,
+    long_description_content_type="text/markdown",
+    url="https://github.com/afri-bit/conan-guide",
+    author="Afrizal Herlambang",
+    author_email="afri.bit@outlook.com",
+    license="MIT",
     packages=find_packages(),
-
-    # List run-time dependencies here.  These will be installed by pip when
-    # your project is installed. For the detail information please refer to
-    # https://packaging.python.org/en/latest/requirements.html
     install_requires=project_requirements,
 
     # Project relation
