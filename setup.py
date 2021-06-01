@@ -22,7 +22,7 @@ project_requirements = get_requirements("requirements.txt")
 
 setup(
     name="conan-guide",
-    version="1.1.1",
+    version="1.1.2",
     description="Qt based Graphical User Interface (GUI) to interact with conan package manager",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -35,6 +35,8 @@ setup(
 
     # Project relation
     keywords=["conan", "conan.io", "GUI", "Conan GUI", "PySide2"],
+
+    package_data={'': ['requirements.txt', 'resources/*']},
 
     entry_points={
         "console_scripts": [
