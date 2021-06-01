@@ -1,5 +1,5 @@
-from PyQt5 import QtCore, QtWidgets
-from PyQt5.Qt import QStandardItemModel, QStandardItem
+from PySide2 import QtCore, QtWidgets
+from PySide2.QtGui import QStandardItemModel, QStandardItem
 
 from conanguide.api.conan_api import ConanApi
 

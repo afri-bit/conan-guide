@@ -1,5 +1,5 @@
-from PyQt5 import QtCore, QtWidgets
-from PyQt5.Qt import QStandardItemModel, QStandardItem, QHeaderView
+from PySide2 import QtCore, QtWidgets
+from PySide2.QtGui import QStandardItemModel, QStandardItem
 
 from conanguide.api.conan_api import ConanApi
 
@@ -34,7 +34,7 @@ class ConanRemoteListController:
         for remote in remote_list:
             item_name = QStandardItem(remote.name)
             item_name.setCheckable(True)
-            item_name.setCheckState(not remote.disabled)
+            item_name.setCheckState(QtCore.Qt.CheckState.Unchecked if remote.disabled else QtCore.Qt.CheckState.Checked)
 
             item_url = QStandardItem(remote.url)
 
