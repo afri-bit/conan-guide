@@ -23,7 +23,7 @@ class ConanApi(Conan):
 
         # Check if the return value contains error
         # The return values are packed in a dictionary. One of the key gives the error status
-        if conan_recipes["error"] is False:
+        if conan_recipes["error"] is False and len(conan_recipes["results"]) > 0:
             recipe_items = conan_recipes["results"][0]["items"]
 
             # Iterate through all recipes and convert it to RecipeInfo object
