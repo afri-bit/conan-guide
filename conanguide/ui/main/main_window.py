@@ -14,6 +14,7 @@ from conanguide.ui.controller.conan_remote import ConanRemoteListController
 from conanguide.ui.main.main_window_ui import Ui_MainWindow
 from conanguide.utils.cmd.command_builder import ConanCommandBuilder
 
+
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, *args, obj=None, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
@@ -80,27 +81,22 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def closeEvent(self, event) -> None:
         self.__save_ui_state()
 
-    @Slot(str)
     def on_command_start(self, data: str):
         self.set_loading_state(True)
         self.log_to_console("\n")
         self.log_to_console("--------------------------------------------", dt=True)
         self.log_to_console(data + "\n")
 
-    @Slot(str)
     def on_command_result(self, data: str):
         self.log_to_console(data)
 
-    @Slot(str)
     def on_command_error(self, data: str):
         self.log_to_console(data)
 
-    @Slot(object)
     def on_command_finished(self):
         self.set_loading_state(False)
         self.__refresh()
 
-    @Slot(str)
     def on_command_progress(self, data: str):
         self.log_to_console(data)
 
