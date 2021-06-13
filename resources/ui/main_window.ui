@@ -22,6 +22,10 @@
   <property name="windowTitle">
    <string>Conan GUIde</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../resources.qrc">
+    <normaloff>:/icon/conan_guide_icon.png</normaloff>:/icon/conan_guide_icon.png</iconset>
+  </property>
   <property name="dockOptions">
    <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
   </property>
@@ -235,8 +239,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>153</height>
+             <width>400</width>
+             <height>650</height>
             </rect>
            </property>
            <attribute name="label">
@@ -1328,6 +1332,9 @@
     <property name="title">
      <string>Help</string>
     </property>
+    <addaction name="actionHelpConanio"/>
+    <addaction name="separator"/>
+    <addaction name="actionHelpAbout"/>
    </widget>
    <widget class="QMenu" name="menuConan">
     <property name="title">
@@ -1502,6 +1509,24 @@
    </property>
    <property name="toolTip">
     <string>Package</string>
+   </property>
+  </action>
+  <action name="actionHelpConanio">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icon/conan_io_icon.png</normaloff>:/icon/conan_io_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>conan.io</string>
+   </property>
+  </action>
+  <action name="actionHelpAbout">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icon/conan_guide_icon.png</normaloff>:/icon/conan_guide_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>About</string>
    </property>
   </action>
  </widget>

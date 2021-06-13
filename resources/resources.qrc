@@ -1,6 +1,8 @@
 <RCC>
   <qresource>
+    <file>icon/conan_guide_icon.png</file>
     <file>icon/conan_create.png</file>
+    <file>icon/conan_io_icon.png</file>
     <file>icon/conan_install.png</file>
     <file>icon/conan_build.png</file>
     <file>icon/conan_source.png</file>
