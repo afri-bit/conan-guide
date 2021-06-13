@@ -441,7 +441,7 @@
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLineEdit" name="lineEditConanPath">
+                        <widget class="QLineEdit" name="lineEditCachePath">
                          <property name="enabled">
                           <bool>true</bool>
                          </property>
@@ -459,6 +459,70 @@
                        </item>
                        <item>
                         <widget class="QPushButton" name="btnOpenCachePath">
+                         <property name="text">
+                          <string>Open</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="frame_21">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QHBoxLayout" name="horizontalLayout_21">
+                       <property name="spacing">
+                        <number>5</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>2</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>2</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>2</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>2</number>
+                       </property>
+                       <item>
+                        <widget class="QLabel" name="label_20">
+                         <property name="minimumSize">
+                          <size>
+                           <width>75</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="text">
+                          <string>Data Path</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLineEdit" name="lineEditDataPath">
+                         <property name="enabled">
+                          <bool>true</bool>
+                         </property>
+                         <property name="readOnly">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="btnCopyDataPath">
+                         <property name="text">
+                          <string>Copy</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="btnOpenDataPath">
                          <property name="text">
                           <string>Open</string>
                          </property>

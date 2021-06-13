@@ -8,6 +8,7 @@ class ConanApi(Conan):
     """
     Extension of the conan client Python API
     """
+
     def __init__(self):
         super().__init__()
 
@@ -93,3 +94,32 @@ class ConanApi(Conan):
             package_path = real_path
 
         return real_path, package_path
+
+    def get_package_data_path(self, recipe_id: str) -> str:
+        """
+        Function to return the data path based on the recipe ID.
+        This can return exact same values, depends on the configuration
+        :param recipe_id: ID of the recipe to search for packages 'name/version@user/channel'
+        :return data_path - str: Path to the recipe data
+        """
+
+        data_path = ""
+
+        # Build an object out of the recipe id, so we don't have work with string
+        recipe_obj = RecipeInfo.create_recipe_obj(recipe_id)
+
+        # Get the data path, normally its located under 'cache_folder/data'
+        data_path = os.path.join(os.path.abspath(self.get_cache_folder()), "data")
+
+        # Build the path based on recipe info
+        recipe_path = os.path.normpath(recipe_obj.name + "/" + recipe_obj.version)
+
+        # Check if the recipe contains user and channel information
+        if recipe_obj.attribute is None:  # No user and channel information
+            recipe_path = os.path.join(recipe_path, os.path.normpath("_/_"))
+        else:  # Recipe has user and channel information
+            recipe_path = os.path.join(recipe_path, os.path.normpath(recipe_obj.attribute.get_info()))
+
+        data_path = os.path.join(data_path, recipe_path)
+
+        return data_path

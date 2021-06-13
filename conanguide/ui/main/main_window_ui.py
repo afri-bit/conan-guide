@@ -250,12 +250,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.label)
 
-        self.lineEditConanPath = QLineEdit(self.frame)
-        self.lineEditConanPath.setObjectName(u"lineEditConanPath")
-        self.lineEditConanPath.setEnabled(True)
-        self.lineEditConanPath.setReadOnly(True)
+        self.lineEditCachePath = QLineEdit(self.frame)
+        self.lineEditCachePath.setObjectName(u"lineEditCachePath")
+        self.lineEditCachePath.setEnabled(True)
+        self.lineEditCachePath.setReadOnly(True)
 
-        self.horizontalLayout.addWidget(self.lineEditConanPath)
+        self.horizontalLayout.addWidget(self.lineEditCachePath)
 
         self.btnCopyCachePath = QPushButton(self.frame)
         self.btnCopyCachePath.setObjectName(u"btnCopyCachePath")
@@ -269,6 +269,40 @@ class Ui_MainWindow(object):
 
 
         self.verticalLayout_8.addWidget(self.frame)
+
+        self.frame_21 = QFrame(self.groupBox)
+        self.frame_21.setObjectName(u"frame_21")
+        self.frame_21.setFrameShape(QFrame.StyledPanel)
+        self.frame_21.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_21 = QHBoxLayout(self.frame_21)
+        self.horizontalLayout_21.setSpacing(5)
+        self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
+        self.horizontalLayout_21.setContentsMargins(2, 2, 2, 2)
+        self.label_20 = QLabel(self.frame_21)
+        self.label_20.setObjectName(u"label_20")
+        self.label_20.setMinimumSize(QSize(75, 0))
+
+        self.horizontalLayout_21.addWidget(self.label_20)
+
+        self.lineEditDataPath = QLineEdit(self.frame_21)
+        self.lineEditDataPath.setObjectName(u"lineEditDataPath")
+        self.lineEditDataPath.setEnabled(True)
+        self.lineEditDataPath.setReadOnly(True)
+
+        self.horizontalLayout_21.addWidget(self.lineEditDataPath)
+
+        self.btnCopyDataPath = QPushButton(self.frame_21)
+        self.btnCopyDataPath.setObjectName(u"btnCopyDataPath")
+
+        self.horizontalLayout_21.addWidget(self.btnCopyDataPath)
+
+        self.btnOpenDataPath = QPushButton(self.frame_21)
+        self.btnOpenDataPath.setObjectName(u"btnOpenDataPath")
+
+        self.horizontalLayout_21.addWidget(self.btnOpenDataPath)
+
+
+        self.verticalLayout_8.addWidget(self.frame_21)
 
         self.frame_2 = QFrame(self.groupBox)
         self.frame_2.setObjectName(u"frame_2")
@@ -788,6 +822,9 @@ class Ui_MainWindow(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"Cache Path", None))
         self.btnCopyCachePath.setText(QCoreApplication.translate("MainWindow", u"Copy", None))
         self.btnOpenCachePath.setText(QCoreApplication.translate("MainWindow", u"Open", None))
+        self.label_20.setText(QCoreApplication.translate("MainWindow", u"Data Path", None))
+        self.btnCopyDataPath.setText(QCoreApplication.translate("MainWindow", u"Copy", None))
+        self.btnOpenDataPath.setText(QCoreApplication.translate("MainWindow", u"Open", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Real Path", None))
         self.btnCopyRealPath.setText(QCoreApplication.translate("MainWindow", u"Copy", None))
         self.btnOpenRealPath.setText(QCoreApplication.translate("MainWindow", u"Open", None))

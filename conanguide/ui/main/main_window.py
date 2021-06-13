@@ -27,7 +27,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def __init(self):
         # Line Edit Initialization for the conan cache path
-        self.lineEditConanPath.setText(self.conan_api.get_cache_folder())
+        self.lineEditCachePath.setText(self.conan_api.get_cache_folder())
 
         # Treeview initialization for the conan recipe list
         self.treeViewRecipe.setHeaderHidden(True)
@@ -133,31 +133,54 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.__refresh()
 
     @Slot()
+    def on_actionHelpConanio_triggered(self):
+        import webbrowser
+
+        webbrowser.open("https://conan.io/")
+
+    @Slot()
     def on_btnCopyCachePath_pressed(self):
-        pyperclip.copy(self.lineEditConanPath.text())
-        self.statusBar.showMessage("Conan cache path is copied to clipboard!", 2000)
+        if self.lineEditConanPath.text() != "":
+            pyperclip.copy(self.lineEditConanPath.text())
+            self.statusBar.showMessage("Conan cache path is copied to clipboard!", 2000)
+
+    @Slot()
+    def on_btnCopyDataPath_pressed(self):
+        if self.lineEditDataPath.text() != "":
+            pyperclip.copy(self.lineEditDataPath.text())
+            self.statusBar.showMessage("Conan package data path is copied to clipboard!", 2000)
 
     @Slot()
     def on_btnCopyRealPath_pressed(self):
-        pyperclip.copy(self.lineEditRealPath.text())
-        self.statusBar.showMessage("Conan package real path is copied to clipboard!", 2000)
+        if self.lineEditRealPath.text() != "":
+            pyperclip.copy(self.lineEditRealPath.text())
+            self.statusBar.showMessage("Conan package real path is copied to clipboard!", 2000)
 
     @Slot()
     def on_btnCopyPackagePath_pressed(self):
-        pyperclip.copy(self.lineEditPackagePath.text())
-        self.statusBar.showMessage("Conan package path is copied to clipboard!", 2000)
+        if self.lineEditPackagePath.text() != "":
+            pyperclip.copy(self.lineEditPackagePath.text())
+            self.statusBar.showMessage("Conan package path is copied to clipboard!", 2000)
 
     @Slot()
     def on_btnOpenCachePath_pressed(self):
-        os.startfile(self.lineEditConanPath.text())
+        if self.lineEditCachePath.text() != "":
+            os.startfile(self.lineEditCachePath.text())
+
+    @Slot()
+    def on_btnOpenDataPath_pressed(self):
+        if self.lineEditDataPath.text() != "":
+            os.startfile(self.lineEditDataPath.text())
 
     @Slot()
     def on_btnOpenRealPath_pressed(self):
-        os.startfile(self.lineEditRealPath.text())
+        if self.lineEditRealPath.text() != "":
+            os.startfile(self.lineEditRealPath.text())
 
     @Slot()
     def on_btnOpenPackagePath_pressed(self):
-        os.startfile(self.lineEditPackagePath.text())
+        if self.lineEditPackagePath.text() != "":
+            os.startfile(self.lineEditPackagePath.text())
 
     @Slot()
     def on_treeViewRecipe_clicked(self):
@@ -167,12 +190,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             real_path, package_path = self.conan_api.get_package_cache_path(recipe_id, package_hash)
 
+            data_path = self.conan_api.get_package_data_path(recipe_id)
+            self.lineEditDataPath.setText(data_path)
             self.lineEditRealPath.setText(real_path)
             self.lineEditPackagePath.setText(package_path)
 
         else:
             recipe_id = self.treeViewRecipe.currentIndex().data()
             self.ctrl_treeview_conan_recipe_inspect.inspect(recipe_id)
+            data_path = self.conan_api.get_package_data_path(recipe_id)
+            self.lineEditDataPath.setText(data_path)
             self.lineEditRealPath.setText("")
             self.lineEditPackagePath.setText("")
 
