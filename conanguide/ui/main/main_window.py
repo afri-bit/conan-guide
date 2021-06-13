@@ -101,6 +101,30 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.log_to_console(data)
 
     @Slot()
+    def on_actionViewHome_triggered(self):
+        self.tabWidgetMain.setCurrentWidget(self.tabHome)
+
+    @Slot()
+    def on_actionViewPackage_triggered(self):
+        self.tabWidgetMain.setCurrentWidget(self.tabPackage)
+
+    @Slot()
+    def on_actionViewWorkspace_triggered(self):
+        self.tabWidgetMain.setCurrentWidget(self.tabWorkspace)
+
+    @Slot()
+    def on_actionViewProfile_triggered(self):
+        self.tabWidgetMain.setCurrentWidget(self.tabProfile)
+
+    @Slot()
+    def on_actionViewRemote_triggered(self):
+        self.tabWidgetMain.setCurrentWidget(self.tabRemote)
+
+    @Slot()
+    def on_actionViewSettings_triggered(self):
+        self.tabWidgetMain.setCurrentWidget(self.tabSettings)
+
+    @Slot()
     def on_actionConanCreate_triggered(self):
         self.__execute_conan_create()
 
@@ -184,7 +208,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     @Slot()
     def on_treeViewRecipe_clicked(self):
-        if self.treeViewRecipe.currentIndex().parent().data() is not None:
+        if self.treeViewRecipe.currentIndex().parent().data() is not None:  # Package with hash id
             recipe_id = self.treeViewRecipe.currentIndex().parent().data()
             package_hash = self.treeViewRecipe.currentIndex().data()
 
@@ -195,7 +219,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.lineEditRealPath.setText(real_path)
             self.lineEditPackagePath.setText(package_path)
 
-        else:
+        else:  # Parent of the package
             recipe_id = self.treeViewRecipe.currentIndex().data()
             self.ctrl_treeview_conan_recipe_inspect.inspect(recipe_id)
             data_path = self.conan_api.get_package_data_path(recipe_id)
@@ -251,8 +275,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.console.verticalScrollBar().setValue(self.console.verticalScrollBar().maximum())
 
     def set_loading_state(self, state: bool):
-        self.groupBoxWorkspace.setEnabled(not state)
-
         if state:
             self.progressBar.setMaximum(0)
             self.labelStatusMessage.setText("Loading...  ")
