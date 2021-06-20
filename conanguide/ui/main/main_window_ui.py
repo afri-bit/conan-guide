@@ -722,6 +722,33 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setSpacing(2)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(2, 2, 2, 2)
+        self.frame_18 = QFrame(self.frame_22)
+        self.frame_18.setObjectName(u"frame_18")
+        self.frame_18.setFrameShape(QFrame.StyledPanel)
+        self.frame_18.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_19 = QHBoxLayout(self.frame_18)
+        self.horizontalLayout_19.setSpacing(2)
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.horizontalLayout_19.setContentsMargins(2, 2, 2, 2)
+        self.toolButtonProfileAdd = QToolButton(self.frame_18)
+        self.toolButtonProfileAdd.setObjectName(u"toolButtonProfileAdd")
+        self.toolButtonProfileAdd.setMinimumSize(QSize(25, 25))
+
+        self.horizontalLayout_19.addWidget(self.toolButtonProfileAdd)
+
+        self.toolButtonProfileRemove = QToolButton(self.frame_18)
+        self.toolButtonProfileRemove.setObjectName(u"toolButtonProfileRemove")
+        self.toolButtonProfileRemove.setMinimumSize(QSize(25, 25))
+
+        self.horizontalLayout_19.addWidget(self.toolButtonProfileRemove)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_19.addItem(self.horizontalSpacer_3)
+
+
+        self.verticalLayout_2.addWidget(self.frame_18)
+
         self.splitter = QSplitter(self.frame_22)
         self.splitter.setObjectName(u"splitter")
         self.splitter.setOrientation(Qt.Vertical)
@@ -733,13 +760,13 @@ class Ui_MainWindow(object):
         sizePolicy4.setHeightForWidth(self.listViewProfile.sizePolicy().hasHeightForWidth())
         self.listViewProfile.setSizePolicy(sizePolicy4)
         self.splitter.addWidget(self.listViewProfile)
-        self.treeViewProfileDetail = QTreeView(self.splitter)
-        self.treeViewProfileDetail.setObjectName(u"treeViewProfileDetail")
-        sizePolicy4.setHeightForWidth(self.treeViewProfileDetail.sizePolicy().hasHeightForWidth())
-        self.treeViewProfileDetail.setSizePolicy(sizePolicy4)
-        self.splitter.addWidget(self.treeViewProfileDetail)
 
         self.verticalLayout_2.addWidget(self.splitter)
+
+        self.pushButton = QPushButton(self.frame_22)
+        self.pushButton.setObjectName(u"pushButton")
+
+        self.verticalLayout_2.addWidget(self.pushButton)
 
         self.splitter_7.addWidget(self.frame_22)
         self.frame_23 = QFrame(self.splitter_7)
@@ -748,6 +775,212 @@ class Ui_MainWindow(object):
         self.frame_23.setSizePolicy(sizePolicy1)
         self.frame_23.setFrameShape(QFrame.StyledPanel)
         self.frame_23.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_9 = QVBoxLayout(self.frame_23)
+        self.verticalLayout_9.setSpacing(5)
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.verticalLayout_9.setContentsMargins(2, 2, 2, 2)
+        self.groupBox_2 = QGroupBox(self.frame_23)
+        self.groupBox_2.setObjectName(u"groupBox_2")
+        sizePolicy.setHeightForWidth(self.groupBox_2.sizePolicy().hasHeightForWidth())
+        self.groupBox_2.setSizePolicy(sizePolicy)
+        self.verticalLayout_11 = QVBoxLayout(self.groupBox_2)
+        self.verticalLayout_11.setSpacing(2)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.verticalLayout_11.setContentsMargins(2, 2, 2, 2)
+        self.frame_20 = QFrame(self.groupBox_2)
+        self.frame_20.setObjectName(u"frame_20")
+        self.frame_20.setFrameShape(QFrame.StyledPanel)
+        self.frame_20.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_20 = QHBoxLayout(self.frame_20)
+        self.horizontalLayout_20.setSpacing(2)
+        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
+        self.horizontalLayout_20.setContentsMargins(0, 2, 2, 2)
+        self.toolButtonProfileSettingsAdd = QToolButton(self.frame_20)
+        self.toolButtonProfileSettingsAdd.setObjectName(u"toolButtonProfileSettingsAdd")
+        self.toolButtonProfileSettingsAdd.setMinimumSize(QSize(25, 25))
+        self.toolButtonProfileSettingsAdd.setMaximumSize(QSize(25, 25))
+
+        self.horizontalLayout_20.addWidget(self.toolButtonProfileSettingsAdd)
+
+        self.toolButtonProfileSettingsRemove = QToolButton(self.frame_20)
+        self.toolButtonProfileSettingsRemove.setObjectName(u"toolButtonProfileSettingsRemove")
+        self.toolButtonProfileSettingsRemove.setMinimumSize(QSize(25, 25))
+        self.toolButtonProfileSettingsRemove.setMaximumSize(QSize(25, 25))
+
+        self.horizontalLayout_20.addWidget(self.toolButtonProfileSettingsRemove)
+
+        self.toolButtonProfileSettingsClear = QToolButton(self.frame_20)
+        self.toolButtonProfileSettingsClear.setObjectName(u"toolButtonProfileSettingsClear")
+        self.toolButtonProfileSettingsClear.setMinimumSize(QSize(25, 25))
+        self.toolButtonProfileSettingsClear.setMaximumSize(QSize(25, 25))
+
+        self.horizontalLayout_20.addWidget(self.toolButtonProfileSettingsClear)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_20.addItem(self.horizontalSpacer_4)
+
+
+        self.verticalLayout_11.addWidget(self.frame_20)
+
+        self.tableViewProfileSettings = QTableView(self.groupBox_2)
+        self.tableViewProfileSettings.setObjectName(u"tableViewProfileSettings")
+
+        self.verticalLayout_11.addWidget(self.tableViewProfileSettings)
+
+
+        self.verticalLayout_9.addWidget(self.groupBox_2)
+
+        self.groupBox_3 = QGroupBox(self.frame_23)
+        self.groupBox_3.setObjectName(u"groupBox_3")
+        self.verticalLayout_15 = QVBoxLayout(self.groupBox_3)
+        self.verticalLayout_15.setSpacing(2)
+        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.verticalLayout_15.setContentsMargins(2, 2, 2, 2)
+        self.frame_27 = QFrame(self.groupBox_3)
+        self.frame_27.setObjectName(u"frame_27")
+        self.frame_27.setFrameShape(QFrame.StyledPanel)
+        self.frame_27.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_22 = QHBoxLayout(self.frame_27)
+        self.horizontalLayout_22.setSpacing(2)
+        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
+        self.horizontalLayout_22.setContentsMargins(0, 2, 2, 2)
+        self.toolButtonProfileOptionsAdd = QToolButton(self.frame_27)
+        self.toolButtonProfileOptionsAdd.setObjectName(u"toolButtonProfileOptionsAdd")
+        self.toolButtonProfileOptionsAdd.setMinimumSize(QSize(25, 25))
+        self.toolButtonProfileOptionsAdd.setMaximumSize(QSize(25, 25))
+
+        self.horizontalLayout_22.addWidget(self.toolButtonProfileOptionsAdd)
+
+        self.toolButtonProfileOptionsRemove = QToolButton(self.frame_27)
+        self.toolButtonProfileOptionsRemove.setObjectName(u"toolButtonProfileOptionsRemove")
+        self.toolButtonProfileOptionsRemove.setMinimumSize(QSize(25, 25))
+        self.toolButtonProfileOptionsRemove.setMaximumSize(QSize(25, 25))
+
+        self.horizontalLayout_22.addWidget(self.toolButtonProfileOptionsRemove)
+
+        self.toolButtonProfileOptionsClear = QToolButton(self.frame_27)
+        self.toolButtonProfileOptionsClear.setObjectName(u"toolButtonProfileOptionsClear")
+        self.toolButtonProfileOptionsClear.setMinimumSize(QSize(25, 25))
+        self.toolButtonProfileOptionsClear.setMaximumSize(QSize(25, 25))
+
+        self.horizontalLayout_22.addWidget(self.toolButtonProfileOptionsClear)
+
+        self.horizontalSpacer_5 = QSpacerItem(636, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_22.addItem(self.horizontalSpacer_5)
+
+
+        self.verticalLayout_15.addWidget(self.frame_27)
+
+        self.tableViewProfileOptions = QTableView(self.groupBox_3)
+        self.tableViewProfileOptions.setObjectName(u"tableViewProfileOptions")
+
+        self.verticalLayout_15.addWidget(self.tableViewProfileOptions)
+
+
+        self.verticalLayout_9.addWidget(self.groupBox_3)
+
+        self.groupBox_5 = QGroupBox(self.frame_23)
+        self.groupBox_5.setObjectName(u"groupBox_5")
+        self.verticalLayout_16 = QVBoxLayout(self.groupBox_5)
+        self.verticalLayout_16.setSpacing(2)
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.verticalLayout_16.setContentsMargins(2, 2, 2, 2)
+        self.frame_28 = QFrame(self.groupBox_5)
+        self.frame_28.setObjectName(u"frame_28")
+        self.frame_28.setFrameShape(QFrame.StyledPanel)
+        self.frame_28.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_23 = QHBoxLayout(self.frame_28)
+        self.horizontalLayout_23.setSpacing(2)
+        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
+        self.horizontalLayout_23.setContentsMargins(0, 2, 2, 2)
+        self.toolButtonProfileBuildReqsAdd = QToolButton(self.frame_28)
+        self.toolButtonProfileBuildReqsAdd.setObjectName(u"toolButtonProfileBuildReqsAdd")
+        self.toolButtonProfileBuildReqsAdd.setMinimumSize(QSize(25, 25))
+        self.toolButtonProfileBuildReqsAdd.setMaximumSize(QSize(25, 25))
+
+        self.horizontalLayout_23.addWidget(self.toolButtonProfileBuildReqsAdd)
+
+        self.toolButtonProfileBuildReqsRemove = QToolButton(self.frame_28)
+        self.toolButtonProfileBuildReqsRemove.setObjectName(u"toolButtonProfileBuildReqsRemove")
+        self.toolButtonProfileBuildReqsRemove.setMinimumSize(QSize(25, 25))
+        self.toolButtonProfileBuildReqsRemove.setMaximumSize(QSize(25, 25))
+
+        self.horizontalLayout_23.addWidget(self.toolButtonProfileBuildReqsRemove)
+
+        self.toolButtonProfileBuildReqsClear = QToolButton(self.frame_28)
+        self.toolButtonProfileBuildReqsClear.setObjectName(u"toolButtonProfileBuildReqsClear")
+        self.toolButtonProfileBuildReqsClear.setMinimumSize(QSize(25, 25))
+        self.toolButtonProfileBuildReqsClear.setMaximumSize(QSize(25, 25))
+
+        self.horizontalLayout_23.addWidget(self.toolButtonProfileBuildReqsClear)
+
+        self.horizontalSpacer_6 = QSpacerItem(636, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_23.addItem(self.horizontalSpacer_6)
+
+
+        self.verticalLayout_16.addWidget(self.frame_28)
+
+        self.tableViewProfileBuildRequires = QTableView(self.groupBox_5)
+        self.tableViewProfileBuildRequires.setObjectName(u"tableViewProfileBuildRequires")
+
+        self.verticalLayout_16.addWidget(self.tableViewProfileBuildRequires)
+
+
+        self.verticalLayout_9.addWidget(self.groupBox_5)
+
+        self.groupBox_6 = QGroupBox(self.frame_23)
+        self.groupBox_6.setObjectName(u"groupBox_6")
+        self.verticalLayout_10 = QVBoxLayout(self.groupBox_6)
+        self.verticalLayout_10.setSpacing(2)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.verticalLayout_10.setContentsMargins(2, 2, 2, 2)
+        self.frame_29 = QFrame(self.groupBox_6)
+        self.frame_29.setObjectName(u"frame_29")
+        self.frame_29.setFrameShape(QFrame.StyledPanel)
+        self.frame_29.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_24 = QHBoxLayout(self.frame_29)
+        self.horizontalLayout_24.setSpacing(2)
+        self.horizontalLayout_24.setObjectName(u"horizontalLayout_24")
+        self.horizontalLayout_24.setContentsMargins(0, 2, 2, 2)
+        self.toolButtonProfileEnvAdd = QToolButton(self.frame_29)
+        self.toolButtonProfileEnvAdd.setObjectName(u"toolButtonProfileEnvAdd")
+        self.toolButtonProfileEnvAdd.setMinimumSize(QSize(25, 25))
+        self.toolButtonProfileEnvAdd.setMaximumSize(QSize(25, 25))
+
+        self.horizontalLayout_24.addWidget(self.toolButtonProfileEnvAdd)
+
+        self.toolButtonProfileEnvRemove = QToolButton(self.frame_29)
+        self.toolButtonProfileEnvRemove.setObjectName(u"toolButtonProfileEnvRemove")
+        self.toolButtonProfileEnvRemove.setMinimumSize(QSize(25, 25))
+        self.toolButtonProfileEnvRemove.setMaximumSize(QSize(25, 25))
+
+        self.horizontalLayout_24.addWidget(self.toolButtonProfileEnvRemove)
+
+        self.toolButtonProfileEnvClear = QToolButton(self.frame_29)
+        self.toolButtonProfileEnvClear.setObjectName(u"toolButtonProfileEnvClear")
+        self.toolButtonProfileEnvClear.setMinimumSize(QSize(25, 25))
+        self.toolButtonProfileEnvClear.setMaximumSize(QSize(25, 25))
+
+        self.horizontalLayout_24.addWidget(self.toolButtonProfileEnvClear)
+
+        self.horizontalSpacer_7 = QSpacerItem(636, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_24.addItem(self.horizontalSpacer_7)
+
+
+        self.verticalLayout_10.addWidget(self.frame_29)
+
+        self.tableViewProfileEnvironment = QTableView(self.groupBox_6)
+        self.tableViewProfileEnvironment.setObjectName(u"tableViewProfileEnvironment")
+
+        self.verticalLayout_10.addWidget(self.tableViewProfileEnvironment)
+
+
+        self.verticalLayout_9.addWidget(self.groupBox_6)
+
         self.splitter_7.addWidget(self.frame_23)
 
         self.horizontalLayout_14.addWidget(self.splitter_7)
@@ -882,6 +1115,9 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Conan GUIde", None))
         self.actionViewProfile.setText(QCoreApplication.translate("MainWindow", u"Profile", None))
+#if QT_CONFIG(shortcut)
+        self.actionViewProfile.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+E", None))
+#endif // QT_CONFIG(shortcut)
         self.actionFileExit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
         self.actionRefresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
         self.actionConanCreate.setText(QCoreApplication.translate("MainWindow", u"Create", None))
@@ -895,12 +1131,27 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(tooltip)
         self.actionViewPackage.setToolTip(QCoreApplication.translate("MainWindow", u"Package", None))
 #endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(shortcut)
+        self.actionViewPackage.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+D", None))
+#endif // QT_CONFIG(shortcut)
         self.actionHelpConanio.setText(QCoreApplication.translate("MainWindow", u"conan.io", None))
         self.actionHelpAbout.setText(QCoreApplication.translate("MainWindow", u"About", None))
         self.actionViewHome.setText(QCoreApplication.translate("MainWindow", u"Home", None))
+#if QT_CONFIG(shortcut)
+        self.actionViewHome.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+H", None))
+#endif // QT_CONFIG(shortcut)
         self.actionViewWorkspace.setText(QCoreApplication.translate("MainWindow", u"Workspace", None))
+#if QT_CONFIG(shortcut)
+        self.actionViewWorkspace.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+W", None))
+#endif // QT_CONFIG(shortcut)
         self.actionViewRemote.setText(QCoreApplication.translate("MainWindow", u"Remote", None))
+#if QT_CONFIG(shortcut)
+        self.actionViewRemote.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+R", None))
+#endif // QT_CONFIG(shortcut)
         self.actionViewSettings.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
+#if QT_CONFIG(shortcut)
+        self.actionViewSettings.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+S", None))
+#endif // QT_CONFIG(shortcut)
         self.tabWidgetMain.setTabText(self.tabWidgetMain.indexOf(self.tabHome), QCoreApplication.translate("MainWindow", u"Home", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"Double Click", None))
         self.checkBoxOpenExplorer.setText(QCoreApplication.translate("MainWindow", u"Open Explorer", None))
@@ -940,6 +1191,25 @@ class Ui_MainWindow(object):
         self.toolButtonConsoleScrollToEnd.setText(QCoreApplication.translate("MainWindow", u"D", None))
         self.console.setPlainText("")
         self.tabWidgetMain.setTabText(self.tabWidgetMain.indexOf(self.tabWorkspace), QCoreApplication.translate("MainWindow", u"Workspace", None))
+        self.toolButtonProfileAdd.setText(QCoreApplication.translate("MainWindow", u"+", None))
+        self.toolButtonProfileRemove.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"SET", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"Settings", None))
+        self.toolButtonProfileSettingsAdd.setText(QCoreApplication.translate("MainWindow", u"+", None))
+        self.toolButtonProfileSettingsRemove.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.toolButtonProfileSettingsClear.setText(QCoreApplication.translate("MainWindow", u"C", None))
+        self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"Options", None))
+        self.toolButtonProfileOptionsAdd.setText(QCoreApplication.translate("MainWindow", u"+", None))
+        self.toolButtonProfileOptionsRemove.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.toolButtonProfileOptionsClear.setText(QCoreApplication.translate("MainWindow", u"C", None))
+        self.groupBox_5.setTitle(QCoreApplication.translate("MainWindow", u"Build Requires", None))
+        self.toolButtonProfileBuildReqsAdd.setText(QCoreApplication.translate("MainWindow", u"+", None))
+        self.toolButtonProfileBuildReqsRemove.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.toolButtonProfileBuildReqsClear.setText(QCoreApplication.translate("MainWindow", u"C", None))
+        self.groupBox_6.setTitle(QCoreApplication.translate("MainWindow", u"Environment", None))
+        self.toolButtonProfileEnvAdd.setText(QCoreApplication.translate("MainWindow", u"+", None))
+        self.toolButtonProfileEnvRemove.setText(QCoreApplication.translate("MainWindow", u"-", None))
+        self.toolButtonProfileEnvClear.setText(QCoreApplication.translate("MainWindow", u"C", None))
         self.tabWidgetMain.setTabText(self.tabWidgetMain.indexOf(self.tabProfile), QCoreApplication.translate("MainWindow", u"Profile", None))
         self.toolButton.setText(QCoreApplication.translate("MainWindow", u"+", None))
         self.toolButton_2.setText(QCoreApplication.translate("MainWindow", u"-", None))

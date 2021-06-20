@@ -8,7 +8,7 @@ from PySide2.QtCore import Slot
 from conanguide.api.conan_api import ConanApi
 from conanguide.client.runner.command_runner import CommandRunner
 from conanguide.ui.config.ui_config import UIConfiguration
-from conanguide.ui.controller.conan_profile import ConanProfileController, ConanProfileDetailController
+from conanguide.ui.controller.conan_profile import ConanProfileListController, ConanProfileSettingsController
 from conanguide.ui.controller.conan_recipe import ConanRecipeController, ConanRecipeInspectController
 from conanguide.ui.controller.conan_remote import ConanRemoteListController
 from conanguide.ui.main.main_window_ui import Ui_MainWindow
@@ -37,16 +37,17 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ctrl_treeview_conan_recipe_inspect = ConanRecipeInspectController(self.treeViewRecipeInspect,
                                                                                self.conan_api)
 
-        # Listview initialization for the profile list
-        self.ctrl_listview_conan_profile = ConanProfileController(self.listViewProfile, self.conan_api)
-        self.ctrl_listview_conan_profile.update()
-
-        # Treeview initialization for the profile details
-        self.ctrl_treeview_conan_profile_detail = ConanProfileDetailController(self.treeViewProfileDetail,
-                                                                               self.conan_api)
         # Tableview initialization for the remote list
         self.ctrl_tableview_conan_remote = ConanRemoteListController(self.tableViewRemoteList, self.conan_api)
         self.ctrl_tableview_conan_remote.update()
+
+        # Listview initialization for the profile list
+        self.ctrl_listview_conan_profile = ConanProfileListController(self.listViewProfile, self.conan_api)
+        self.ctrl_listview_conan_profile.update()
+
+        # Tableview initialization for profile settings
+        self.ctrl_tableview_conan_profile_settings = ConanProfileSettingsController(self.tableViewProfileSettings,
+                                                                                    self.conan_api)
 
         # Fill combobox with profile name
         self.comboBoxProfile.addItems(self.conan_api.profile_list())
@@ -239,7 +240,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     @Slot()
     def on_listViewProfile_clicked(self):
-        self.ctrl_treeview_conan_profile_detail.show_detail(self.listViewProfile.currentIndex().data())
+        self.ctrl_tableview_conan_profile_settings.update(self.listViewProfile.currentIndex().data())
 
     @Slot()
     def on_toolBtnExplorerRecipePath_pressed(self):
