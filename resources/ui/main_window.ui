@@ -55,7 +55,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tabPackage">
        <attribute name="title">
@@ -1797,12 +1797,12 @@
    <addaction name="actionRefresh"/>
    <addaction name="separator"/>
    <addaction name="actionConanCreate"/>
+   <addaction name="separator"/>
    <addaction name="actionConanInstall"/>
    <addaction name="actionConanBuild"/>
    <addaction name="actionConanSource"/>
    <addaction name="actionConanPackage"/>
    <addaction name="actionConanExport"/>
-   <addaction name="separator"/>
    <addaction name="actionConanExportPackage"/>
   </widget>
   <action name="actionViewProfile">
@@ -1947,10 +1947,6 @@
    </property>
   </action>
   <action name="actionHelpAbout">
-   <property name="icon">
-    <iconset resource="../resources.qrc">
-     <normaloff>:/icon/conan_guide_icon.png</normaloff>:/icon/conan_guide_icon.png</iconset>
-   </property>
    <property name="text">
     <string>About</string>
    </property>

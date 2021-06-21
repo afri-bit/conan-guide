@@ -80,7 +80,6 @@ class Ui_MainWindow(object):
         self.actionHelpConanio.setIcon(icon9)
         self.actionHelpAbout = QAction(MainWindow)
         self.actionHelpAbout.setObjectName(u"actionHelpAbout")
-        self.actionHelpAbout.setIcon(icon)
         self.actionViewWorkspace = QAction(MainWindow)
         self.actionViewWorkspace.setObjectName(u"actionViewWorkspace")
         self.actionViewRemote = QAction(MainWindow)
@@ -920,19 +919,19 @@ class Ui_MainWindow(object):
         self.toolBar.addAction(self.actionRefresh)
         self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionConanCreate)
+        self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionConanInstall)
         self.toolBar.addAction(self.actionConanBuild)
         self.toolBar.addAction(self.actionConanSource)
         self.toolBar.addAction(self.actionConanPackage)
         self.toolBar.addAction(self.actionConanExport)
-        self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionConanExportPackage)
 
         self.retranslateUi(MainWindow)
         self.actionFileExit.triggered.connect(MainWindow.close)
         self.toolButtonClearConsole.pressed.connect(self.console.clear)
 
-        self.tabWidgetMain.setCurrentIndex(1)
+        self.tabWidgetMain.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
