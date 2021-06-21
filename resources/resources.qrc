@@ -1,5 +1,11 @@
 <RCC>
   <qresource>
+    <file>icon/open_folder.svg</file>
+    <file>icon/copy.svg</file>
+    <file>icon/garbage_can.svg</file>
+    <file>icon/remove.svg</file>
+    <file>icon/scroll_to_end.svg</file>
+    <file>icon/add.svg</file>
     <file>icon/conan_guide_icon.png</file>
     <file>icon/conan_create.png</file>
     <file>icon/conan_io_icon.png</file>
