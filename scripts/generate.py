@@ -8,7 +8,8 @@ script_path = os.path.abspath(os.path.dirname(__file__))
 
 # List of ui files to be generated, the path must be relative to this path or absolute path
 ui_files = [
-    {"from": "../resources/ui/main_window.ui", "to": "../conanguide/ui/main/main_window_ui.py"}
+    {"from": "../resources/ui/main_window.ui", "to": "../conanguide/ui/main/main_window_ui.py"},
+    {"from": "../resources/ui/profile_attribute.ui", "to": "../conanguide/ui/widget/profile/profile_attribute_ui.py"}
 ]
 
 # List of resource files to be generated, the path must be relative to this path or absolute path
@@ -56,5 +57,14 @@ with open(ui_files[0]["to"], "r+") as f:
     f.write(code)
 
     with open(ui_files[0]["to"], "w") as g:
+        g.write(code)
+
+with open(ui_files[1]["to"], "r+") as f:
+    code = f.read()
+    code = code.replace("from  . import resources_rc", "from conanguide.ui.res import resources_rc")
+
+    f.write(code)
+
+    with open(ui_files[1]["to"], "w") as g:
         g.write(code)
     pass

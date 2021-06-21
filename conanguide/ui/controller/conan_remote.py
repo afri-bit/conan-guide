@@ -33,11 +33,7 @@ class ConanRemoteListController:
 
         for remote in remote_list:
             item_name = QStandardItem(remote.name)
-            item_name.setCheckable(True)
-            item_name.setCheckState(QtCore.Qt.CheckState.Unchecked if remote.disabled else QtCore.Qt.CheckState.Checked)
-
             item_url = QStandardItem(remote.url)
-
             item_ssl = QStandardItem(str(remote.verify_ssl))
 
             self.model.appendRow([item_name, item_url, item_ssl])
