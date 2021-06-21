@@ -1,5 +1,6 @@
 <RCC>
   <qresource>
+    <file>icon/remote.svg</file>
     <file>icon/open_folder.svg</file>
     <file>icon/copy.svg</file>
     <file>icon/garbage_can.svg</file>

@@ -116,10 +116,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.log_to_console(data)
 
     @Slot()
-    def on_actionViewHome_triggered(self):
-        self.tabWidgetMain.setCurrentWidget(self.tabHome)
-
-    @Slot()
     def on_actionViewPackage_triggered(self):
         self.tabWidgetMain.setCurrentWidget(self.tabPackage)
 
