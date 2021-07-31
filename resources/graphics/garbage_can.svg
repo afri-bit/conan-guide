@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1000"
+   height="1000"
+   viewBox="0 0 264.58333 264.58334"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="garbage_can.svg"
+   inkscape:export-filename="E:\projects\conan-guide\resources\icon\garbage_can.png"
+   inkscape:export-xdpi="24.575998"
+   inkscape:export-ydpi="24.575998"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="0.26205012"
+     inkscape:cx="108.75782"
+     inkscape:cy="295.74495"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#505050;stroke:none;stroke-width:0.217226;fill-opacity:1"
+       id="rect2699"
+       width="158.75"
+       height="165.12497"
+       x="52.916672"
+       y="88.324554"
+       ry="9.713233" />
+    <rect
+       style="fill:#505050;stroke:none;stroke-width:0.22945;fill-opacity:1"
+       id="rect2803"
+       width="158.75"
+       height="17.714556"
+       x="52.916672"
+       y="88.324554"
+       ry="0"
+       rx="0" />
+    <rect
+       style="fill:#505050;stroke:none;stroke-width:0.353442;fill-opacity:1"
+       id="rect2803-7"
+       width="210.91942"
+       height="31.63612"
+       x="26.831963"
+       y="28.234398"
+       ry="0"
+       rx="0" />
+    <rect
+       style="fill:#505050;fill-opacity:1;stroke:none;stroke-width:0.185236"
+       id="rect2803-7-2"
+       width="66.090622"
+       height="27.731304"
+       x="99.246361"
+       y="8.9972258"
+       ry="6.932826"
+       rx="0" />
+    <rect
+       style="fill:none;stroke:none;stroke-width:0.259176"
+       id="rect3053"
+       width="264.58334"
+       height="264.58334"
+       x="0"
+       y="0"
+       ry="0" />
+  </g>
+</svg>

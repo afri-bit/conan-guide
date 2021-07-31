@@ -8,11 +8,14 @@ from PySide2.QtCore import Slot
 from conanguide.api.conan_api import ConanApi
 from conanguide.client.runner.command_runner import CommandRunner
 from conanguide.ui.config.ui_config import UIConfiguration
-from conanguide.ui.controller.conan_profile import ConanProfileController, ConanProfileDetailController
+from conanguide.ui.controller.conan_profile import ConanProfileListController, \
+    ConanProfileSettingsController, ConanProfileOptionsController, ConanProfileBuildReqsController, \
+    ConanProfileEnvController
 from conanguide.ui.controller.conan_recipe import ConanRecipeController, ConanRecipeInspectController
 from conanguide.ui.controller.conan_remote import ConanRemoteListController
 from conanguide.ui.main.main_window_ui import Ui_MainWindow
 from conanguide.utils.cmd.command_builder import ConanCommandBuilder
+from conanguide.ui.widget.profile.profile_attribute import ProfileAttribute
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -37,16 +40,28 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ctrl_treeview_conan_recipe_inspect = ConanRecipeInspectController(self.treeViewRecipeInspect,
                                                                                self.conan_api)
 
-        # Listview initialization for the profile list
-        self.ctrl_listview_conan_profile = ConanProfileController(self.listViewProfile, self.conan_api)
-        self.ctrl_listview_conan_profile.update()
-
-        # Treeview initialization for the profile details
-        self.ctrl_treeview_conan_profile_detail = ConanProfileDetailController(self.treeViewProfileDetail,
-                                                                               self.conan_api)
         # Tableview initialization for the remote list
         self.ctrl_tableview_conan_remote = ConanRemoteListController(self.tableViewRemoteList, self.conan_api)
         self.ctrl_tableview_conan_remote.update()
+
+        # Listview initialization for the profile list
+        self.ctrl_listview_conan_profile = ConanProfileListController(self.listViewProfile, self.conan_api)
+        self.ctrl_listview_conan_profile.update()
+
+        # Tableview widget initialization
+        self.profile_settings = ProfileAttribute("Settings", ["Key", "Value"])
+        self.profile_options = ProfileAttribute("Options", ["Key", "Value"])
+        self.profile_build_reqs = ProfileAttribute("Build Requires", ["Value"])
+        self.profile_environments = ProfileAttribute("Environment", ["Key", "Value"])
+        self.frameConanProfileAttribute.layout().insertWidget(0, self.profile_settings)
+        self.frameConanProfileAttribute.layout().insertWidget(1, self.profile_options)
+        self.frameConanProfileAttribute.layout().insertWidget(2, self.profile_build_reqs)
+        self.frameConanProfileAttribute.layout().insertWidget(3, self.profile_environments)
+
+        self.ctrl_widget_profile_settings = ConanProfileSettingsController(self.profile_settings, self.conan_api)
+        self.ctrl_widget_profile_options = ConanProfileOptionsController(self.profile_options, self.conan_api)
+        self.ctrl_widget_profile_build_reqs = ConanProfileBuildReqsController(self.profile_build_reqs, self.conan_api)
+        self.ctrl_widget_profile_environments = ConanProfileEnvController(self.profile_environments, self.conan_api)
 
         # Fill combobox with profile name
         self.comboBoxProfile.addItems(self.conan_api.profile_list())
@@ -99,6 +114,26 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def on_command_progress(self, data: str):
         self.log_to_console(data)
+
+    @Slot()
+    def on_actionViewPackage_triggered(self):
+        self.tabWidgetMain.setCurrentWidget(self.tabPackage)
+
+    @Slot()
+    def on_actionViewWorkspace_triggered(self):
+        self.tabWidgetMain.setCurrentWidget(self.tabWorkspace)
+
+    @Slot()
+    def on_actionViewProfile_triggered(self):
+        self.tabWidgetMain.setCurrentWidget(self.tabProfile)
+
+    @Slot()
+    def on_actionViewRemote_triggered(self):
+        self.tabWidgetMain.setCurrentWidget(self.tabRemote)
+
+    @Slot()
+    def on_actionViewSettings_triggered(self):
+        self.tabWidgetMain.setCurrentWidget(self.tabSettings)
 
     @Slot()
     def on_actionConanCreate_triggered(self):
@@ -184,7 +219,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     @Slot()
     def on_treeViewRecipe_clicked(self):
-        if self.treeViewRecipe.currentIndex().parent().data() is not None:
+        if self.treeViewRecipe.currentIndex().parent().data() is not None:  # Package with hash id
             recipe_id = self.treeViewRecipe.currentIndex().parent().data()
             package_hash = self.treeViewRecipe.currentIndex().data()
 
@@ -195,7 +230,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.lineEditRealPath.setText(real_path)
             self.lineEditPackagePath.setText(package_path)
 
-        else:
+        else:  # Parent of the package
             recipe_id = self.treeViewRecipe.currentIndex().data()
             self.ctrl_treeview_conan_recipe_inspect.inspect(recipe_id)
             data_path = self.conan_api.get_package_data_path(recipe_id)
@@ -215,7 +250,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     @Slot()
     def on_listViewProfile_clicked(self):
-        self.ctrl_treeview_conan_profile_detail.show_detail(self.listViewProfile.currentIndex().data())
+        self.ctrl_widget_profile_settings.update(self.listViewProfile.currentIndex().data())
+        self.ctrl_widget_profile_options.update(self.listViewProfile.currentIndex().data())
+        self.ctrl_widget_profile_build_reqs.update(self.listViewProfile.currentIndex().data())
+        self.ctrl_widget_profile_environments.update(self.listViewProfile.currentIndex().data())
 
     @Slot()
     def on_toolBtnExplorerRecipePath_pressed(self):
@@ -251,8 +289,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.console.verticalScrollBar().setValue(self.console.verticalScrollBar().maximum())
 
     def set_loading_state(self, state: bool):
-        self.groupBoxWorkspace.setEnabled(not state)
-
         if state:
             self.progressBar.setMaximum(0)
             self.labelStatusMessage.setText("Loading...  ")
