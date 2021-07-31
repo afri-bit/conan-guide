@@ -82,7 +82,7 @@ class Ui_MainWindow(object):
         self.actionHelpConanio = QAction(MainWindow)
         self.actionHelpConanio.setObjectName(u"actionHelpConanio")
         icon11 = QIcon()
-        icon11.addFile(u":/icon/conan_io_icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon11.addFile(u":/general/icon/conan_io_icon.png", QSize(), QIcon.Normal, QIcon.Off)
         self.actionHelpConanio.setIcon(icon11)
         self.actionHelpAbout = QAction(MainWindow)
         self.actionHelpAbout.setObjectName(u"actionHelpAbout")

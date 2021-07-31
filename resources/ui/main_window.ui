@@ -1966,8 +1966,8 @@
   </action>
   <action name="actionHelpConanio">
    <property name="icon">
-    <iconset>
-     <normaloff>:/icon/conan_io_icon.png</normaloff>:/icon/conan_io_icon.png</iconset>
+    <iconset resource="../resources.qrc">
+     <normaloff>:/general/icon/conan_io_icon.png</normaloff>:/general/icon/conan_io_icon.png</iconset>
    </property>
    <property name="text">
     <string>conan.io</string>
