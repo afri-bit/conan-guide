@@ -7,8 +7,11 @@
    viewBox="0 0 264.58333 264.58334"
    version="1.1"
    id="svg910"
-   sodipodi:docname="remove.svg"
+   sodipodi:docname="add.svg"
    inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   inkscape:export-filename="E:\projects\conan-guide\resources\icon\add.png"
+   inkscape:export-xdpi="24.6"
+   inkscape:export-ydpi="24.6"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,8 +28,8 @@
      showgrid="false"
      units="px"
      inkscape:zoom="0.37059484"
-     inkscape:cx="182.13961"
-     inkscape:cy="970.06208"
+     inkscape:cx="180.79043"
+     inkscape:cy="538.32374"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="1912"
@@ -53,5 +56,13 @@
        height="29.104166"
        x="44.978779"
        y="117.73958" />
+    <rect
+       style="fill:#505050;fill-opacity:1;stroke:none;stroke-width:0.184705"
+       id="rect1133-0"
+       width="174.62579"
+       height="29.104166"
+       x="44.978764"
+       y="-146.84375"
+       transform="rotate(90)" />
   </g>
 </svg>
