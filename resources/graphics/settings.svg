@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   viewBox="0 0 999.99999 999.99999"
+   enable-background="new 0 0 314.186 314.186"
+   id="svg10"
+   sodipodi:docname="settings.svg"
+   width="1000"
+   height="1000"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   inkscape:export-filename="E:\projects\conan-guide\resources\icon\light\settings.png"
+   inkscape:export-xdpi="24.6"
+   inkscape:export-ydpi="24.6"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.46812464"
+     inkscape:cx="441.12183"
+     inkscape:cy="678.23817"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <g
+     id="g8"
+     transform="matrix(3.1191698,0,0,3.1191698,10.000433,9.9995338)"
+     style="fill:#505050;fill-opacity:1">
+    <path
+       d="M 258.697,89.648 227.089,55.609 263.966,21.367 246.68,4.082 187.979,25.098 V 94.252 L 4.958,269.079 c -3.634,3.47 -11.516,11.001 5.919,29.254 17.437,18.252 25.317,10.721 28.951,7.25 l 183.51,-175.291 h 74.19 L 314.186,71.591 296.831,54.235 Z"
+       id="path2"
+       style="fill:#505050;fill-opacity:1" />
+    <path
+       d="m 189.776,170.604 -35.706,35.706 104.057,98.398 c 2.992,2.831 9.482,8.97 26.994,-9.21 17.51,-18.176 11.017,-24.316 8.024,-27.147 z"
+       id="path4"
+       style="fill:#505050;fill-opacity:1" />
+    <polygon
+       points="9,49.104 29.596,59.949 117.752,148.104 135,130.856 46.845,42.7 36,22.104 12.895,15.584 2.48,25.999 "
+       id="polygon6"
+       style="fill:#505050;fill-opacity:1" />
+  </g>
+  <rect
+     style="fill:none;stroke:none;stroke-width:2.21609"
+     id="rect853"
+     width="1000"
+     height="1000"
+     x="-8.2394879e-05"
+     y="0" />
+</svg>

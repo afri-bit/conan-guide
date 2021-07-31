@@ -24,7 +24,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../resources.qrc">
-    <normaloff>:/icon/conan_guide_icon.png</normaloff>:/icon/conan_guide_icon.png</iconset>
+    <normaloff>:/general/icon/conan_guide_icon.png</normaloff>:/general/icon/conan_guide_icon.png</iconset>
   </property>
   <property name="dockOptions">
    <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
@@ -58,6 +58,10 @@
        <number>0</number>
       </property>
       <widget class="QWidget" name="tabPackage">
+       <attribute name="icon">
+        <iconset resource="../resources.qrc">
+         <normaloff>:/icon/light/package.png</normaloff>:/icon/light/package.png</iconset>
+       </attribute>
        <attribute name="title">
         <string>Package</string>
        </attribute>
@@ -163,7 +167,7 @@
                  </property>
                  <property name="icon">
                   <iconset resource="../resources.qrc">
-                   <normaloff>:/icon/open_folder.svg</normaloff>:/icon/open_folder.svg</iconset>
+                   <normaloff>:/icon/light/open_folder.png</normaloff>:/icon/light/open_folder.png</iconset>
                  </property>
                  <property name="checkable">
                   <bool>true</bool>
@@ -192,7 +196,7 @@
                  </property>
                  <property name="icon">
                   <iconset resource="../resources.qrc">
-                   <normaloff>:/icon/copy.svg</normaloff>:/icon/copy.svg</iconset>
+                   <normaloff>:/icon/light/copy.png</normaloff>:/icon/light/copy.png</iconset>
                  </property>
                  <property name="checkable">
                   <bool>true</bool>
@@ -404,7 +408,7 @@
                         </property>
                         <property name="icon">
                          <iconset resource="../resources.qrc">
-                          <normaloff>:/icon/copy.svg</normaloff>:/icon/copy.svg</iconset>
+                          <normaloff>:/icon/light/copy.png</normaloff>:/icon/light/copy.png</iconset>
                         </property>
                        </widget>
                       </item>
@@ -415,7 +419,7 @@
                         </property>
                         <property name="icon">
                          <iconset resource="../resources.qrc">
-                          <normaloff>:/icon/open_folder.svg</normaloff>:/icon/open_folder.svg</iconset>
+                          <normaloff>:/icon/light/open_folder.png</normaloff>:/icon/light/open_folder.png</iconset>
                         </property>
                        </widget>
                       </item>
@@ -485,7 +489,7 @@
                         </property>
                         <property name="icon">
                          <iconset resource="../resources.qrc">
-                          <normaloff>:/icon/copy.svg</normaloff>:/icon/copy.svg</iconset>
+                          <normaloff>:/icon/light/copy.png</normaloff>:/icon/light/copy.png</iconset>
                         </property>
                        </widget>
                       </item>
@@ -496,7 +500,7 @@
                         </property>
                         <property name="icon">
                          <iconset resource="../resources.qrc">
-                          <normaloff>:/icon/open_folder.svg</normaloff>:/icon/open_folder.svg</iconset>
+                          <normaloff>:/icon/light/open_folder.png</normaloff>:/icon/light/open_folder.png</iconset>
                         </property>
                        </widget>
                       </item>
@@ -563,7 +567,7 @@
                         </property>
                         <property name="icon">
                          <iconset resource="../resources.qrc">
-                          <normaloff>:/icon/copy.svg</normaloff>:/icon/copy.svg</iconset>
+                          <normaloff>:/icon/light/copy.png</normaloff>:/icon/light/copy.png</iconset>
                         </property>
                        </widget>
                       </item>
@@ -574,7 +578,7 @@
                         </property>
                         <property name="icon">
                          <iconset resource="../resources.qrc">
-                          <normaloff>:/icon/open_folder.svg</normaloff>:/icon/open_folder.svg</iconset>
+                          <normaloff>:/icon/light/open_folder.png</normaloff>:/icon/light/open_folder.png</iconset>
                         </property>
                        </widget>
                       </item>
@@ -647,7 +651,7 @@
                         </property>
                         <property name="icon">
                          <iconset resource="../resources.qrc">
-                          <normaloff>:/icon/copy.svg</normaloff>:/icon/copy.svg</iconset>
+                          <normaloff>:/icon/light/copy.png</normaloff>:/icon/light/copy.png</iconset>
                         </property>
                        </widget>
                       </item>
@@ -658,7 +662,7 @@
                         </property>
                         <property name="icon">
                          <iconset resource="../resources.qrc">
-                          <normaloff>:/icon/open_folder.svg</normaloff>:/icon/open_folder.svg</iconset>
+                          <normaloff>:/icon/light/open_folder.png</normaloff>:/icon/light/open_folder.png</iconset>
                         </property>
                        </widget>
                       </item>
@@ -729,6 +733,10 @@
        </layout>
       </widget>
       <widget class="QWidget" name="tabWorkspace">
+       <attribute name="icon">
+        <iconset resource="../resources.qrc">
+         <normaloff>:/icon/light/workspace.png</normaloff>:/icon/light/workspace.png</iconset>
+       </attribute>
        <attribute name="title">
         <string>Workspace</string>
        </attribute>
@@ -1295,7 +1303,7 @@
                     </property>
                     <property name="icon">
                      <iconset resource="../resources.qrc">
-                      <normaloff>:/icon/garbage_can.svg</normaloff>:/icon/garbage_can.svg</iconset>
+                      <normaloff>:/icon/light/garbage_can.png</normaloff>:/icon/light/garbage_can.png</iconset>
                     </property>
                     <property name="checkable">
                      <bool>false</bool>
@@ -1315,7 +1323,7 @@
                     </property>
                     <property name="icon">
                      <iconset resource="../resources.qrc">
-                      <normaloff>:/icon/scroll_to_end.svg</normaloff>:/icon/scroll_to_end.svg</iconset>
+                      <normaloff>:/icon/light/scroll_to_end.png</normaloff>:/icon/light/scroll_to_end.png</iconset>
                     </property>
                     <property name="checkable">
                      <bool>true</bool>
@@ -1373,6 +1381,10 @@
        </layout>
       </widget>
       <widget class="QWidget" name="tabProfile">
+       <attribute name="icon">
+        <iconset resource="../resources.qrc">
+         <normaloff>:/icon/light/conan_profile.png</normaloff>:/icon/light/conan_profile.png</iconset>
+       </attribute>
        <attribute name="title">
         <string>Profile</string>
        </attribute>
@@ -1463,7 +1475,7 @@
                  </property>
                  <property name="icon">
                   <iconset resource="../resources.qrc">
-                   <normaloff>:/icon/add.svg</normaloff>:/icon/add.svg</iconset>
+                   <normaloff>:/icon/light/add.png</normaloff>:/icon/light/add.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -1480,7 +1492,7 @@
                  </property>
                  <property name="icon">
                   <iconset resource="../resources.qrc">
-                   <normaloff>:/icon/remove.svg</normaloff>:/icon/remove.svg</iconset>
+                   <normaloff>:/icon/light/remove.png</normaloff>:/icon/light/remove.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -1551,6 +1563,12 @@
             </property>
             <item>
              <widget class="QPushButton" name="pushButton">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
               <property name="text">
                <string>SET</string>
               </property>
@@ -1565,7 +1583,7 @@
       <widget class="QWidget" name="tabRemote">
        <attribute name="icon">
         <iconset resource="../resources.qrc">
-         <normaloff>:/icon/remote.svg</normaloff>:/icon/remote.svg</iconset>
+         <normaloff>:/icon/light/conan_remote.png</normaloff>:/icon/light/conan_remote.png</iconset>
        </attribute>
        <attribute name="title">
         <string>Remote</string>
@@ -1629,7 +1647,7 @@
              </property>
              <property name="icon">
               <iconset resource="../resources.qrc">
-               <normaloff>:/icon/add.svg</normaloff>:/icon/add.svg</iconset>
+               <normaloff>:/icon/light/add.png</normaloff>:/icon/light/add.png</iconset>
              </property>
             </widget>
            </item>
@@ -1652,7 +1670,7 @@
              </property>
              <property name="icon">
               <iconset resource="../resources.qrc">
-               <normaloff>:/icon/remove.svg</normaloff>:/icon/remove.svg</iconset>
+               <normaloff>:/icon/light/remove.png</normaloff>:/icon/light/remove.png</iconset>
              </property>
             </widget>
            </item>
@@ -1682,6 +1700,10 @@
        </layout>
       </widget>
       <widget class="QWidget" name="tabSettings">
+       <attribute name="icon">
+        <iconset resource="../resources.qrc">
+         <normaloff>:/icon/light/settings.png</normaloff>:/icon/light/settings.png</iconset>
+       </attribute>
        <attribute name="title">
         <string>Settings</string>
        </attribute>
@@ -1809,6 +1831,10 @@
    <property name="checked">
     <bool>false</bool>
    </property>
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icon/light/conan_profile.png</normaloff>:/icon/light/conan_profile.png</iconset>
+   </property>
    <property name="text">
     <string>Profile</string>
    </property>
@@ -1827,7 +1853,7 @@
   <action name="actionRefresh">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icon/ws_refresh.png</normaloff>:/icon/ws_refresh.png</iconset>
+     <normaloff>:/icon/light/refresh.png</normaloff>:/icon/light/refresh.png</iconset>
    </property>
    <property name="text">
     <string>Refresh</string>
@@ -1839,7 +1865,7 @@
   <action name="actionConanCreate">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icon/conan_create.png</normaloff>:/icon/conan_create.png</iconset>
+     <normaloff>:/icon/light/conan_create.png</normaloff>:/icon/light/conan_create.png</iconset>
    </property>
    <property name="text">
     <string>Create</string>
@@ -1851,7 +1877,7 @@
   <action name="actionConanInstall">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icon/conan_install.png</normaloff>:/icon/conan_install.png</iconset>
+     <normaloff>:/icon/light/conan_install.png</normaloff>:/icon/light/conan_install.png</iconset>
    </property>
    <property name="text">
     <string>Install</string>
@@ -1863,7 +1889,7 @@
   <action name="actionConanBuild">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icon/conan_build.png</normaloff>:/icon/conan_build.png</iconset>
+     <normaloff>:/icon/light/conan_build.png</normaloff>:/icon/light/conan_build.png</iconset>
    </property>
    <property name="text">
     <string>Build</string>
@@ -1875,7 +1901,7 @@
   <action name="actionConanSource">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icon/conan_source.png</normaloff>:/icon/conan_source.png</iconset>
+     <normaloff>:/icon/light/conan_source.png</normaloff>:/icon/light/conan_source.png</iconset>
    </property>
    <property name="text">
     <string>Source</string>
@@ -1887,7 +1913,7 @@
   <action name="actionConanPackage">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icon/conan_package.png</normaloff>:/icon/conan_package.png</iconset>
+     <normaloff>:/icon/light/conan_package.png</normaloff>:/icon/light/conan_package.png</iconset>
    </property>
    <property name="text">
     <string>Package</string>
@@ -1899,7 +1925,7 @@
   <action name="actionConanExport">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icon/conan_export.png</normaloff>:/icon/conan_export.png</iconset>
+     <normaloff>:/icon/light/conan_export.png</normaloff>:/icon/light/conan_export.png</iconset>
    </property>
    <property name="text">
     <string>Export</string>
@@ -1911,7 +1937,7 @@
   <action name="actionConanExportPackage">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icon/conan_package_export.png</normaloff>:/icon/conan_package_export.png</iconset>
+     <normaloff>:/icon/light/conan_package_export.png</normaloff>:/icon/light/conan_package_export.png</iconset>
    </property>
    <property name="text">
     <string>Export Package</string>
@@ -1923,6 +1949,10 @@
   <action name="actionViewPackage">
    <property name="checked">
     <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icon/light/package.png</normaloff>:/icon/light/package.png</iconset>
    </property>
    <property name="text">
     <string>Package</string>
@@ -1936,7 +1966,7 @@
   </action>
   <action name="actionHelpConanio">
    <property name="icon">
-    <iconset resource="../resources.qrc">
+    <iconset>
      <normaloff>:/icon/conan_io_icon.png</normaloff>:/icon/conan_io_icon.png</iconset>
    </property>
    <property name="text">
@@ -1955,6 +1985,10 @@
    </property>
   </action>
   <action name="actionViewWorkspace">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icon/light/workspace.png</normaloff>:/icon/light/workspace.png</iconset>
+   </property>
    <property name="text">
     <string>Workspace</string>
    </property>
@@ -1965,7 +1999,7 @@
   <action name="actionViewRemote">
    <property name="icon">
     <iconset resource="../resources.qrc">
-     <normaloff>:/icon/remote.svg</normaloff>:/icon/remote.svg</iconset>
+     <normaloff>:/icon/light/conan_remote.png</normaloff>:/icon/light/conan_remote.png</iconset>
    </property>
    <property name="text">
     <string>Remote</string>
@@ -1975,6 +2009,10 @@
    </property>
   </action>
   <action name="actionViewSettings">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icon/light/settings.png</normaloff>:/icon/light/settings.png</iconset>
+   </property>
    <property name="text">
     <string>Settings</string>
    </property>

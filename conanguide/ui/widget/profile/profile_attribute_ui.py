@@ -42,7 +42,7 @@ class Ui_WidgetProfileAttribute(object):
         self.toolButtonAdd.setMinimumSize(QSize(25, 25))
         self.toolButtonAdd.setMaximumSize(QSize(25, 25))
         icon = QIcon()
-        icon.addFile(u":/icon/add.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/icon/light/add.png", QSize(), QIcon.Normal, QIcon.Off)
         self.toolButtonAdd.setIcon(icon)
 
         self.verticalLayout_11.addWidget(self.toolButtonAdd)
@@ -52,7 +52,7 @@ class Ui_WidgetProfileAttribute(object):
         self.toolButtonRemove.setMinimumSize(QSize(25, 25))
         self.toolButtonRemove.setMaximumSize(QSize(25, 25))
         icon1 = QIcon()
-        icon1.addFile(u":/icon/remove.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u":/icon/light/remove.png", QSize(), QIcon.Normal, QIcon.Off)
         self.toolButtonRemove.setIcon(icon1)
 
         self.verticalLayout_11.addWidget(self.toolButtonRemove)
@@ -62,7 +62,7 @@ class Ui_WidgetProfileAttribute(object):
         self.toolButtonClear.setMinimumSize(QSize(25, 25))
         self.toolButtonClear.setMaximumSize(QSize(25, 25))
         icon2 = QIcon()
-        icon2.addFile(u":/icon/garbage_can.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u":/icon/light/garbage_can.png", QSize(), QIcon.Normal, QIcon.Off)
         self.toolButtonClear.setIcon(icon2)
 
         self.verticalLayout_11.addWidget(self.toolButtonClear)
@@ -138,7 +138,7 @@ class Ui_WidgetProfileAttribute(object):
         self.toolButtonAdd.setMinimumSize(QSize(25, 25))
         self.toolButtonAdd.setMaximumSize(QSize(25, 25))
         icon = QIcon()
-        icon.addFile(u":/icon/add.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u":/icon/light/add.png", QSize(), QIcon.Normal, QIcon.Off)
         self.toolButtonAdd.setIcon(icon)
 
         self.verticalLayout_11.addWidget(self.toolButtonAdd)
@@ -148,7 +148,7 @@ class Ui_WidgetProfileAttribute(object):
         self.toolButtonRemove.setMinimumSize(QSize(25, 25))
         self.toolButtonRemove.setMaximumSize(QSize(25, 25))
         icon1 = QIcon()
-        icon1.addFile(u":/icon/remove.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u":/icon/light/remove.png", QSize(), QIcon.Normal, QIcon.Off)
         self.toolButtonRemove.setIcon(icon1)
 
         self.verticalLayout_11.addWidget(self.toolButtonRemove)
@@ -158,7 +158,7 @@ class Ui_WidgetProfileAttribute(object):
         self.toolButtonClear.setMinimumSize(QSize(25, 25))
         self.toolButtonClear.setMaximumSize(QSize(25, 25))
         icon2 = QIcon()
-        icon2.addFile(u":/icon/garbage_can.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u":/icon/light/garbage_can.png", QSize(), QIcon.Normal, QIcon.Off)
         self.toolButtonClear.setIcon(icon2)
 
         self.verticalLayout_11.addWidget(self.toolButtonClear)

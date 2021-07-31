@@ -93,7 +93,7 @@
            </property>
            <property name="icon">
             <iconset resource="../resources.qrc">
-             <normaloff>:/icon/add.svg</normaloff>:/icon/add.svg</iconset>
+             <normaloff>:/icon/light/add.png</normaloff>:/icon/light/add.png</iconset>
            </property>
           </widget>
          </item>
@@ -116,7 +116,7 @@
            </property>
            <property name="icon">
             <iconset resource="../resources.qrc">
-             <normaloff>:/icon/remove.svg</normaloff>:/icon/remove.svg</iconset>
+             <normaloff>:/icon/light/remove.png</normaloff>:/icon/light/remove.png</iconset>
            </property>
           </widget>
          </item>
@@ -139,7 +139,7 @@
            </property>
            <property name="icon">
             <iconset resource="../resources.qrc">
-             <normaloff>:/icon/garbage_can.svg</normaloff>:/icon/garbage_can.svg</iconset>
+             <normaloff>:/icon/light/garbage_can.png</normaloff>:/icon/light/garbage_can.png</iconset>
            </property>
           </widget>
          </item>
