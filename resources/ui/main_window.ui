@@ -60,7 +60,7 @@
       <widget class="QWidget" name="tabPackage">
        <attribute name="icon">
         <iconset resource="../resources.qrc">
-         <normaloff>:/icon/light/package.png</normaloff>:/icon/light/package.png</iconset>
+         <normaloff>:/icon/light/tab_package.png</normaloff>:/icon/light/tab_package.png</iconset>
        </attribute>
        <attribute name="title">
         <string>Package</string>
@@ -735,7 +735,7 @@
       <widget class="QWidget" name="tabWorkspace">
        <attribute name="icon">
         <iconset resource="../resources.qrc">
-         <normaloff>:/icon/light/workspace.png</normaloff>:/icon/light/workspace.png</iconset>
+         <normaloff>:/icon/light/tab_workspace.png</normaloff>:/icon/light/tab_workspace.png</iconset>
        </attribute>
        <attribute name="title">
         <string>Workspace</string>
@@ -1383,7 +1383,7 @@
       <widget class="QWidget" name="tabProfile">
        <attribute name="icon">
         <iconset resource="../resources.qrc">
-         <normaloff>:/icon/light/conan_profile.png</normaloff>:/icon/light/conan_profile.png</iconset>
+         <normaloff>:/icon/light/tab_conan_profile.png</normaloff>:/icon/light/tab_conan_profile.png</iconset>
        </attribute>
        <attribute name="title">
         <string>Profile</string>
@@ -1583,7 +1583,7 @@
       <widget class="QWidget" name="tabRemote">
        <attribute name="icon">
         <iconset resource="../resources.qrc">
-         <normaloff>:/icon/light/conan_remote.png</normaloff>:/icon/light/conan_remote.png</iconset>
+         <normaloff>:/icon/light/tab_conan_remote.png</normaloff>:/icon/light/tab_conan_remote.png</iconset>
        </attribute>
        <attribute name="title">
         <string>Remote</string>
@@ -1702,7 +1702,7 @@
       <widget class="QWidget" name="tabSettings">
        <attribute name="icon">
         <iconset resource="../resources.qrc">
-         <normaloff>:/icon/light/settings.png</normaloff>:/icon/light/settings.png</iconset>
+         <normaloff>:/icon/light/tab_settings.png</normaloff>:/icon/light/tab_settings.png</iconset>
        </attribute>
        <attribute name="title">
         <string>Settings</string>

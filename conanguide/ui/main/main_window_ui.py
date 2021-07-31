@@ -421,7 +421,9 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addWidget(self.splitter_5)
 
-        self.tabWidgetMain.addTab(self.tabPackage, icon10, "")
+        icon17 = QIcon()
+        icon17.addFile(u":/icon/light/tab_package.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tabWidgetMain.addTab(self.tabPackage, icon17, "")
         self.tabWorkspace = QWidget()
         self.tabWorkspace.setObjectName(u"tabWorkspace")
         self.verticalLayout_6 = QVBoxLayout(self.tabWorkspace)
@@ -693,9 +695,9 @@ class Ui_MainWindow(object):
         self.toolButtonClearConsole = QToolButton(self.frame_5)
         self.toolButtonClearConsole.setObjectName(u"toolButtonClearConsole")
         self.toolButtonClearConsole.setMinimumSize(QSize(25, 25))
-        icon17 = QIcon()
-        icon17.addFile(u":/icon/light/garbage_can.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonClearConsole.setIcon(icon17)
+        icon18 = QIcon()
+        icon18.addFile(u":/icon/light/garbage_can.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonClearConsole.setIcon(icon18)
         self.toolButtonClearConsole.setCheckable(False)
 
         self.verticalLayout_5.addWidget(self.toolButtonClearConsole)
@@ -703,9 +705,9 @@ class Ui_MainWindow(object):
         self.toolButtonConsoleScrollToEnd = QToolButton(self.frame_5)
         self.toolButtonConsoleScrollToEnd.setObjectName(u"toolButtonConsoleScrollToEnd")
         self.toolButtonConsoleScrollToEnd.setMinimumSize(QSize(25, 25))
-        icon18 = QIcon()
-        icon18.addFile(u":/icon/light/scroll_to_end.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonConsoleScrollToEnd.setIcon(icon18)
+        icon19 = QIcon()
+        icon19.addFile(u":/icon/light/scroll_to_end.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonConsoleScrollToEnd.setIcon(icon19)
         self.toolButtonConsoleScrollToEnd.setCheckable(True)
         self.toolButtonConsoleScrollToEnd.setChecked(True)
 
@@ -737,7 +739,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.splitter_8)
 
-        self.tabWidgetMain.addTab(self.tabWorkspace, icon12, "")
+        icon20 = QIcon()
+        icon20.addFile(u":/icon/light/tab_workspace.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tabWidgetMain.addTab(self.tabWorkspace, icon20, "")
         self.tabProfile = QWidget()
         self.tabProfile.setObjectName(u"tabProfile")
         self.horizontalLayout_14 = QHBoxLayout(self.tabProfile)
@@ -767,18 +771,18 @@ class Ui_MainWindow(object):
         self.toolButtonProfileAdd = QToolButton(self.frame_18)
         self.toolButtonProfileAdd.setObjectName(u"toolButtonProfileAdd")
         self.toolButtonProfileAdd.setMinimumSize(QSize(25, 25))
-        icon19 = QIcon()
-        icon19.addFile(u":/icon/light/add.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonProfileAdd.setIcon(icon19)
+        icon21 = QIcon()
+        icon21.addFile(u":/icon/light/add.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonProfileAdd.setIcon(icon21)
 
         self.horizontalLayout_19.addWidget(self.toolButtonProfileAdd)
 
         self.toolButtonProfileRemove = QToolButton(self.frame_18)
         self.toolButtonProfileRemove.setObjectName(u"toolButtonProfileRemove")
         self.toolButtonProfileRemove.setMinimumSize(QSize(25, 25))
-        icon20 = QIcon()
-        icon20.addFile(u":/icon/light/remove.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonProfileRemove.setIcon(icon20)
+        icon22 = QIcon()
+        icon22.addFile(u":/icon/light/remove.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonProfileRemove.setIcon(icon22)
 
         self.horizontalLayout_19.addWidget(self.toolButtonProfileRemove)
 
@@ -825,7 +829,9 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_14.addWidget(self.splitter_7)
 
-        self.tabWidgetMain.addTab(self.tabProfile, icon1, "")
+        icon23 = QIcon()
+        icon23.addFile(u":/icon/light/tab_conan_profile.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tabWidgetMain.addTab(self.tabProfile, icon23, "")
         self.tabRemote = QWidget()
         self.tabRemote.setObjectName(u"tabRemote")
         self.verticalLayout_4 = QVBoxLayout(self.tabRemote)
@@ -844,7 +850,7 @@ class Ui_MainWindow(object):
         self.toolButton.setObjectName(u"toolButton")
         self.toolButton.setMinimumSize(QSize(25, 25))
         self.toolButton.setMaximumSize(QSize(20, 16777215))
-        self.toolButton.setIcon(icon19)
+        self.toolButton.setIcon(icon21)
 
         self.horizontalLayout_16.addWidget(self.toolButton)
 
@@ -853,7 +859,7 @@ class Ui_MainWindow(object):
         sizePolicy4.setHeightForWidth(self.toolButton_2.sizePolicy().hasHeightForWidth())
         self.toolButton_2.setSizePolicy(sizePolicy4)
         self.toolButton_2.setMinimumSize(QSize(25, 25))
-        self.toolButton_2.setIcon(icon20)
+        self.toolButton_2.setIcon(icon22)
 
         self.horizontalLayout_16.addWidget(self.toolButton_2)
 
@@ -870,10 +876,14 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.tableViewRemoteList)
 
-        self.tabWidgetMain.addTab(self.tabRemote, icon13, "")
+        icon24 = QIcon()
+        icon24.addFile(u":/icon/light/tab_conan_remote.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tabWidgetMain.addTab(self.tabRemote, icon24, "")
         self.tabSettings = QWidget()
         self.tabSettings.setObjectName(u"tabSettings")
-        self.tabWidgetMain.addTab(self.tabSettings, icon14, "")
+        icon25 = QIcon()
+        icon25.addFile(u":/icon/light/tab_settings.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tabWidgetMain.addTab(self.tabSettings, icon25, "")
 
         self.verticalLayout_12.addWidget(self.tabWidgetMain)
 

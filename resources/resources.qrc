@@ -1,5 +1,10 @@
 <RCC>
   <qresource>
+    <file>icon/light/tab_conan_profile.png</file>
+    <file>icon/light/tab_conan_remote.png</file>
+    <file>icon/light/tab_package.png</file>
+    <file>icon/light/tab_settings.png</file>
+    <file>icon/light/tab_workspace.png</file>
     <file>icon/light/add.png</file>
     <file>icon/light/conan_profile.png</file>
     <file>icon/light/conan_build.png</file>
