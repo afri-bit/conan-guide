@@ -16,6 +16,7 @@ from conanguide.ui.controller.conan_remote import ConanRemoteListController
 from conanguide.ui.main.main_window_ui import Ui_MainWindow
 from conanguide.utils.cmd.command_builder import ConanCommandBuilder
 from conanguide.ui.widget.profile.profile_attribute import ProfileAttribute
+from conanguide.ui.widget.tab.profile.tab_profile import TabProfile
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -44,24 +45,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ctrl_tableview_conan_remote = ConanRemoteListController(self.tableViewRemoteList, self.conan_api)
         self.ctrl_tableview_conan_remote.update()
 
-        # Listview initialization for the profile list
-        self.ctrl_listview_conan_profile = ConanProfileListController(self.listViewProfile, self.conan_api)
-        self.ctrl_listview_conan_profile.update()
-
-        # Tableview widget initialization
-        self.profile_settings = ProfileAttribute("Settings", ["Key", "Value"])
-        self.profile_options = ProfileAttribute("Options", ["Key", "Value"])
-        self.profile_build_reqs = ProfileAttribute("Build Requires", ["Value"])
-        self.profile_environments = ProfileAttribute("Environment", ["Key", "Value"])
-        self.frameConanProfileAttribute.layout().insertWidget(0, self.profile_settings)
-        self.frameConanProfileAttribute.layout().insertWidget(1, self.profile_options)
-        self.frameConanProfileAttribute.layout().insertWidget(2, self.profile_build_reqs)
-        self.frameConanProfileAttribute.layout().insertWidget(3, self.profile_environments)
-
-        self.ctrl_widget_profile_settings = ConanProfileSettingsController(self.profile_settings, self.conan_api)
-        self.ctrl_widget_profile_options = ConanProfileOptionsController(self.profile_options, self.conan_api)
-        self.ctrl_widget_profile_build_reqs = ConanProfileBuildReqsController(self.profile_build_reqs, self.conan_api)
-        self.ctrl_widget_profile_environments = ConanProfileEnvController(self.profile_environments, self.conan_api)
+        # Initialize the profile tab
+        self.tab_profile = TabProfile(self.conan_api)
+        self.layoutTabProfile.addWidget(self.tab_profile)
 
         # Fill combobox with profile name
         self.comboBoxProfile.addItems(self.conan_api.profile_list())
@@ -247,13 +233,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
             if self.checkBoxOpenExplorer.isChecked():
                 os.startfile(self.lineEditPackagePath.text())
-
-    @Slot()
-    def on_listViewProfile_clicked(self):
-        self.ctrl_widget_profile_settings.update(self.listViewProfile.currentIndex().data())
-        self.ctrl_widget_profile_options.update(self.listViewProfile.currentIndex().data())
-        self.ctrl_widget_profile_build_reqs.update(self.listViewProfile.currentIndex().data())
-        self.ctrl_widget_profile_environments.update(self.listViewProfile.currentIndex().data())
 
     @Slot()
     def on_toolBtnExplorerRecipePath_pressed(self):
