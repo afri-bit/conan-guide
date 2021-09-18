@@ -31,7 +31,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def __init(self):
         # Line Edit Initialization for the conan cache path
-        self.lineEditCachePath.setText(self.conan_api.get_cache_folder())
+        self.lineEditCachePath.setText(self.conan_api.cache_folder)
 
         # Treeview initialization for the conan recipe list
         self.treeViewRecipe.setHeaderHidden(True)

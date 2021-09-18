@@ -2,6 +2,7 @@ from PySide2 import QtWidgets
 from PySide2.QtCore import Slot
 
 from conanguide.api.conan_api import ConanApi
+from conanguide.data.conan_profile import ConanProfile
 from conanguide.ui.widget.tab.profile.tab_profile_ui import Ui_TabProfile
 from conanguide.ui.widget.profile.profile_attribute import ProfileAttribute
 from conanguide.ui.controller.conan_profile import ConanProfileListController, ConanProfileSettingsController, \
@@ -16,9 +17,8 @@ class TabProfile(QtWidgets.QWidget, Ui_TabProfile):
 
         self.conan_api = conan_api
 
-        self.__init()
+        self.selected_profile: str = ""
 
-    def __init(self):
         # Listview initialization for the profile list
         self.ctrl_listview_conan_profile = ConanProfileListController(self.listViewProfile, self.conan_api)
         self.ctrl_listview_conan_profile.update()
@@ -26,16 +26,17 @@ class TabProfile(QtWidgets.QWidget, Ui_TabProfile):
         # Tableview widget initialization
         self.profile_settings = ProfileAttribute("Settings", ["Key", "Value"])
         self.profile_options = ProfileAttribute("Options", ["Key", "Value"])
-        self.profile_build_reqs = ProfileAttribute("Build Requires", ["Value"])
+        self.profile_build_requires = ProfileAttribute("Build Requires", ["Value"])
         self.profile_environments = ProfileAttribute("Environment", ["Key", "Value"])
         self.frameConanProfileAttribute.layout().insertWidget(1, self.profile_settings)
         self.frameConanProfileAttribute.layout().insertWidget(2, self.profile_options)
-        self.frameConanProfileAttribute.layout().insertWidget(3, self.profile_build_reqs)
+        self.frameConanProfileAttribute.layout().insertWidget(3, self.profile_build_requires)
         self.frameConanProfileAttribute.layout().insertWidget(4, self.profile_environments)
 
         self.ctrl_widget_profile_settings = ConanProfileSettingsController(self.profile_settings, self.conan_api)
         self.ctrl_widget_profile_options = ConanProfileOptionsController(self.profile_options, self.conan_api)
-        self.ctrl_widget_profile_build_reqs = ConanProfileBuildReqsController(self.profile_build_reqs, self.conan_api)
+        self.ctrl_widget_profile_build_requires = ConanProfileBuildReqsController(self.profile_build_requires,
+                                                                                  self.conan_api)
         self.ctrl_widget_profile_environments = ConanProfileEnvController(self.profile_environments, self.conan_api)
 
         self.lineEditSearchProfile.textChanged.connect(lambda: self.ctrl_listview_conan_profile.filter(
@@ -44,16 +45,11 @@ class TabProfile(QtWidgets.QWidget, Ui_TabProfile):
         self.toolButtonSortAscending.toggled.connect(lambda: self.toolButtonSortDescending.setChecked(False))
         self.toolButtonSortDescending.toggled.connect(lambda: self.toolButtonSortAscending.setChecked(False))
 
-    def update(self):
-        self.ctrl_listview_conan_profile.update()
+        self._enable_profile_attributes(False)
 
     @Slot()
     def on_listViewProfile_clicked(self):
-        self.labelProfileName.setText(self.listViewProfile.currentIndex().data())
-        self.ctrl_widget_profile_settings.update(self.listViewProfile.currentIndex().data())
-        self.ctrl_widget_profile_options.update(self.listViewProfile.currentIndex().data())
-        self.ctrl_widget_profile_build_reqs.update(self.listViewProfile.currentIndex().data())
-        self.ctrl_widget_profile_environments.update(self.listViewProfile.currentIndex().data())
+        self._show_selected_profile()
 
     @Slot()
     def on_toolButtonSortAscending_clicked(self):
@@ -68,3 +64,59 @@ class TabProfile(QtWidgets.QWidget, Ui_TabProfile):
         self.toolButtonSortAscending.setChecked(False)
 
         self.ctrl_listview_conan_profile.sort_descending()
+
+    @Slot()
+    def on_toolButtonSaveChange_clicked(self):
+        conan_profile = ConanProfile()
+
+        conan_profile.settings = self.ctrl_widget_profile_settings.get_data()
+        conan_profile.options = self.ctrl_widget_profile_options.get_data()
+        conan_profile.build_requires = self.ctrl_widget_profile_build_requires.get_data()
+        conan_profile.environments = self.ctrl_widget_profile_environments.get_data()
+
+        self.conan_api.set_profile(self.selected_profile, conan_profile)
+
+    @Slot()
+    def on_toolButtonProfileRemove_clicked(self):
+        self.conan_api.remove_profile(self.listViewProfile.currentIndex().data())
+        self.ctrl_listview_conan_profile.remove_selected()
+        self._show_selected_profile()
+
+    @Slot()
+    def on_toolButtonRevertChange_clicked(self):
+        self._show_selected_profile()
+
+    def update(self):
+        self.ctrl_listview_conan_profile.update()
+
+    def _show_selected_profile(self):
+        try:
+            self._enable_profile_attributes(True)
+
+            selected_profile = self.listViewProfile.currentIndex().data()
+
+            self.selected_profile = selected_profile
+            self.labelProfileName.setText(selected_profile)
+            self.ctrl_widget_profile_settings.update(self.listViewProfile.currentIndex().data())
+            self.ctrl_widget_profile_options.update(self.listViewProfile.currentIndex().data())
+            self.ctrl_widget_profile_build_requires.update(self.listViewProfile.currentIndex().data())
+            self.ctrl_widget_profile_environments.update(self.listViewProfile.currentIndex().data())
+        except:
+            self._clear_view()
+
+    def _enable_profile_attributes(self, enable: bool):
+        self.profile_settings.setEnabled(enable)
+        self.profile_options.setEnabled(enable)
+        self.profile_build_requires.setEnabled(enable)
+        self.profile_environments.setEnabled(enable)
+
+    def _clear_view(self):
+        self.selected_profile = ""
+        self.labelProfileName.setText(self.selected_profile)
+
+        self.ctrl_widget_profile_settings.clear()
+        self.ctrl_widget_profile_options.clear()
+        self.ctrl_widget_profile_build_requires.clear()
+        self.ctrl_widget_profile_environments.clear()
+
+        self._enable_profile_attributes(False)

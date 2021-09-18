@@ -1,4 +1,5 @@
 import abc
+import collections
 
 from PySide2 import QtCore, QtWidgets
 from PySide2.QtGui import QStandardItemModel, QStandardItem
@@ -42,6 +43,9 @@ class ConanProfileListController:
     def sort_descending(self):
         self.proxy_model.sort(0, QtCore.Qt.DescendingOrder)
 
+    def remove_selected(self):
+        self.proxy_model.removeRow(self.view.currentIndex().row())
+
 
 class ConanProfileAttributeController(abc.ABC):
     def __init__(self, view: ProfileAttribute, conan_api: ConanApi):
@@ -49,13 +53,29 @@ class ConanProfileAttributeController(abc.ABC):
         self.model = view.model
         self.conan_api = conan_api
 
-    @abc.abstractmethod
-    def update(self, profile_name: str):
-        return
+    def clear(self):
+        self.view.init_model()
 
     @abc.abstractmethod
-    def set(self, profile_name: str):
-        return
+    def update(self, profile_name: str):
+        """
+        Method to update the view
+        """
+
+    def get_data(self) -> collections.OrderedDict:
+        """
+        Method to return the data from the model
+        """
+        data = collections.OrderedDict()
+
+        for i in range(self.model.rowCount()):
+            key = self.model.item(i, 0).text()
+            value = self.model.item(i, 1).text() if self.model.item(i, 1) is not None else None
+
+            if key != "":
+                data[key] = value
+
+        return data
 
 
 class ConanProfileSettingsController(ConanProfileAttributeController):
@@ -71,10 +91,6 @@ class ConanProfileSettingsController(ConanProfileAttributeController):
         for key, value in profile.settings.items():
             self.model.appendRow([QStandardItem(key), QStandardItem(value)])
 
-    def set(self, profile_name: str):
-        # TODO: Implement the functionality to set the SETTINGS attributes
-        pass
-
 
 class ConanProfileOptionsController(ConanProfileAttributeController):
 
@@ -86,12 +102,8 @@ class ConanProfileOptionsController(ConanProfileAttributeController):
 
         profile = self.conan_api.read_profile(profile_name)
 
-        for key, value in profile.options.items():
-            self.model.appendRow([QStandardItem(key), QStandardItem(value)])
-
-    def set(self, profile_name: str):
-        # TODO: Implement the functionality to set the OPTIONS attributes
-        pass
+        for opt in profile.options.as_list():
+            self.model.appendRow([QStandardItem(opt[0]), QStandardItem(opt[1])])
 
 
 class ConanProfileBuildReqsController(ConanProfileAttributeController):
@@ -109,13 +121,6 @@ class ConanProfileBuildReqsController(ConanProfileAttributeController):
                 item = QStandardItem(str(i))
                 self.model.appendRow(item)
 
-        for key, value in profile.options.items():
-            self.model.appendRow([QStandardItem(key), QStandardItem(value)])
-
-    def set(self, profile_name: str):
-        # TODO: Implement the functionality to set the BUILD REQS attributes
-        pass
-
 
 class ConanProfileEnvController(ConanProfileAttributeController):
 
@@ -131,7 +136,3 @@ class ConanProfileEnvController(ConanProfileAttributeController):
             item_key = QStandardItem(str(k))
             item_value = QStandardItem(str(v))
             self.model.appendRow([item_key, item_value])
-
-    def set(self, profile_name: str):
-        # TODO: Implement the functionality to set the ENVIRONMENTS attributes
-        pass
