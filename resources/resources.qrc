@@ -1,5 +1,9 @@
 <RCC>
   <qresource>
+    <file>icon/light/save.png</file>
+    <file>icon/light/revert.png</file>
+    <file>icon/light/sort_ascending.png</file>
+    <file>icon/light/sort_descending.png</file>
     <file>icon/light/tab_conan_profile.png</file>
     <file>icon/light/tab_conan_remote.png</file>
     <file>icon/light/tab_package.png</file>

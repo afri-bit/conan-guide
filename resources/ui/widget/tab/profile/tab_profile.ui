@@ -107,8 +107,15 @@
               <height>25</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Sort Ascending</string>
+            </property>
             <property name="text">
-             <string>SoA</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../../../resources.qrc">
+              <normaloff>:/icon/light/sort_ascending.png</normaloff>:/icon/light/sort_ascending.png</iconset>
             </property>
             <property name="checkable">
              <bool>true</bool>
@@ -129,8 +136,15 @@
               <height>25</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Sort Descending</string>
+            </property>
             <property name="text">
-             <string>SoD</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../../../resources.qrc">
+              <normaloff>:/icon/light/sort_descending.png</normaloff>:/icon/light/sort_descending.png</iconset>
             </property>
             <property name="checkable">
              <bool>true</bool>
@@ -161,6 +175,9 @@
               <height>25</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Add</string>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -177,6 +194,9 @@
               <width>25</width>
               <height>25</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Remove</string>
             </property>
             <property name="text">
              <string/>
@@ -195,8 +215,15 @@
               <height>25</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Save Changes</string>
+            </property>
             <property name="text">
-             <string>S</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../../../resources.qrc">
+              <normaloff>:/icon/light/save.png</normaloff>:/icon/light/save.png</iconset>
             </property>
            </widget>
           </item>
@@ -208,8 +235,15 @@
               <height>25</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Revert Changes</string>
+            </property>
             <property name="text">
-             <string>R</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../../../resources.qrc">
+              <normaloff>:/icon/light/revert.png</normaloff>:/icon/light/revert.png</iconset>
             </property>
            </widget>
           </item>
