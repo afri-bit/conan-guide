@@ -877,7 +877,7 @@ class Ui_MainWindow(object):
         self.actionFileExit.triggered.connect(MainWindow.close)
         self.toolButtonClearConsole.pressed.connect(self.console.clear)
 
-        self.tabWidgetMain.setCurrentIndex(2)
+        self.tabWidgetMain.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
