@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1000"
+   height="1000"
+   viewBox="0 0 264.58333 264.58334"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="sort.svg"
+   inkscape:export-filename="E:\projects\conan-guide\resources\icon\light\sort_descending.png"
+   inkscape:export-xdpi="24.576"
+   inkscape:export-ydpi="24.576"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="0.37059484"
+     inkscape:cx="-124.12477"
+     inkscape:cy="638.16323"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g20817">
+    <sodipodi:guide
+       position="31.299673,241.86583"
+       orientation="1,0"
+       id="guide11539" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipEmfPath1">
+      <path
+         d="M 0,0 L 368.67654,0 L 368.67654,663.2 L 0,663.2 z"
+         id="path10425" />
+    </clipPath>
+    <pattern
+       id="EMFhbasepattern"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="6"
+       x="0"
+       y="0" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipEmfPath1-4">
+      <path
+         d="M 0,0 L 277.81291,0 L 277.81291,664.24441 L 0,664.24441 z"
+         id="path10521" />
+    </clipPath>
+    <pattern
+       id="EMFhbasepattern-4"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="6"
+       x="0"
+       y="0" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipEmfPath1-9">
+      <path
+         d="M 0,0 L 277.81291,0 L 277.81291,664.24441 L 0,664.24441 z"
+         id="path20695" />
+    </clipPath>
+    <pattern
+       id="EMFhbasepattern-1"
+       patternUnits="userSpaceOnUse"
+       width="6"
+       height="6"
+       x="0"
+       y="0" />
+  </defs>
+  <g
+     inkscape:label="Arrow"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <rect
+       style="fill:none;stroke-width:0.450716"
+       id="rect846"
+       width="264.58334"
+       height="264.58334"
+       x="0"
+       y="-1.7763568e-15" />
+    <path
+       style="fill:#505050;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       clip-path="url(#clipEmfPath1-4)"
+       d="M -0.52220472,460.71512 H 107.70472 V -0.52220472 h 61.42434 V 460.71512 H 277.29071 L 138.38425,663.7222 Z"
+       id="path10527"
+       transform="matrix(0.35018937,0,0,0.38249449,159.11625,4.7121874)" />
+  </g>
+  <g
+     inkscape:label="Ascending"
+     inkscape:groupmode="layer"
+     id="g20803"
+     style="display:none">
+    <rect
+       style="fill:none;stroke-width:0.450716"
+       id="rect20791"
+       width="264.58334"
+       height="264.58334"
+       x="0"
+       y="-1.7763568e-15" />
+    <text
+       xml:space="preserve"
+       style="font-size:163.761px;line-height:1.25;font-family:sans-serif;fill:#505050;fill-opacity:1;stroke-width:0.818801"
+       x="29.671003"
+       y="124.35435"
+       id="text20795"><tspan
+         sodipodi:role="line"
+         id="tspan20793"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#505050;fill-opacity:1;stroke-width:0.818801"
+         x="29.671003"
+         y="124.35435">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:163.761px;line-height:1.25;font-family:sans-serif;fill:#969696;fill-opacity:1;stroke-width:0.818803"
+       x="29.111273"
+       y="259.29172"
+       id="text20799"><tspan
+         sodipodi:role="line"
+         id="tspan20797"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#969696;fill-opacity:1;stroke-width:0.818803"
+         x="29.111273"
+         y="259.29172">Z</tspan></text>
+  </g>
+  <g
+     inkscape:label="Descending"
+     inkscape:groupmode="layer"
+     id="g20817"
+     style="display:inline">
+    <rect
+       style="fill:none;stroke-width:0.450716"
+       id="rect20805"
+       width="264.58334"
+       height="264.58334"
+       x="0"
+       y="-1.7763568e-15" />
+    <text
+       xml:space="preserve"
+       style="font-size:163.761px;line-height:1.25;font-family:sans-serif;fill:#969696;fill-opacity:1;stroke-width:0.818801"
+       x="28.957062"
+       y="259.29172"
+       id="text20809"><tspan
+         sodipodi:role="line"
+         id="tspan20807"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#969696;fill-opacity:1;stroke-width:0.818801"
+         x="28.957062"
+         y="259.29172">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:163.761px;line-height:1.25;font-family:sans-serif;fill:#505050;fill-opacity:1;stroke-width:0.818803"
+       x="35.313995"
+       y="124.35423"
+       id="text20813"><tspan
+         sodipodi:role="line"
+         id="tspan20811"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#505050;fill-opacity:1;stroke-width:0.818803"
+         x="35.313995"
+         y="124.35423">Z</tspan></text>
+  </g>
+</svg>
