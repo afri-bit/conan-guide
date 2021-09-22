@@ -7,6 +7,7 @@ from conanguide.ui.widget.tab.profile.tab_profile_ui import Ui_TabProfile
 from conanguide.ui.widget.profile.profile_attribute import ProfileAttribute
 from conanguide.ui.controller.conan_profile import ConanProfileListController, ConanProfileSettingsController, \
     ConanProfileOptionsController, ConanProfileBuildReqsController, ConanProfileEnvController
+from conanguide.ui.dialog.edit.name.edit_name import DialogEditName
 
 
 class TabProfile(QtWidgets.QWidget, Ui_TabProfile):
@@ -78,16 +79,46 @@ class TabProfile(QtWidgets.QWidget, Ui_TabProfile):
 
     @Slot()
     def on_toolButtonProfileRemove_clicked(self):
-        self.conan_api.remove_profile(self.listViewProfile.currentIndex().data())
-        self.ctrl_listview_conan_profile.remove_selected()
-        self._show_selected_profile()
+        selected_data = self.listViewProfile.currentIndex().data()
+        if selected_data is not None:
+            reply = QtWidgets.QMessageBox.question(self, f"Profile - {selected_data}",
+                                                   "Are you sure to delete the profile",
+                                                   QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+                                                   QtWidgets.QMessageBox.No)
+            if reply == QtWidgets.QMessageBox.Yes:
+                self.conan_api.remove_profile(self.listViewProfile.currentIndex().data())
+                self.ctrl_listview_conan_profile.remove_selected()
+                self._show_selected_profile()
 
     @Slot()
     def on_toolButtonRevertChange_clicked(self):
         self._show_selected_profile()
 
+    @Slot()
+    def on_toolButtonProfileAdd_clicked(self):
+        self._add_new_profile()
+
     def update(self):
         self.ctrl_listview_conan_profile.update()
+
+    def _rename_profile(self):
+        profile_name = self.listViewProfile.currentIndex().data()
+        profile_list = self.ctrl_listview_conan_profile.items
+        dialog = DialogEditName("Edit Profile Name", profile_list, profile_name)
+        res = dialog.exec()
+
+        if res == QtWidgets.QDialog.Accepted:
+            profile_name_new = dialog.text
+            self.conan_api.rename_profile(profile_name, profile_name_new)
+            self.update()
+
+    def _add_new_profile(self):
+        profile_list = self.ctrl_listview_conan_profile.items
+        dialog = DialogEditName("Add Profile", profile_list)
+        res = dialog.exec()
+        if res == QtWidgets.QDialog.Accepted:
+            self.conan_api.create_profile(dialog.text)
+            self.update()
 
     def _show_selected_profile(self):
         try:

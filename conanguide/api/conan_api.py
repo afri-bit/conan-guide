@@ -133,3 +133,10 @@ class ConanApi(Conan):
 
         os.remove(profile_file)
 
+    def rename_profile(self, profile_name: str, new_name: str):
+        profile_file = os.path.join(self.profiles_folder, profile_name)
+
+        new_profile_file = os.path.join(self.profiles_folder, new_name)
+
+        os.rename(profile_file, new_profile_file)
+

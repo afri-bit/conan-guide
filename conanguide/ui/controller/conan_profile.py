@@ -46,6 +46,14 @@ class ConanProfileListController:
     def remove_selected(self):
         self.proxy_model.removeRow(self.view.currentIndex().row())
 
+    @property
+    def items(self) -> list:
+        items = list()
+        for i in range(self.proxy_model.rowCount()):
+            items.append(self.proxy_model.index(i, 0).data())
+
+        return items
+
 
 class ConanProfileAttributeController(abc.ABC):
     def __init__(self, view: ProfileAttribute, conan_api: ConanApi):
