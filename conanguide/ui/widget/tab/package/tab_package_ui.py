@@ -18,7 +18,7 @@ class Ui_TabPackage(object):
     def setupUi(self, TabPackage):
         if not TabPackage.objectName():
             TabPackage.setObjectName(u"TabPackage")
-        TabPackage.resize(891, 723)
+        TabPackage.resize(891, 649)
         self.horizontalLayout_4 = QHBoxLayout(TabPackage)
         self.horizontalLayout_4.setSpacing(5)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
@@ -37,9 +37,7 @@ class Ui_TabPackage(object):
         self.frame_6.setFrameShape(QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QFrame.Raised)
         self.verticalLayout = QVBoxLayout(self.frame_6)
-        self.verticalLayout.setSpacing(2)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(2, 2, 2, 2)
         self.frame_16 = QFrame(self.frame_6)
         self.frame_16.setObjectName(u"frame_16")
         self.frame_16.setLayoutDirection(Qt.LeftToRight)
@@ -49,12 +47,28 @@ class Ui_TabPackage(object):
         self.horizontalLayout_15.setSpacing(0)
         self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
         self.horizontalLayout_15.setContentsMargins(2, 2, 0, 2)
+        self.toolButtonRefresh = QToolButton(self.frame_16)
+        self.toolButtonRefresh.setObjectName(u"toolButtonRefresh")
+        self.toolButtonRefresh.setMinimumSize(QSize(25, 25))
+        icon = QIcon()
+        icon.addFile(u":/icon/light/refresh.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonRefresh.setIcon(icon)
+        self.toolButtonRefresh.setCheckable(False)
+        self.toolButtonRefresh.setChecked(False)
+        self.toolButtonRefresh.setAutoRaise(False)
+
+        self.horizontalLayout_15.addWidget(self.toolButtonRefresh)
+
+        self.horizontalSpacer_5 = QSpacerItem(10, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_15.addItem(self.horizontalSpacer_5)
+
         self.toolButtonSortAscending = QToolButton(self.frame_16)
         self.toolButtonSortAscending.setObjectName(u"toolButtonSortAscending")
         self.toolButtonSortAscending.setMinimumSize(QSize(25, 25))
-        icon = QIcon()
-        icon.addFile(u":/icon/light/sort_ascending.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonSortAscending.setIcon(icon)
+        icon1 = QIcon()
+        icon1.addFile(u":/icon/light/sort_ascending.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonSortAscending.setIcon(icon1)
         self.toolButtonSortAscending.setCheckable(True)
         self.toolButtonSortAscending.setChecked(True)
         self.toolButtonSortAscending.setAutoRaise(False)
@@ -64,9 +78,9 @@ class Ui_TabPackage(object):
         self.toolButtonSortDescending = QToolButton(self.frame_16)
         self.toolButtonSortDescending.setObjectName(u"toolButtonSortDescending")
         self.toolButtonSortDescending.setMinimumSize(QSize(25, 25))
-        icon1 = QIcon()
-        icon1.addFile(u":/icon/light/sort_descending.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonSortDescending.setIcon(icon1)
+        icon2 = QIcon()
+        icon2.addFile(u":/icon/light/sort_descending.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonSortDescending.setIcon(icon2)
         self.toolButtonSortDescending.setCheckable(True)
 
         self.horizontalLayout_15.addWidget(self.toolButtonSortDescending)
@@ -78,9 +92,9 @@ class Ui_TabPackage(object):
         self.toolButtonRemovePackage = QToolButton(self.frame_16)
         self.toolButtonRemovePackage.setObjectName(u"toolButtonRemovePackage")
         self.toolButtonRemovePackage.setMinimumSize(QSize(25, 25))
-        icon2 = QIcon()
-        icon2.addFile(u":/icon/light/remove.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonRemovePackage.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u":/icon/light/remove.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonRemovePackage.setIcon(icon3)
 
         self.horizontalLayout_15.addWidget(self.toolButtonRemovePackage)
 
@@ -88,9 +102,9 @@ class Ui_TabPackage(object):
         self.checkBoxOpenExplorer.setObjectName(u"checkBoxOpenExplorer")
         self.checkBoxOpenExplorer.setMinimumSize(QSize(25, 25))
         self.checkBoxOpenExplorer.setMaximumSize(QSize(25, 25))
-        icon3 = QIcon()
-        icon3.addFile(u":/icon/light/open_folder.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.checkBoxOpenExplorer.setIcon(icon3)
+        icon4 = QIcon()
+        icon4.addFile(u":/icon/light/open_folder.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.checkBoxOpenExplorer.setIcon(icon4)
         self.checkBoxOpenExplorer.setCheckable(True)
         self.checkBoxOpenExplorer.setChecked(True)
 
@@ -100,9 +114,9 @@ class Ui_TabPackage(object):
         self.checkBoxCopyClipboard.setObjectName(u"checkBoxCopyClipboard")
         self.checkBoxCopyClipboard.setMinimumSize(QSize(25, 25))
         self.checkBoxCopyClipboard.setMaximumSize(QSize(25, 25))
-        icon4 = QIcon()
-        icon4.addFile(u":/icon/light/copy.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.checkBoxCopyClipboard.setIcon(icon4)
+        icon5 = QIcon()
+        icon5.addFile(u":/icon/light/copy.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.checkBoxCopyClipboard.setIcon(icon5)
         self.checkBoxCopyClipboard.setCheckable(True)
         self.checkBoxCopyClipboard.setChecked(True)
 
@@ -124,18 +138,24 @@ class Ui_TabPackage(object):
 
         self.verticalLayout.addWidget(self.lineEditSearchPackage)
 
-        self.splitter_3 = QSplitter(self.frame_6)
-        self.splitter_3.setObjectName(u"splitter_3")
-        self.splitter_3.setOrientation(Qt.Vertical)
-        self.treeViewRecipe = QTreeView(self.splitter_3)
+        self.splitter = QSplitter(self.frame_6)
+        self.splitter.setObjectName(u"splitter")
+        self.splitter.setOrientation(Qt.Vertical)
+        self.treeViewRecipe = QTreeView(self.splitter)
         self.treeViewRecipe.setObjectName(u"treeViewRecipe")
         self.treeViewRecipe.setEnabled(True)
-        self.splitter_3.addWidget(self.treeViewRecipe)
-        self.treeViewRecipeInspect = QTreeView(self.splitter_3)
-        self.treeViewRecipeInspect.setObjectName(u"treeViewRecipeInspect")
-        self.splitter_3.addWidget(self.treeViewRecipeInspect)
+        self.splitter.addWidget(self.treeViewRecipe)
+        self.treeViewPackage = QTreeView(self.splitter)
+        self.treeViewPackage.setObjectName(u"treeViewPackage")
+        self.splitter.addWidget(self.treeViewPackage)
+        self.listViewPackageBinary = QListView(self.splitter)
+        self.listViewPackageBinary.setObjectName(u"listViewPackageBinary")
+        self.splitter.addWidget(self.listViewPackageBinary)
+        self.treeViewPackageInspect = QTreeView(self.splitter)
+        self.treeViewPackageInspect.setObjectName(u"treeViewPackageInspect")
+        self.splitter.addWidget(self.treeViewPackageInspect)
 
-        self.verticalLayout.addWidget(self.splitter_3)
+        self.verticalLayout.addWidget(self.splitter)
 
         self.splitter_5.addWidget(self.frame_6)
         self.frame_15 = QFrame(self.splitter_5)
@@ -206,13 +226,13 @@ class Ui_TabPackage(object):
 
         self.btnCopyCachePath = QPushButton(self.frame)
         self.btnCopyCachePath.setObjectName(u"btnCopyCachePath")
-        self.btnCopyCachePath.setIcon(icon4)
+        self.btnCopyCachePath.setIcon(icon5)
 
         self.horizontalLayout.addWidget(self.btnCopyCachePath)
 
         self.btnOpenCachePath = QPushButton(self.frame)
         self.btnOpenCachePath.setObjectName(u"btnOpenCachePath")
-        self.btnOpenCachePath.setIcon(icon3)
+        self.btnOpenCachePath.setIcon(icon4)
 
         self.horizontalLayout.addWidget(self.btnOpenCachePath)
 
@@ -245,13 +265,13 @@ class Ui_TabPackage(object):
 
         self.btnCopyDataPath = QPushButton(self.frame_21)
         self.btnCopyDataPath.setObjectName(u"btnCopyDataPath")
-        self.btnCopyDataPath.setIcon(icon4)
+        self.btnCopyDataPath.setIcon(icon5)
 
         self.horizontalLayout_21.addWidget(self.btnCopyDataPath)
 
         self.btnOpenDataPath = QPushButton(self.frame_21)
         self.btnOpenDataPath.setObjectName(u"btnOpenDataPath")
-        self.btnOpenDataPath.setIcon(icon3)
+        self.btnOpenDataPath.setIcon(icon4)
 
         self.horizontalLayout_21.addWidget(self.btnOpenDataPath)
 
@@ -283,13 +303,13 @@ class Ui_TabPackage(object):
 
         self.btnCopyRealPath = QPushButton(self.frame_2)
         self.btnCopyRealPath.setObjectName(u"btnCopyRealPath")
-        self.btnCopyRealPath.setIcon(icon4)
+        self.btnCopyRealPath.setIcon(icon5)
 
         self.horizontalLayout_2.addWidget(self.btnCopyRealPath)
 
         self.btnOpenRealPath = QPushButton(self.frame_2)
         self.btnOpenRealPath.setObjectName(u"btnOpenRealPath")
-        self.btnOpenRealPath.setIcon(icon3)
+        self.btnOpenRealPath.setIcon(icon4)
 
         self.horizontalLayout_2.addWidget(self.btnOpenRealPath)
 
@@ -322,13 +342,13 @@ class Ui_TabPackage(object):
 
         self.btnCopyPackagePath = QPushButton(self.frame_3)
         self.btnCopyPackagePath.setObjectName(u"btnCopyPackagePath")
-        self.btnCopyPackagePath.setIcon(icon4)
+        self.btnCopyPackagePath.setIcon(icon5)
 
         self.horizontalLayout_3.addWidget(self.btnCopyPackagePath)
 
         self.btnOpenPackagePath = QPushButton(self.frame_3)
         self.btnOpenPackagePath.setObjectName(u"btnOpenPackagePath")
-        self.btnOpenPackagePath.setIcon(icon3)
+        self.btnOpenPackagePath.setIcon(icon4)
 
         self.horizontalLayout_3.addWidget(self.btnOpenPackagePath)
 
@@ -379,6 +399,10 @@ class Ui_TabPackage(object):
 
     def retranslateUi(self, TabPackage):
         TabPackage.setWindowTitle(QCoreApplication.translate("TabPackage", u"Form", None))
+#if QT_CONFIG(tooltip)
+        self.toolButtonRefresh.setToolTip(QCoreApplication.translate("TabPackage", u"Refresh", None))
+#endif // QT_CONFIG(tooltip)
+        self.toolButtonRefresh.setText("")
 #if QT_CONFIG(tooltip)
         self.toolButtonSortAscending.setToolTip(QCoreApplication.translate("TabPackage", u"Sort Ascending", None))
 #endif // QT_CONFIG(tooltip)

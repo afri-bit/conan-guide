@@ -19,7 +19,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(1067, 800)
+        MainWindow.resize(1200, 800)
         MainWindow.setMinimumSize(QSize(800, 800))
         icon = QIcon()
         icon.addFile(u":/general/icon/conan_guide_icon.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -512,7 +512,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1067, 21))
+        self.menubar.setGeometry(QRect(0, 0, 1200, 21))
         self.menuView = QMenu(self.menubar)
         self.menuView.setObjectName(u"menuView")
         self.menuFile = QMenu(self.menubar)

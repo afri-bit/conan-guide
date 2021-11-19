@@ -6,7 +6,10 @@ from PySide2.QtCore import Slot
 
 from conanguide.api.conan_api import ConanApi
 from conanguide.ui.widget.tab.package.tab_package_ui import Ui_TabPackage
-from conanguide.ui.controller.conan_recipe import ConanRecipeController, ConanRecipeInspectController
+from conanguide.ui.controller.conan_recipe import ConanRecipeController
+from conanguide.ui.controller.conan_package_inspect import ConanPackageInspectController
+from conanguide.ui.controller.conan_package import ConanPackageController
+from conanguide.ui.controller.conan_package_binary import ConanPackageBinaryController
 
 
 class TabPackage(QtWidgets.QWidget, Ui_TabPackage):
@@ -25,7 +28,14 @@ class TabPackage(QtWidgets.QWidget, Ui_TabPackage):
         self.ctrl_treeview_conan_recipe = ConanRecipeController(self.treeViewRecipe, self.conan_api)
         self.ctrl_treeview_conan_recipe.update()
 
-        self.ctrl_treeview_conan_recipe_inspect = ConanRecipeInspectController(self.treeViewRecipeInspect,
+        self.ctrl_treeview_conan_recipe_inspect = ConanPackageInspectController(self.treeViewPackageInspect,
+                                                                                self.conan_api)
+
+        self.ctrl_treeview_conan_package = ConanPackageController(self.treeViewPackage,
+                                                                  self.conan_api)
+        self.ctrl_treeview_conan_package.update()
+
+        self.ctrl_listview_conan_package_binary = ConanPackageBinaryController(self.listViewPackageBinary,
                                                                                self.conan_api)
 
         self.lineEditSearchPackage.textChanged.connect(lambda: self.ctrl_treeview_conan_recipe.filter(
@@ -44,6 +54,17 @@ class TabPackage(QtWidgets.QWidget, Ui_TabPackage):
         self.toolButtonSortAscending.setChecked(False)
 
         # self.ctrl_listview_conan_profile.sort_descending()
+
+    @Slot()
+    def on_treeViewPackage_clicked(self):
+        package_name = str(self.treeViewPackage.selectedIndexes()[0].data())
+        self.ctrl_treeview_conan_recipe_inspect.inspect(package_name)
+        data_path = self.conan_api.get_package_data_path(package_name)
+        self.lineEditDataPath.setText(data_path)
+        self.lineEditRealPath.setText("")
+        self.lineEditPackagePath.setText("")
+
+        self.ctrl_listview_conan_package_binary.update(package_name)
 
     @Slot()
     def on_treeViewRecipe_clicked(self):

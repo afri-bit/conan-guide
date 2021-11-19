@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>891</width>
-    <height>723</height>
+    <height>649</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -54,21 +54,6 @@
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
-       <property name="spacing">
-        <number>2</number>
-       </property>
-       <property name="leftMargin">
-        <number>2</number>
-       </property>
-       <property name="topMargin">
-        <number>2</number>
-       </property>
-       <property name="rightMargin">
-        <number>2</number>
-       </property>
-       <property name="bottomMargin">
-        <number>2</number>
-       </property>
        <item>
         <widget class="QFrame" name="frame_16">
          <property name="layoutDirection">
@@ -96,6 +81,51 @@
           <property name="bottomMargin">
            <number>2</number>
           </property>
+          <item>
+           <widget class="QToolButton" name="toolButtonRefresh">
+            <property name="minimumSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Refresh</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../../../resources.qrc">
+              <normaloff>:/icon/light/refresh.png</normaloff>:/icon/light/refresh.png</iconset>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+            <property name="autoRaise">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
           <item>
            <widget class="QToolButton" name="toolButtonSortAscending">
             <property name="minimumSize">
@@ -290,7 +320,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QSplitter" name="splitter_3">
+        <widget class="QSplitter" name="splitter">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
@@ -299,7 +329,9 @@
            <bool>true</bool>
           </property>
          </widget>
-         <widget class="QTreeView" name="treeViewRecipeInspect"/>
+         <widget class="QTreeView" name="treeViewPackage"/>
+         <widget class="QListView" name="listViewPackageBinary"/>
+         <widget class="QTreeView" name="treeViewPackageInspect"/>
         </widget>
        </item>
       </layout>

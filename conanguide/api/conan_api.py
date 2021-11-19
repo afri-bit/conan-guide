@@ -41,6 +41,7 @@ class ConanApi(Conan):
         :param recipe_id: ID of the recipe to search for packages 'name/version@user/channel'
         :return list<dict>: list of dictionaries that contains all the information about the package
         """
+        foo = self.search_packages(recipe_id)
         return self.search_packages(recipe_id)["results"][0]["items"][0]["packages"]
 
     def get_package_cache_path(self, recipe_id: str, package_hash: str) -> [str, str]:
