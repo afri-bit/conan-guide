@@ -3,7 +3,7 @@ from PySide2.QtGui import QStandardItemModel, QStandardItem
 
 from conanguide.api.conan_api import ConanApi
 
-class ConanPackageInspectController:
+class ConanRecipeInspectController:
     """
     Controller class to control view and model of the conan recipe inspection
     """

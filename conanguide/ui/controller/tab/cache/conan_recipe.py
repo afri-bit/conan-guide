@@ -4,7 +4,7 @@ from PySide2.QtGui import QStandardItemModel, QStandardItem
 from conanguide.api.conan_api import ConanApi
 
 
-class ConanPackageController:
+class ConanRecipeController:
     """
     Controller class to control view and model of the conan package
     """
@@ -44,17 +44,17 @@ class ConanPackageController:
         self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Count")
         self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Name")
 
-        package_list = self.conan_api.get_all_recipes()
+        recipe_list = self.conan_api.get_recipe_list()
 
-        for pkg in package_list:
-            item_package = QStandardItem(pkg.get_info())
-            item_package.setEditable(False)
+        for recipe in recipe_list:
+            item_recipe = QStandardItem(recipe.get_info())
+            item_recipe.setEditable(False)
 
-            package_list = self.conan_api.get_package_list(pkg.get_info())
+            package_list = self.conan_api.get_package_list(recipe.get_info())
             package_count = QStandardItem(str(len(package_list)))
             package_count.setEditable(False)
 
-            self.model.appendRow([package_count, item_package])
+            self.model.appendRow([package_count, item_recipe])
 
         self.view.header().setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
         self.view.header().setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)

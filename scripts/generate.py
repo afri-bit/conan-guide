@@ -14,8 +14,8 @@ ui_files = [
      "to": "../conanguide/ui/widget/profile/profile_attribute_ui.py"},
     {"from": "../resources/ui/widget/tab/profile/tab_profile.ui",
      "to": "../conanguide/ui/widget/tab/profile/tab_profile_ui.py"},
-    {"from": "../resources/ui/widget/tab/package/tab_package.ui",
-     "to": "../conanguide/ui/widget/tab/package/tab_package_ui.py"},
+    {"from": "../resources/ui/widget/tab/cache/tab_cache.ui",
+     "to": "../conanguide/ui/widget/tab/cache/tab_cache_ui.py"},
     {"from": "../resources/ui/dialog/edit_name.ui",
      "to": "../conanguide/ui/dialog/edit/name/edit_name_ui.py"}
 ]

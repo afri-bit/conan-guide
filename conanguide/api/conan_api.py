@@ -13,7 +13,7 @@ class ConanApi(Conan):
     def __init__(self):
         super().__init__()
 
-    def get_all_recipes(self) -> list:
+    def get_recipe_list(self) -> list:
         """
         Get the all the recipes from the conan local cache
         :return list<RecipeInfo>: List of recipe info object, contains name, version, user and channel information

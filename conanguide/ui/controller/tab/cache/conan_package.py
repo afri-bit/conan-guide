@@ -6,7 +6,7 @@ from PySide2.QtGui import QStandardItemModel, QStandardItem
 from conanguide.api.conan_api import ConanApi
 
 
-class ConanPackageBinaryController:
+class ConanPackageController:
     def __init__(self, view: QtWidgets.QListView, conan_api: ConanApi):
         self.view = view
         self.conan_api = conan_api

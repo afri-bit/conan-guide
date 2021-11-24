@@ -7,11 +7,11 @@ from PySide2.QtCore import Slot
 from conanguide.api.conan_api import ConanApi
 from conanguide.client.runner.command_runner import CommandRunner
 from conanguide.ui.config.ui_config import UIConfiguration
-from conanguide.ui.controller.conan_remote import ConanRemoteListController
+from conanguide.ui.controller.tab.remote.conan_remote import ConanRemoteListController
 from conanguide.ui.main.main_window_ui import Ui_MainWindow
 from conanguide.utils.cmd.command_builder import ConanCommandBuilder
 from conanguide.ui.widget.tab.profile.tab_profile import TabProfile
-from conanguide.ui.widget.tab.package.tab_package import TabPackage
+from conanguide.ui.widget.tab.cache.tab_cache import TabCache
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -26,8 +26,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def __init(self):
         # Initialize the package tab
-        self.tab_package = TabPackage(self.conan_api)
-        self.layoutTabPackage.addWidget(self.tab_package)
+        self.tab_cache = TabCache(self.conan_api)
+        self.layoutTabCache.addWidget(self.tab_cache)
 
         # Initialize the profile tab
         self.tab_profile = TabProfile(self.conan_api)
@@ -90,8 +90,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.log_to_console(data)
 
     @Slot()
-    def on_actionViewPackage_triggered(self):
-        self.tabWidgetMain.setCurrentWidget(self.tabPackage)
+    def on_actionViewCache_triggered(self):
+        self.tabWidgetMain.setCurrentWidget(self.tabCache)
 
     @Slot()
     def on_actionViewWorkspace_triggered(self):

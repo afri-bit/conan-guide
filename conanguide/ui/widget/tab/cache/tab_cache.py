@@ -5,15 +5,15 @@ from PySide2 import QtWidgets
 from PySide2.QtCore import Slot
 
 from conanguide.api.conan_api import ConanApi
-from conanguide.ui.widget.tab.package.tab_package_ui import Ui_TabPackage
-from conanguide.ui.controller.conan_package_inspect import ConanPackageInspectController
-from conanguide.ui.controller.conan_package import ConanPackageController
-from conanguide.ui.controller.conan_package_binary import ConanPackageBinaryController
+from conanguide.ui.widget.tab.cache.tab_cache_ui import Ui_TabCache
+from conanguide.ui.controller.tab.cache.conan_recipe_inspect import ConanRecipeInspectController
+from conanguide.ui.controller.tab.cache.conan_recipe import ConanRecipeController
+from conanguide.ui.controller.tab.cache.conan_package import ConanPackageController
 
 
-class TabPackage(QtWidgets.QWidget, Ui_TabPackage):
+class TabCache(QtWidgets.QWidget, Ui_TabCache):
     def __init__(self, conan_api: ConanApi, *args, obj=None, **kwargs):
-        super(TabPackage, self).__init__(*args, **kwargs)
+        super(TabCache, self).__init__(*args, **kwargs)
 
         self.setupUi(self)
 
@@ -22,51 +22,51 @@ class TabPackage(QtWidgets.QWidget, Ui_TabPackage):
         # Line Edit Initialization for the conan cache path
         self.lineEditCachePath.setText(self.conan_api.cache_folder)
 
-        # Treeview initialization for the conan package list
-        self.ctrl_treeview_conan_package = ConanPackageController(self.treeViewPackage,
-                                                                  self.conan_api)
-        self.ctrl_treeview_conan_package.update()
+        # Treeview initialization for the conan recipe list
+        self.ctrl_treeview_conan_recipe = ConanRecipeController(self.treeViewRecipe,
+                                                                self.conan_api)
+        self.ctrl_treeview_conan_recipe.update()
 
-        self.ctrl_treeview_conan_recipe_inspect = ConanPackageInspectController(self.treeViewPackageInspect,
+        self.ctrl_treeview_conan_recipe_inspect = ConanRecipeInspectController(self.treeViewRecipeInspect,
                                                                                 self.conan_api)
 
-        self.ctrl_listview_conan_package_binary = ConanPackageBinaryController(self.listViewPackageBinary,
-                                                                               self.conan_api)
+        self.ctrl_listview_conan_package = ConanPackageController(self.listViewPackage,
+                                                                        self.conan_api)
 
-        self.lineEditSearchPackage.textChanged.connect(lambda: self.ctrl_treeview_conan_package.filter(
+        self.lineEditSearchPackage.textChanged.connect(lambda: self.ctrl_treeview_conan_recipe.filter(
             self.lineEditSearchPackage.text()))
 
     @Slot()
-    def on_treeViewPackage_clicked(self):
-        package_name = self.ctrl_treeview_conan_package.get_selected_item()
+    def on_treeViewRecipe_clicked(self):
+        recipe_id = self.ctrl_treeview_conan_recipe.get_selected_item()
 
         # Step 1: Fill the path information to the text edit widget
-        data_path = self.conan_api.get_package_data_path(package_name)
+        data_path = self.conan_api.get_package_data_path(recipe_id)
         self.lineEditDataPath.setText(data_path)
         self.lineEditRealPath.setText("")
         self.lineEditPackagePath.setText("")
 
         # Step 2: Inspect the package and fill the information to the treeview
-        self.ctrl_treeview_conan_recipe_inspect.inspect(package_name)
+        self.ctrl_treeview_conan_recipe_inspect.inspect(recipe_id)
 
         # Step 3: Fill the list of the package binaries to the list
-        self.ctrl_listview_conan_package_binary.update(package_name)
+        self.ctrl_listview_conan_package.update(recipe_id)
 
     @Slot()
-    def on_listViewPackageBinary_clicked(self):
-        package_name = self.ctrl_treeview_conan_package.get_selected_item()
-        package_binary_id = self.ctrl_listview_conan_package_binary.get_selected_item()
+    def on_listViewPackage_clicked(self):
+        recipe_id = self.ctrl_treeview_conan_recipe.get_selected_item()
+        package_id = self.ctrl_listview_conan_package.get_selected_item()
 
-        real_path, package_path = self.conan_api.get_package_cache_path(package_name, package_binary_id)
+        real_path, package_path = self.conan_api.get_package_cache_path(recipe_id, package_id)
 
-        data_path = self.conan_api.get_package_data_path(package_name)
+        data_path = self.conan_api.get_package_data_path(recipe_id)
 
         self.lineEditDataPath.setText(data_path)
         self.lineEditRealPath.setText(real_path)
         self.lineEditPackagePath.setText(package_path)
 
     @Slot()
-    def on_treeViewPackage_doubleClicked(self):
+    def on_treeViewRecipe_doubleClicked(self):
         if self.lineEditDataPath.text() != "":
             if self.checkBoxCopyClipboard.isChecked():
                 pyperclip.copy(self.lineEditDataPath.text())
@@ -75,7 +75,7 @@ class TabPackage(QtWidgets.QWidget, Ui_TabPackage):
                 os.startfile(self.lineEditDataPath.text())
 
     @Slot()
-    def on_listViewPackageBinary_doubleClicked(self):
+    def on_listViewPackage_doubleClicked(self):
         if self.lineEditPackagePath.text() != "":
             if self.checkBoxCopyClipboard.isChecked():
                 pyperclip.copy(self.lineEditPackagePath.text())
@@ -132,14 +132,14 @@ class TabPackage(QtWidgets.QWidget, Ui_TabPackage):
         self.toolButtonSortAscending.setChecked(True)
         self.toolButtonSortDescending.setChecked(False)
 
-        self.ctrl_treeview_conan_package.sort_ascending()
+        self.ctrl_treeview_conan_recipe.sort_ascending()
 
     @Slot()
     def on_toolButtonSortDescending_clicked(self):
         self.toolButtonSortDescending.setChecked(True)
         self.toolButtonSortAscending.setChecked(False)
 
-        self.ctrl_treeview_conan_package.sort_descending()
+        self.ctrl_treeview_conan_recipe.sort_descending()
 
     def refresh(self):
         # TODO: Implement the refresh function and the button

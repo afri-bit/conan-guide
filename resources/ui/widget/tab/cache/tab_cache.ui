@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TabPackage</class>
- <widget class="QWidget" name="TabPackage">
+ <class>TabCache</class>
+ <widget class="QWidget" name="TabCache">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -328,15 +328,15 @@
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
-          <widget class="QTreeView" name="treeViewPackage"/>
-          <widget class="QTreeView" name="treeViewPackageInspect"/>
+          <widget class="QTreeView" name="treeViewRecipe"/>
+          <widget class="QTreeView" name="treeViewRecipeInspect"/>
          </widget>
          <widget class="QSplitter" name="splitter_2">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
-          <widget class="QListView" name="listViewPackageBinary"/>
-          <widget class="QTreeView" name="treeViewRecipe">
+          <widget class="QListView" name="listViewPackage"/>
+          <widget class="QTreeView" name="treeViewPackageInspect">
            <property name="enabled">
             <bool>true</bool>
            </property>

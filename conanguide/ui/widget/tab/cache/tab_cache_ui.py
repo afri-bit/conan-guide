@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'tab_package.ui'
+## Form generated from reading UI file 'tab_cache.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -14,16 +14,16 @@ from PySide2.QtWidgets import *
 
 from conanguide.ui.res import resources_rc
 
-class Ui_TabPackage(object):
-    def setupUi(self, TabPackage):
-        if not TabPackage.objectName():
-            TabPackage.setObjectName(u"TabPackage")
-        TabPackage.resize(891, 649)
-        self.horizontalLayout_4 = QHBoxLayout(TabPackage)
+class Ui_TabCache(object):
+    def setupUi(self, TabCache):
+        if not TabCache.objectName():
+            TabCache.setObjectName(u"TabCache")
+        TabCache.resize(891, 649)
+        self.horizontalLayout_4 = QHBoxLayout(TabCache)
         self.horizontalLayout_4.setSpacing(5)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.splitter_5 = QSplitter(TabPackage)
+        self.splitter_5 = QSplitter(TabCache)
         self.splitter_5.setObjectName(u"splitter_5")
         self.splitter_5.setOrientation(Qt.Horizontal)
         self.frame_6 = QFrame(self.splitter_5)
@@ -144,23 +144,23 @@ class Ui_TabPackage(object):
         self.splitter = QSplitter(self.splitter_3)
         self.splitter.setObjectName(u"splitter")
         self.splitter.setOrientation(Qt.Horizontal)
-        self.treeViewPackage = QTreeView(self.splitter)
-        self.treeViewPackage.setObjectName(u"treeViewPackage")
-        self.splitter.addWidget(self.treeViewPackage)
-        self.treeViewPackageInspect = QTreeView(self.splitter)
-        self.treeViewPackageInspect.setObjectName(u"treeViewPackageInspect")
-        self.splitter.addWidget(self.treeViewPackageInspect)
+        self.treeViewRecipe = QTreeView(self.splitter)
+        self.treeViewRecipe.setObjectName(u"treeViewRecipe")
+        self.splitter.addWidget(self.treeViewRecipe)
+        self.treeViewRecipeInspect = QTreeView(self.splitter)
+        self.treeViewRecipeInspect.setObjectName(u"treeViewRecipeInspect")
+        self.splitter.addWidget(self.treeViewRecipeInspect)
         self.splitter_3.addWidget(self.splitter)
         self.splitter_2 = QSplitter(self.splitter_3)
         self.splitter_2.setObjectName(u"splitter_2")
         self.splitter_2.setOrientation(Qt.Horizontal)
-        self.listViewPackageBinary = QListView(self.splitter_2)
-        self.listViewPackageBinary.setObjectName(u"listViewPackageBinary")
-        self.splitter_2.addWidget(self.listViewPackageBinary)
-        self.treeViewRecipe = QTreeView(self.splitter_2)
-        self.treeViewRecipe.setObjectName(u"treeViewRecipe")
-        self.treeViewRecipe.setEnabled(True)
-        self.splitter_2.addWidget(self.treeViewRecipe)
+        self.listViewPackage = QListView(self.splitter_2)
+        self.listViewPackage.setObjectName(u"listViewPackage")
+        self.splitter_2.addWidget(self.listViewPackage)
+        self.treeViewPackageInspect = QTreeView(self.splitter_2)
+        self.treeViewPackageInspect.setObjectName(u"treeViewPackageInspect")
+        self.treeViewPackageInspect.setEnabled(True)
+        self.splitter_2.addWidget(self.treeViewPackageInspect)
         self.splitter_3.addWidget(self.splitter_2)
 
         self.verticalLayout.addWidget(self.splitter_3)
@@ -400,54 +400,54 @@ class Ui_TabPackage(object):
         self.horizontalLayout_4.addWidget(self.splitter_5)
 
 
-        self.retranslateUi(TabPackage)
+        self.retranslateUi(TabCache)
 
-        QMetaObject.connectSlotsByName(TabPackage)
+        QMetaObject.connectSlotsByName(TabCache)
     # setupUi
 
-    def retranslateUi(self, TabPackage):
-        TabPackage.setWindowTitle(QCoreApplication.translate("TabPackage", u"Form", None))
+    def retranslateUi(self, TabCache):
+        TabCache.setWindowTitle(QCoreApplication.translate("TabCache", u"Form", None))
 #if QT_CONFIG(tooltip)
-        self.toolButtonRefresh.setToolTip(QCoreApplication.translate("TabPackage", u"Refresh", None))
+        self.toolButtonRefresh.setToolTip(QCoreApplication.translate("TabCache", u"Refresh", None))
 #endif // QT_CONFIG(tooltip)
         self.toolButtonRefresh.setText("")
 #if QT_CONFIG(tooltip)
-        self.toolButtonSortAscending.setToolTip(QCoreApplication.translate("TabPackage", u"Sort Ascending", None))
+        self.toolButtonSortAscending.setToolTip(QCoreApplication.translate("TabCache", u"Sort Ascending", None))
 #endif // QT_CONFIG(tooltip)
         self.toolButtonSortAscending.setText("")
 #if QT_CONFIG(tooltip)
-        self.toolButtonSortDescending.setToolTip(QCoreApplication.translate("TabPackage", u"Sort Descending", None))
+        self.toolButtonSortDescending.setToolTip(QCoreApplication.translate("TabCache", u"Sort Descending", None))
 #endif // QT_CONFIG(tooltip)
         self.toolButtonSortDescending.setText("")
 #if QT_CONFIG(tooltip)
-        self.toolButtonRemovePackage.setToolTip(QCoreApplication.translate("TabPackage", u"Remove", None))
+        self.toolButtonRemovePackage.setToolTip(QCoreApplication.translate("TabCache", u"Remove", None))
 #endif // QT_CONFIG(tooltip)
         self.toolButtonRemovePackage.setText("")
 #if QT_CONFIG(tooltip)
-        self.checkBoxOpenExplorer.setToolTip(QCoreApplication.translate("TabPackage", u"Open Path", None))
+        self.checkBoxOpenExplorer.setToolTip(QCoreApplication.translate("TabCache", u"Open Path", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBoxOpenExplorer.setText("")
 #if QT_CONFIG(tooltip)
-        self.checkBoxCopyClipboard.setToolTip(QCoreApplication.translate("TabPackage", u"Copy Path", None))
+        self.checkBoxCopyClipboard.setToolTip(QCoreApplication.translate("TabCache", u"Copy Path", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkBoxCopyClipboard.setText(QCoreApplication.translate("TabPackage", u"...", None))
+        self.checkBoxCopyClipboard.setText(QCoreApplication.translate("TabCache", u"...", None))
 #if QT_CONFIG(whatsthis)
         self.lineEditSearchPackage.setWhatsThis("")
 #endif // QT_CONFIG(whatsthis)
-        self.lineEditSearchPackage.setPlaceholderText(QCoreApplication.translate("TabPackage", u"Search Package...", None))
-        self.groupBox.setTitle(QCoreApplication.translate("TabPackage", u"Local Cache", None))
-        self.label.setText(QCoreApplication.translate("TabPackage", u"Cache Path", None))
-        self.btnCopyCachePath.setText(QCoreApplication.translate("TabPackage", u"Copy", None))
-        self.btnOpenCachePath.setText(QCoreApplication.translate("TabPackage", u" Open", None))
-        self.label_20.setText(QCoreApplication.translate("TabPackage", u"Data Path", None))
-        self.btnCopyDataPath.setText(QCoreApplication.translate("TabPackage", u"Copy", None))
-        self.btnOpenDataPath.setText(QCoreApplication.translate("TabPackage", u" Open", None))
-        self.label_2.setText(QCoreApplication.translate("TabPackage", u"Real Path", None))
-        self.btnCopyRealPath.setText(QCoreApplication.translate("TabPackage", u"Copy", None))
-        self.btnOpenRealPath.setText(QCoreApplication.translate("TabPackage", u" Open", None))
-        self.label_3.setText(QCoreApplication.translate("TabPackage", u"Package Path", None))
-        self.btnCopyPackagePath.setText(QCoreApplication.translate("TabPackage", u"Copy", None))
-        self.btnOpenPackagePath.setText(QCoreApplication.translate("TabPackage", u" Open", None))
-        self.label_15.setText(QCoreApplication.translate("TabPackage", u"Dependencies Graph", None))
+        self.lineEditSearchPackage.setPlaceholderText(QCoreApplication.translate("TabCache", u"Search Package...", None))
+        self.groupBox.setTitle(QCoreApplication.translate("TabCache", u"Local Cache", None))
+        self.label.setText(QCoreApplication.translate("TabCache", u"Cache Path", None))
+        self.btnCopyCachePath.setText(QCoreApplication.translate("TabCache", u"Copy", None))
+        self.btnOpenCachePath.setText(QCoreApplication.translate("TabCache", u" Open", None))
+        self.label_20.setText(QCoreApplication.translate("TabCache", u"Data Path", None))
+        self.btnCopyDataPath.setText(QCoreApplication.translate("TabCache", u"Copy", None))
+        self.btnOpenDataPath.setText(QCoreApplication.translate("TabCache", u" Open", None))
+        self.label_2.setText(QCoreApplication.translate("TabCache", u"Real Path", None))
+        self.btnCopyRealPath.setText(QCoreApplication.translate("TabCache", u"Copy", None))
+        self.btnOpenRealPath.setText(QCoreApplication.translate("TabCache", u" Open", None))
+        self.label_3.setText(QCoreApplication.translate("TabCache", u"Package Path", None))
+        self.btnCopyPackagePath.setText(QCoreApplication.translate("TabCache", u"Copy", None))
+        self.btnOpenPackagePath.setText(QCoreApplication.translate("TabCache", u" Open", None))
+        self.label_15.setText(QCoreApplication.translate("TabCache", u"Dependencies Graph", None))
     # retranslateUi
 

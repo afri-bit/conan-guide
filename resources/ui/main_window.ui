@@ -57,15 +57,15 @@
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="tabPackage">
+      <widget class="QWidget" name="tabCache">
        <attribute name="icon">
         <iconset resource="../resources.qrc">
-         <normaloff>:/icon/light/tab_package.png</normaloff>:/icon/light/tab_package.png</iconset>
+         <normaloff>:/icon/light/tab_cache.png</normaloff>:/icon/light/tab_cache.png</iconset>
        </attribute>
        <attribute name="title">
-        <string>Package</string>
+        <string>Cache</string>
        </attribute>
-       <layout class="QHBoxLayout" name="layoutTabPackage">
+       <layout class="QHBoxLayout" name="layoutTabCache">
         <property name="spacing">
          <number>0</number>
         </property>
@@ -902,7 +902,7 @@
     <property name="title">
      <string>View</string>
     </property>
-    <addaction name="actionViewPackage"/>
+    <addaction name="actionViewCache"/>
     <addaction name="actionViewWorkspace"/>
     <addaction name="actionViewProfile"/>
     <addaction name="actionViewRemote"/>
@@ -1123,7 +1123,7 @@
     <string>Ctrl+Shift+E</string>
    </property>
   </action>
-  <action name="actionViewPackage">
+  <action name="actionViewCache">
    <property name="checked">
     <bool>false</bool>
    </property>
@@ -1132,10 +1132,10 @@
      <normaloff>:/icon/light/package.png</normaloff>:/icon/light/package.png</iconset>
    </property>
    <property name="text">
-    <string>Package</string>
+    <string>Cache</string>
    </property>
    <property name="toolTip">
-    <string>Package</string>
+    <string>Cache</string>
    </property>
    <property name="shortcut">
     <string>Alt+1</string>
