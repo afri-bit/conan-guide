@@ -14,12 +14,17 @@ class ConanPackageController:
         self.conan_api = conan_api
 
         self.model = QStandardItemModel()
+        self.proxy_model = QtCore.QSortFilterProxyModel()
+        self.proxy_model.setSourceModel(self.model)
+        # With this function set the column as the key column to filter data later
+        self.proxy_model.setFilterKeyColumn(1)
+
+        self.view.setModel(self.proxy_model)
 
         # Initialize header at the beginning to show the column at the beginning
         self.model.setColumnCount(2)
-        self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Name")
-        self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Count")
-        self.view.setModel(self.model)
+        self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Count")
+        self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Name")
 
         # Place holder list to store previous header with, so the width will not be set to default after updating
         self.header_width = []
@@ -36,8 +41,8 @@ class ConanPackageController:
         # Init the model with the header
         self.model.clear()
         self.model.setColumnCount(2)
-        self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Name")
-        self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Count")
+        self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Count")
+        self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Name")
 
         package_list = self.conan_api.get_all_recipes()
 
@@ -49,7 +54,7 @@ class ConanPackageController:
             package_count = QStandardItem(str(len(package_list)))
             package_count.setEditable(False)
 
-            self.model.appendRow([item_package, package_count])
+            self.model.appendRow([package_count, item_package])
 
         self.view.header().setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
         self.view.header().setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
@@ -73,3 +78,18 @@ class ConanPackageController:
         """
         for i in range(0, len(self.header_width)):
             self.view.setColumnWidth(i, self.header_width[i])
+
+    def filter(self, keyword: str):
+        """
+        Function to filter the model based on the keyword
+        """
+        self.proxy_model.setFilterRegExp(QtCore.QRegExp(keyword, QtCore.Qt.CaseInsensitive, QtCore.QRegExp.RegExp2))
+
+    def sort_ascending(self):
+        self.proxy_model.sort(1, QtCore.Qt.AscendingOrder)
+
+    def sort_descending(self):
+        self.proxy_model.sort(1, QtCore.Qt.DescendingOrder)
+
+    def get_selected_item(self) -> str:
+        return self.view.selectedIndexes()[1].data()

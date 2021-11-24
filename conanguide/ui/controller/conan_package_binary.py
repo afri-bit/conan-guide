@@ -24,3 +24,6 @@ class ConanPackageBinaryController:
             item_package = QStandardItem(pkg["id"])
             item_package.setEditable(False)
             self.model.appendRow(item_package)
+
+    def get_selected_item(self) -> str:
+        return self.view.selectedIndexes()[0].data()

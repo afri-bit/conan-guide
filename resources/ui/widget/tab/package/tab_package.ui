@@ -320,18 +320,28 @@
         </widget>
        </item>
        <item>
-        <widget class="QSplitter" name="splitter">
+        <widget class="QSplitter" name="splitter_3">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <widget class="QTreeView" name="treeViewRecipe">
-          <property name="enabled">
-           <bool>true</bool>
+         <widget class="QSplitter" name="splitter">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
+          <widget class="QTreeView" name="treeViewPackage"/>
+          <widget class="QTreeView" name="treeViewPackageInspect"/>
          </widget>
-         <widget class="QTreeView" name="treeViewPackage"/>
-         <widget class="QListView" name="listViewPackageBinary"/>
-         <widget class="QTreeView" name="treeViewPackageInspect"/>
+         <widget class="QSplitter" name="splitter_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <widget class="QListView" name="listViewPackageBinary"/>
+          <widget class="QTreeView" name="treeViewRecipe">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
         </widget>
        </item>
       </layout>
