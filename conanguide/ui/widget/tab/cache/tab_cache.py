@@ -98,25 +98,21 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
     def on_btnCopyCachePath_pressed(self):
         if self.lineEditConanPath.text() != "":
             pyperclip.copy(self.lineEditConanPath.text())
-            # self.statusBar.showMessage("Conan cache path is copied to clipboard!", 2000)
 
     @Slot()
     def on_btnCopyDataPath_pressed(self):
         if self.lineEditDataPath.text() != "":
             pyperclip.copy(self.lineEditDataPath.text())
-            # self.statusBar.showMessage("Conan package data path is copied to clipboard!", 2000)
 
     @Slot()
     def on_btnCopyRealPath_pressed(self):
         if self.lineEditRealPath.text() != "":
             pyperclip.copy(self.lineEditRealPath.text())
-            # self.statusBar.showMessage("Conan package real path is copied to clipboard!", 2000)
 
     @Slot()
     def on_btnCopyPackagePath_pressed(self):
         if self.lineEditPackagePath.text() != "":
             pyperclip.copy(self.lineEditPackagePath.text())
-            # self.statusBar.showMessage("Conan package path is copied to clipboard!", 2000)
 
     @Slot()
     def on_btnOpenCachePath_pressed(self):
@@ -152,6 +148,53 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
 
         self.ctrl_treeview_conan_recipe.sort_descending()
 
+    @Slot()
+    def on_toolButtonRemoveRecipe_clicked(self):
+        recipe_id = self.ctrl_treeview_conan_recipe.get_selected_item()
+        if recipe_id is not None:
+            reply = QtWidgets.QMessageBox.question(self, f"Delete Recipe",
+                                                   f"Are you sure to delete the recipe '{recipe_id}'",
+                                                   QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+                                                   QtWidgets.QMessageBox.No)
+
+            if reply == QtWidgets.QMessageBox.Yes:
+                self.ctrl_treeview_conan_recipe.remove_recipe(recipe_id)
+
+                # Refiltered if the filter is applied
+                # During removing process the filter was reseted to empty, now apply the filter again cover the user
+                # experience. This is kinda of workaround.
+                self.ctrl_treeview_conan_recipe.filter(self.lineEditSearchRecipe.text())
+
+                self.ctrl_treeview_conan_recipe_inspect.initialize()
+
+                self.ctrl_listview_conan_package.clear()
+                self.ctrl_treeview_conan_package_inspect.initialize()
+
+
+
+    @Slot()
+    def on_toolButtonRemovePackage_clicked(self):
+        package_id = self.ctrl_listview_conan_package.get_selected_item()
+        if package_id is not None:
+            recipe_id = self.ctrl_treeview_conan_recipe.get_selected_item()
+
+            reply = QtWidgets.QMessageBox.question(self, f"Delete Package - {recipe_id}",
+                                                   f"Are you sure to delete the package {package_id}",
+                                                   QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+                                                   QtWidgets.QMessageBox.No)
+
+            if reply == QtWidgets.QMessageBox.Yes:
+                self.ctrl_listview_conan_package.remove_selected_package(recipe_id)
+                self.ctrl_treeview_conan_package_inspect.initialize()
+                self.refresh()
+
+    @Slot()
+    def on_toolButtonRefresh_clicked(self):
+        self.refresh()
+
     def refresh(self):
-        # TODO: Implement the refresh function and the button
-        pass
+        self.ctrl_treeview_conan_recipe.update()
+
+        self.ctrl_treeview_conan_recipe_inspect.initialize()
+        self.ctrl_listview_conan_package.clear()
+        self.ctrl_treeview_conan_package_inspect.initialize()

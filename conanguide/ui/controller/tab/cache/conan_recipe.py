@@ -91,5 +91,20 @@ class ConanRecipeController:
     def sort_descending(self):
         self.proxy_model.sort(1, QtCore.Qt.DescendingOrder)
 
-    def get_selected_item(self) -> str:
-        return self.view.selectedIndexes()[1].data()
+    def get_selected_item(self) -> str or None:
+        list_selected_items = self.view.selectedIndexes()
+
+        # Checking the list of selected index
+        # Currently only supporting single selection of items
+        if len(list_selected_items) > 0:  # Only pick the first item in the list
+            return self.view.selectedIndexes()[1].data()
+        else:  # Empty list will return None
+            return None
+
+    def remove_recipe(self, recipe_id: str):
+        self.conan_api.remove(recipe_id, force=True)
+
+        # Remove filter to avoid removing the wrong index
+        # This is kinda workaround currently
+        self.filter("")
+        self.model.removeRow(self.view.currentIndex().row())

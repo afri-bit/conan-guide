@@ -26,7 +26,8 @@ class ConanPackageInspectController:
     def inspect(self, recipe_id: str, package_id: str):
         """
         Method to show the detail information about the recipe
-        :param recipe_id: Name of the recipe to be inspected
+        :param recipe_id: Name of the recipe to search for the packages
+        :param package_id: Package id to be inspected
         :return: -
         """
 
@@ -47,7 +48,6 @@ class ConanPackageInspectController:
         item_key.setEditable(False)
         item_value.setEditable(False)
         self.model.appendRow([item_key, item_value])
-
 
         # ========== Options section
         item_key = QStandardItem("options")

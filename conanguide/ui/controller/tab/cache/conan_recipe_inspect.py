@@ -30,14 +30,7 @@ class ConanRecipeInspectController:
         :return: -
         """
 
-        # Store the current column width before deleting the model
-        self.__store_column_width()
-
-        # Init the model with the header
-        self.model.clear()
-        self.model.setColumnCount(2)
-        self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Property")
-        self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Value")
+        self.initialize()
 
         inspect_info = self.conan_api.inspect(recipe_id, None)
 
@@ -66,6 +59,16 @@ class ConanRecipeInspectController:
 
         # Set the column width with the previous value
         self.__set_column_width()
+
+    def initialize(self):
+        # Store the current column width before deleting the model
+        self.__store_column_width()
+
+        # Init the model with the header
+        self.model.clear()
+        self.model.setColumnCount(2)
+        self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Property")
+        self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Value")
 
     def __store_column_width(self):
         """
