@@ -16,6 +16,8 @@ ui_files = [
      "to": "../conanguide/ui/widget/tab/profile/tab_profile_ui.py"},
     {"from": "../resources/ui/widget/tab/cache/tab_cache.ui",
      "to": "../conanguide/ui/widget/tab/cache/tab_cache_ui.py"},
+    {"from": "../resources/ui/widget/tab/remote/tab_remote.ui",
+     "to": "../conanguide/ui/widget/tab/remote/tab_remote_ui.py"},
     {"from": "../resources/ui/dialog/edit_name.ui",
      "to": "../conanguide/ui/dialog/edit/name/edit_name_ui.py"}
 ]
@@ -75,3 +77,4 @@ refactor_resource_import(ui_files[1]["to"], "from  . import resources_rc", "from
 refactor_resource_import(ui_files[2]["to"], "from  . import resources_rc", "from conanguide.ui.res import resources_rc")
 refactor_resource_import(ui_files[3]["to"], "from  . import resources_rc", "from conanguide.ui.res import resources_rc")
 refactor_resource_import(ui_files[4]["to"], "from  . import resources_rc", "from conanguide.ui.res import resources_rc")
+refactor_resource_import(ui_files[5]["to"], "from  . import resources_rc", "from conanguide.ui.res import resources_rc")
