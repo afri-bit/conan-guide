@@ -5,7 +5,7 @@ from conanguide.api.conan_api import ConanApi
 from conanguide.data.conan_profile import ConanProfile
 from conanguide.ui.widget.tab.profile.tab_profile_ui import Ui_TabProfile
 from conanguide.ui.widget.profile.profile_attribute import ProfileAttribute
-from conanguide.ui.controller.conan_profile import ConanProfileListController, ConanProfileSettingsController, \
+from conanguide.ui.controller.tab.profile.conan_profile import ConanProfileListController, ConanProfileSettingsController, \
     ConanProfileOptionsController, ConanProfileBuildReqsController, ConanProfileEnvController
 from conanguide.ui.dialog.edit.name.edit_name import DialogEditName
 

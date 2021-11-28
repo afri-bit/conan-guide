@@ -1,22 +1,17 @@
 import datetime
 import os
 
-import pyperclip
 from PySide2 import QtWidgets
 from PySide2.QtCore import Slot
 
 from conanguide.api.conan_api import ConanApi
 from conanguide.client.runner.command_runner import CommandRunner
 from conanguide.ui.config.ui_config import UIConfiguration
-from conanguide.ui.controller.conan_profile import ConanProfileListController, \
-    ConanProfileSettingsController, ConanProfileOptionsController, ConanProfileBuildReqsController, \
-    ConanProfileEnvController
-from conanguide.ui.controller.conan_recipe import ConanRecipeController, ConanRecipeInspectController
-from conanguide.ui.controller.conan_remote import ConanRemoteListController
+from conanguide.ui.controller.tab.remote.conan_remote import ConanRemoteListController
 from conanguide.ui.main.main_window_ui import Ui_MainWindow
 from conanguide.utils.cmd.command_builder import ConanCommandBuilder
-from conanguide.ui.widget.profile.profile_attribute import ProfileAttribute
 from conanguide.ui.widget.tab.profile.tab_profile import TabProfile
+from conanguide.ui.widget.tab.cache.tab_cache import TabCache
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -30,24 +25,17 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.__init()
 
     def __init(self):
-        # Line Edit Initialization for the conan cache path
-        self.lineEditCachePath.setText(self.conan_api.cache_folder)
-
-        # Treeview initialization for the conan recipe list
-        self.treeViewRecipe.setHeaderHidden(True)
-        self.ctrl_treeview_conan_recipe = ConanRecipeController(self.treeViewRecipe, self.conan_api)
-        self.ctrl_treeview_conan_recipe.update()
-
-        self.ctrl_treeview_conan_recipe_inspect = ConanRecipeInspectController(self.treeViewRecipeInspect,
-                                                                               self.conan_api)
-
-        # Tableview initialization for the remote list
-        self.ctrl_tableview_conan_remote = ConanRemoteListController(self.tableViewRemoteList, self.conan_api)
-        self.ctrl_tableview_conan_remote.update()
+        # Initialize the package tab
+        self.tab_cache = TabCache(self.conan_api)
+        self.layoutTabCache.addWidget(self.tab_cache)
 
         # Initialize the profile tab
         self.tab_profile = TabProfile(self.conan_api)
         self.layoutTabProfile.addWidget(self.tab_profile)
+
+        # Tableview initialization for the remote list
+        self.ctrl_tableview_conan_remote = ConanRemoteListController(self.tableViewRemoteList, self.conan_api)
+        self.ctrl_tableview_conan_remote.update()
 
         # Fill combobox with profile name
         self.comboBoxProfile.addItems(self.conan_api.profile_list())
@@ -77,7 +65,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.command_runner.signals.result.connect(self.on_command_result)
         self.command_runner.signals.finished.connect(self.on_command_finished)
 
-        self.__load_ui_state()
+        # self.__load_ui_state()
 
     def closeEvent(self, event) -> None:
         self.__save_ui_state()
@@ -102,8 +90,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.log_to_console(data)
 
     @Slot()
-    def on_actionViewPackage_triggered(self):
-        self.tabWidgetMain.setCurrentWidget(self.tabPackage)
+    def on_actionViewCache_triggered(self):
+        self.tabWidgetMain.setCurrentWidget(self.tabCache)
 
     @Slot()
     def on_actionViewWorkspace_triggered(self):
@@ -158,81 +146,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         import webbrowser
 
         webbrowser.open("https://conan.io/")
-
-    @Slot()
-    def on_btnCopyCachePath_pressed(self):
-        if self.lineEditConanPath.text() != "":
-            pyperclip.copy(self.lineEditConanPath.text())
-            self.statusBar.showMessage("Conan cache path is copied to clipboard!", 2000)
-
-    @Slot()
-    def on_btnCopyDataPath_pressed(self):
-        if self.lineEditDataPath.text() != "":
-            pyperclip.copy(self.lineEditDataPath.text())
-            self.statusBar.showMessage("Conan package data path is copied to clipboard!", 2000)
-
-    @Slot()
-    def on_btnCopyRealPath_pressed(self):
-        if self.lineEditRealPath.text() != "":
-            pyperclip.copy(self.lineEditRealPath.text())
-            self.statusBar.showMessage("Conan package real path is copied to clipboard!", 2000)
-
-    @Slot()
-    def on_btnCopyPackagePath_pressed(self):
-        if self.lineEditPackagePath.text() != "":
-            pyperclip.copy(self.lineEditPackagePath.text())
-            self.statusBar.showMessage("Conan package path is copied to clipboard!", 2000)
-
-    @Slot()
-    def on_btnOpenCachePath_pressed(self):
-        if self.lineEditCachePath.text() != "":
-            os.startfile(self.lineEditCachePath.text())
-
-    @Slot()
-    def on_btnOpenDataPath_pressed(self):
-        if self.lineEditDataPath.text() != "":
-            os.startfile(self.lineEditDataPath.text())
-
-    @Slot()
-    def on_btnOpenRealPath_pressed(self):
-        if self.lineEditRealPath.text() != "":
-            os.startfile(self.lineEditRealPath.text())
-
-    @Slot()
-    def on_btnOpenPackagePath_pressed(self):
-        if self.lineEditPackagePath.text() != "":
-            os.startfile(self.lineEditPackagePath.text())
-
-    @Slot()
-    def on_treeViewRecipe_clicked(self):
-        if self.treeViewRecipe.currentIndex().parent().data() is not None:  # Package with hash id
-            recipe_id = self.treeViewRecipe.currentIndex().parent().data()
-            package_hash = self.treeViewRecipe.currentIndex().data()
-
-            real_path, package_path = self.conan_api.get_package_cache_path(recipe_id, package_hash)
-
-            data_path = self.conan_api.get_package_data_path(recipe_id)
-            self.lineEditDataPath.setText(data_path)
-            self.lineEditRealPath.setText(real_path)
-            self.lineEditPackagePath.setText(package_path)
-
-        else:  # Parent of the package
-            recipe_id = self.treeViewRecipe.currentIndex().data()
-            self.ctrl_treeview_conan_recipe_inspect.inspect(recipe_id)
-            data_path = self.conan_api.get_package_data_path(recipe_id)
-            self.lineEditDataPath.setText(data_path)
-            self.lineEditRealPath.setText("")
-            self.lineEditPackagePath.setText("")
-
-    @Slot()
-    def on_treeViewRecipe_doubleClicked(self):
-        if self.lineEditPackagePath.text() != "":
-            if self.checkBoxCopyClipboard.isChecked():
-                pyperclip.copy(self.lineEditPackagePath.text())
-                self.statusBar.showMessage("Package path is copied to clipboard!", 2000)
-
-            if self.checkBoxOpenExplorer.isChecked():
-                os.startfile(self.lineEditPackagePath.text())
 
     @Slot()
     def on_toolBtnExplorerRecipePath_pressed(self):
@@ -348,58 +261,67 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             view.setText(os.path.abspath(folder_path))
 
     def __save_ui_state(self):
+
+        # TODO: Get all the UI state from all TABS
+
+        # TODO: Write to file
+
         # Configuration
-        self.ui_config.add_value("user", self.lineEditUser.text())
-        self.ui_config.add_value("channel", self.lineEditChannel.text())
-        self.ui_config.add_value("recipe_path", self.lineEditRecipePath.text())
-        self.ui_config.add_value("install_path", self.lineEditInstallPath.text())
-        self.ui_config.add_value("build_path", self.lineEditBuildPath.text())
-        self.ui_config.add_value("source_path", self.lineEditSourcePath.text())
-        self.ui_config.add_value("package_path", self.lineEditPackageExpPath.text())
-        self.ui_config.add_value("parameter", self.lineEditAdditionalParams.text())
-        self.ui_config.add_value("profile", self.comboBoxProfile.currentText())
-
-        # Main Window
-        self.ui_config.add_header("main_window")
-        self.ui_config.add_value("x", self.pos().x(), "main_window")
-        self.ui_config.add_value("y", self.pos().y() + 30, "main_window")
-        self.ui_config.add_value("width", self.width(), "main_window")
-        self.ui_config.add_value("height", self.height(), "main_window")
-
-        # DockWidget - Recipe
-        self.ui_config.add_header("dock_recipe")
-        self.ui_config.add_value("open_explorer", self.checkBoxOpenExplorer.isChecked(), "dock_recipe")
-        self.ui_config.add_value("copy_clipboard", self.checkBoxCopyClipboard.isChecked(), "dock_recipe")
-
-        # DockWidget - Console
-        self.ui_config.add_header("dock_console")
-        self.ui_config.add_value("scroll_end", self.toolButtonConsoleScrollToEnd.isChecked(), "dock_console")
-
-        self.ui_config.save_config()
+        # self.ui_config.add_value("user", self.lineEditUser.text())
+        # self.ui_config.add_value("channel", self.lineEditChannel.text())
+        # self.ui_config.add_value("recipe_path", self.lineEditRecipePath.text())
+        # self.ui_config.add_value("install_path", self.lineEditInstallPath.text())
+        # self.ui_config.add_value("build_path", self.lineEditBuildPath.text())
+        # self.ui_config.add_value("source_path", self.lineEditSourcePath.text())
+        # self.ui_config.add_value("package_path", self.lineEditPackageExpPath.text())
+        # self.ui_config.add_value("parameter", self.lineEditAdditionalParams.text())
+        # self.ui_config.add_value("profile", self.comboBoxProfile.currentText())
+        #
+        # # Main Window
+        # self.ui_config.add_header("main_window")
+        # self.ui_config.add_value("x", self.pos().x(), "main_window")
+        # self.ui_config.add_value("y", self.pos().y() + 30, "main_window")
+        # self.ui_config.add_value("width", self.width(), "main_window")
+        # self.ui_config.add_value("height", self.height(), "main_window")
+        #
+        # # DockWidget - Recipe
+        # # self.ui_config.add_header("dock_recipe")
+        # # self.ui_config.add_value("open_explorer", self.checkBoxOpenExplorer.isChecked(), "dock_recipe")
+        # # self.ui_config.add_value("copy_clipboard", self.checkBoxCopyClipboard.isChecked(), "dock_recipe")
+        #
+        # # DockWidget - Console
+        # self.ui_config.add_header("dock_console")
+        # self.ui_config.add_value("scroll_end", self.toolButtonConsoleScrollToEnd.isChecked(), "dock_console")
+        #
+        # self.ui_config.save_config()
+        pass
 
     def __load_ui_state(self):
-        config = self.ui_config.load_config()
-        if config is not None:
-            # Configuration
-            self.lineEditUser.setText(config["user"])
-            self.lineEditChannel.setText(config["channel"])
-            self.lineEditRecipePath.setText(config["recipe_path"])
-            self.lineEditInstallPath.setText(config["install_path"])
-            self.lineEditBuildPath.setText(config["build_path"])
-            self.lineEditSourcePath.setText(config["source_path"])
-            self.lineEditPackageExpPath.setText(config["package_path"])
-            self.lineEditAdditionalParams.setText(config["parameter"])
-            self.comboBoxProfile.setCurrentText(config["profile"])
 
-            # Window
-            self.setGeometry(config["main_window"]["x"],
-                             config["main_window"]["y"],
-                             config["main_window"]["width"],
-                             config["main_window"]["height"])
-
-            # DockWidget - Recipe
-            self.checkBoxOpenExplorer.setChecked(config["dock_recipe"]["open_explorer"])
-            self.checkBoxCopyClipboard.setChecked(config["dock_recipe"]["copy_clipboard"])
-
-            # DockWidget - Console
-            self.toolButtonConsoleScrollToEnd.setChecked(config["dock_console"]["scroll_end"])
+        # TODO: Load UI State and distribute to all TABS
+        # config = self.ui_config.load_config()
+        # if config is not None:
+        #     # Configuration
+        #     self.lineEditUser.setText(config["user"])
+        #     self.lineEditChannel.setText(config["channel"])
+        #     self.lineEditRecipePath.setText(config["recipe_path"])
+        #     self.lineEditInstallPath.setText(config["install_path"])
+        #     self.lineEditBuildPath.setText(config["build_path"])
+        #     self.lineEditSourcePath.setText(config["source_path"])
+        #     self.lineEditPackageExpPath.setText(config["package_path"])
+        #     self.lineEditAdditionalParams.setText(config["parameter"])
+        #     self.comboBoxProfile.setCurrentText(config["profile"])
+        #
+        #     # Window
+        #     self.setGeometry(config["main_window"]["x"],
+        #                      config["main_window"]["y"],
+        #                      config["main_window"]["width"],
+        #                      config["main_window"]["height"])
+        #
+        #     # DockWidget - Recipe
+        #     self.checkBoxOpenExplorer.setChecked(config["dock_recipe"]["open_explorer"])
+        #     self.checkBoxCopyClipboard.setChecked(config["dock_recipe"]["copy_clipboard"])
+        #
+        #     # DockWidget - Console
+        #     self.toolButtonConsoleScrollToEnd.setChecked(config["dock_console"]["scroll_end"])
+        pass

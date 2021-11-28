@@ -13,7 +13,7 @@ class ConanApi(Conan):
     def __init__(self):
         super().__init__()
 
-    def get_all_recipes(self) -> list:
+    def get_recipe_list(self) -> list:
         """
         Get the all the recipes from the conan local cache
         :return list<RecipeInfo>: List of recipe info object, contains name, version, user and channel information
@@ -139,4 +139,25 @@ class ConanApi(Conan):
         new_profile_file = os.path.join(self.profiles_folder, new_name)
 
         os.rename(profile_file, new_profile_file)
+
+    def get_package_info(self, recipe_id: str, package_id: str) -> dict or None:
+        """
+        Package that return the package information based on the given package id
+        Currently this function will lopp through the list of packages and check if the package id is matches
+        :param recipe_id: ID of the recipe to search for packages 'name/version@user/channel'
+        :param package_id: ID of the package itself to get the information from
+        :return package_info - dict/None: Return dict if the package is found, otherwise None
+        """
+        package_info = None
+
+        package_list = self.get_package_list(recipe_id)
+
+        # Looping through the list until the matched packaged is found
+        # Otherwise return None
+        for pkg in package_list:
+            if pkg["id"] == package_id:
+                package_info = pkg  # Return the package information
+                break
+
+        return package_info
 

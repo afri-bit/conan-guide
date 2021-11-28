@@ -4,36 +4,6 @@ from PySide2.QtGui import QStandardItemModel, QStandardItem
 from conanguide.api.conan_api import ConanApi
 
 
-class ConanRecipeController:
-    """
-    Controller class to control view and model of the conan recipe list
-    """
-    def __init__(self, view: QtWidgets.QTreeView, conan_api: ConanApi):
-        self.view = view
-        self.model = QStandardItemModel()
-        self.conan_api = conan_api
-
-        self.view.setModel(self.model)
-
-    def update(self):
-        self.model.clear()
-
-        recipe_list = self.conan_api.get_all_recipes()
-
-        for recipe in recipe_list:
-            item_recipe = QStandardItem(recipe.get_info())
-            item_recipe.setEditable(False)
-            self.model.appendRow(item_recipe)
-
-            package_list = self.conan_api.get_package_list(recipe.get_info())
-
-            # Get all the packages under the current recipe
-            for pkg in package_list:
-                item_package = QStandardItem(pkg["id"])
-                item_package.setEditable(False)
-                item_recipe.appendRow(item_package)
-
-
 class ConanRecipeInspectController:
     """
     Controller class to control view and model of the conan recipe inspection
@@ -60,14 +30,7 @@ class ConanRecipeInspectController:
         :return: -
         """
 
-        # Store the current column width before deleting the model
-        self.__store_column_width()
-
-        # Init the model with the header
-        self.model.clear()
-        self.model.setColumnCount(2)
-        self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Property")
-        self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Value")
+        self.initialize()
 
         inspect_info = self.conan_api.inspect(recipe_id, None)
 
@@ -96,6 +59,16 @@ class ConanRecipeInspectController:
 
         # Set the column width with the previous value
         self.__set_column_width()
+
+    def initialize(self):
+        # Store the current column width before deleting the model
+        self.__store_column_width()
+
+        # Init the model with the header
+        self.model.clear()
+        self.model.setColumnCount(2)
+        self.model.setHeaderData(0, QtCore.Qt.Horizontal, "Property")
+        self.model.setHeaderData(1, QtCore.Qt.Horizontal, "Value")
 
     def __store_column_width(self):
         """
