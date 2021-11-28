@@ -6,9 +6,10 @@ from PySide2.QtCore import Slot
 
 from conanguide.api.conan_api import ConanApi
 from conanguide.ui.widget.tab.cache.tab_cache_ui import Ui_TabCache
-from conanguide.ui.controller.tab.cache.conan_recipe_inspect import ConanRecipeInspectController
 from conanguide.ui.controller.tab.cache.conan_recipe import ConanRecipeController
+from conanguide.ui.controller.tab.cache.conan_recipe_inspect import ConanRecipeInspectController
 from conanguide.ui.controller.tab.cache.conan_package import ConanPackageController
+from conanguide.ui.controller.tab.cache.conan_package_inspect import ConanPackageInspectController
 
 
 class TabCache(QtWidgets.QWidget, Ui_TabCache):
@@ -28,10 +29,13 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
         self.ctrl_treeview_conan_recipe.update()
 
         self.ctrl_treeview_conan_recipe_inspect = ConanRecipeInspectController(self.treeViewRecipeInspect,
-                                                                                self.conan_api)
+                                                                               self.conan_api)
 
         self.ctrl_listview_conan_package = ConanPackageController(self.listViewPackage,
-                                                                        self.conan_api)
+                                                                  self.conan_api)
+
+        self.ctrl_treeview_conan_package_inspect = ConanPackageInspectController(self.treeViewPackageInspect,
+                                                                                 self.conan_api)
 
         self.lineEditSearchRecipe.textChanged.connect(lambda: self.ctrl_treeview_conan_recipe.filter(
             self.lineEditSearchRecipe.text()))
@@ -52,11 +56,15 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
         # Step 3: Fill the list of the package binaries to the list
         self.ctrl_listview_conan_package.update(recipe_id)
 
+        # Step 4: Set the conan package inspect treeview to initial state
+        self.ctrl_treeview_conan_package_inspect.initialize()
+
     @Slot()
     def on_listViewPackage_clicked(self):
         recipe_id = self.ctrl_treeview_conan_recipe.get_selected_item()
         package_id = self.ctrl_listview_conan_package.get_selected_item()
 
+        # ========== Section to update the path
         real_path, package_path = self.conan_api.get_package_cache_path(recipe_id, package_id)
 
         data_path = self.conan_api.get_package_data_path(recipe_id)
@@ -64,6 +72,9 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
         self.lineEditDataPath.setText(data_path)
         self.lineEditRealPath.setText(real_path)
         self.lineEditPackagePath.setText(package_path)
+
+        # ========== Section to inspect the package
+        self.ctrl_treeview_conan_package_inspect.inspect(recipe_id, package_id)
 
     @Slot()
     def on_treeViewRecipe_doubleClicked(self):

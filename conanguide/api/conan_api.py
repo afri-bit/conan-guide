@@ -140,3 +140,24 @@ class ConanApi(Conan):
 
         os.rename(profile_file, new_profile_file)
 
+    def get_package_info(self, recipe_id: str, package_id: str) -> dict or None:
+        """
+        Package that return the package information based on the given package id
+        Currently this function will lopp through the list of packages and check if the package id is matches
+        :param recipe_id: ID of the recipe to search for packages 'name/version@user/channel'
+        :param package_id: ID of the package itself to get the information from
+        :return package_info - dict/None: Return dict if the package is found, otherwise None
+        """
+        package_info = None
+
+        package_list = self.get_package_list(recipe_id)
+
+        # Looping through the list until the matched packaged is found
+        # Otherwise return None
+        for pkg in package_list:
+            if pkg["id"] == package_id:
+                package_info = pkg  # Return the package information
+                break
+
+        return package_info
+
