@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>891</width>
+    <width>959</width>
     <height>649</height>
    </rect>
   </property>
@@ -53,7 +53,22 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>5</number>
+       </property>
+       <property name="leftMargin">
+        <number>2</number>
+       </property>
+       <property name="topMargin">
+        <number>2</number>
+       </property>
+       <property name="rightMargin">
+        <number>2</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
        <item>
         <widget class="QFrame" name="frame_16">
          <property name="layoutDirection">
@@ -125,94 +140,6 @@
              </size>
             </property>
            </spacer>
-          </item>
-          <item>
-           <widget class="QToolButton" name="toolButtonSortAscending">
-            <property name="minimumSize">
-             <size>
-              <width>25</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="toolTip">
-             <string>Sort Ascending</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../../../../resources.qrc">
-              <normaloff>:/icon/light/sort_ascending.png</normaloff>:/icon/light/sort_ascending.png</iconset>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-            <property name="autoRaise">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="toolButtonSortDescending">
-            <property name="minimumSize">
-             <size>
-              <width>25</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="toolTip">
-             <string>Sort Descending</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../../../../resources.qrc">
-              <normaloff>:/icon/light/sort_descending.png</normaloff>:/icon/light/sort_descending.png</iconset>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>10</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QToolButton" name="toolButtonRemovePackage">
-            <property name="minimumSize">
-             <size>
-              <width>25</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="toolTip">
-             <string>Remove</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../../../../resources.qrc">
-              <normaloff>:/icon/light/remove.png</normaloff>:/icon/light/remove.png</iconset>
-            </property>
-           </widget>
           </item>
           <item>
            <widget class="QToolButton" name="checkBoxOpenExplorer">
@@ -295,7 +222,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEditSearchPackage">
+        <widget class="QLineEdit" name="lineEditSearchRecipe">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -315,7 +242,7 @@
           <number>0</number>
          </property>
          <property name="placeholderText">
-          <string>Search Package...</string>
+          <string>Search Recipe...</string>
          </property>
         </widget>
        </item>
@@ -328,14 +255,158 @@
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
-          <widget class="QTreeView" name="treeViewRecipe"/>
+          <widget class="QWidget" name="">
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <property name="spacing">
+               <number>2</number>
+              </property>
+              <item>
+               <widget class="QToolButton" name="toolButtonSortAscending">
+                <property name="minimumSize">
+                 <size>
+                  <width>25</width>
+                  <height>25</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Sort Ascending</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../../../resources.qrc">
+                  <normaloff>:/icon/light/sort_ascending.png</normaloff>:/icon/light/sort_ascending.png</iconset>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+                <property name="autoRaise">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QToolButton" name="toolButtonSortDescending">
+                <property name="minimumSize">
+                 <size>
+                  <width>25</width>
+                  <height>25</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Sort Descending</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../../../resources.qrc">
+                  <normaloff>:/icon/light/sort_descending.png</normaloff>:/icon/light/sort_descending.png</iconset>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QToolButton" name="toolButtonRemoveRecipe">
+                <property name="minimumSize">
+                 <size>
+                  <width>25</width>
+                  <height>25</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Remove Recipe</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../../../resources.qrc">
+                  <normaloff>:/icon/light/remove.png</normaloff>:/icon/light/remove.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QTreeView" name="treeViewRecipe"/>
+            </item>
+           </layout>
+          </widget>
           <widget class="QTreeView" name="treeViewRecipeInspect"/>
          </widget>
          <widget class="QSplitter" name="splitter_2">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
-          <widget class="QListView" name="listViewPackage"/>
+          <widget class="QWidget" name="">
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <property name="spacing">
+               <number>2</number>
+              </property>
+              <item>
+               <widget class="QToolButton" name="toolButtonRemovePackage">
+                <property name="minimumSize">
+                 <size>
+                  <width>25</width>
+                  <height>25</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Remove Package</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset resource="../../../../resources.qrc">
+                  <normaloff>:/icon/light/remove.png</normaloff>:/icon/light/remove.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QListView" name="listViewPackage"/>
+            </item>
+           </layout>
+          </widget>
           <widget class="QTreeView" name="treeViewPackageInspect">
            <property name="enabled">
             <bool>true</bool>
@@ -812,25 +883,6 @@
            <property name="bottomMargin">
             <number>2</number>
            </property>
-           <item>
-            <widget class="QLabel" name="label_15">
-             <property name="text">
-              <string>Dependencies Graph</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGraphicsView" name="graphicsView">
-             <property name="sceneRect">
-              <rectf>
-               <x>0.000000000000000</x>
-               <y>0.000000000000000</y>
-               <width>0.000000000000000</width>
-               <height>0.000000000000000</height>
-              </rectf>
-             </property>
-            </widget>
-           </item>
           </layout>
          </widget>
         </widget>

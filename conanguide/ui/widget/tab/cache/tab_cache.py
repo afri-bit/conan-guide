@@ -33,8 +33,8 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
         self.ctrl_listview_conan_package = ConanPackageController(self.listViewPackage,
                                                                         self.conan_api)
 
-        self.lineEditSearchPackage.textChanged.connect(lambda: self.ctrl_treeview_conan_recipe.filter(
-            self.lineEditSearchPackage.text()))
+        self.lineEditSearchRecipe.textChanged.connect(lambda: self.ctrl_treeview_conan_recipe.filter(
+            self.lineEditSearchRecipe.text()))
 
     @Slot()
     def on_treeViewRecipe_clicked(self):
