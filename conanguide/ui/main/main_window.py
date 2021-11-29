@@ -7,11 +7,11 @@ from PySide2.QtCore import Slot
 from conanguide.api.conan_api import ConanApi
 from conanguide.client.runner.command_runner import CommandRunner
 from conanguide.ui.config.ui_config import UIConfiguration
-from conanguide.ui.controller.tab.remote.conan_remote import ConanRemoteListController
 from conanguide.ui.main.main_window_ui import Ui_MainWindow
 from conanguide.utils.cmd.command_builder import ConanCommandBuilder
 from conanguide.ui.widget.tab.profile.tab_profile import TabProfile
 from conanguide.ui.widget.tab.cache.tab_cache import TabCache
+from conanguide.ui.widget.tab.remote.tab_remote import TabRemote
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -33,9 +33,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_profile = TabProfile(self.conan_api)
         self.layoutTabProfile.addWidget(self.tab_profile)
 
-        # Tableview initialization for the remote list
-        self.ctrl_tableview_conan_remote = ConanRemoteListController(self.tableViewRemoteList, self.conan_api)
-        self.ctrl_tableview_conan_remote.update()
+        # Initialize the remote tab
+        self.tab_remote = TabRemote(self.conan_api)
+        self.layoutTabRemote.addWidget(self.tab_remote)
 
         # Fill combobox with profile name
         self.comboBoxProfile.addItems(self.conan_api.profile_list())
