@@ -210,21 +210,8 @@
     <addaction name="separator"/>
     <addaction name="actionHelpAbout"/>
    </widget>
-   <widget class="QMenu" name="menuConan">
-    <property name="title">
-     <string>Conan</string>
-    </property>
-    <addaction name="actionConanCreate"/>
-    <addaction name="actionConanInstall"/>
-    <addaction name="actionConanBuild"/>
-    <addaction name="actionConanSource"/>
-    <addaction name="actionConanPackage"/>
-    <addaction name="actionConanExport"/>
-    <addaction name="actionConanExportPackage"/>
-   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuView"/>
-   <addaction name="menuConan"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusBar">
@@ -281,7 +268,6 @@
    <addaction name="actionRefresh"/>
    <addaction name="separator"/>
    <addaction name="actionConanCreate"/>
-   <addaction name="separator"/>
    <addaction name="actionConanInstall"/>
    <addaction name="actionConanBuild"/>
    <addaction name="actionConanSource"/>

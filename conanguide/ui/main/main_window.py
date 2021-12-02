@@ -36,11 +36,25 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # Initialize the workspace tab
         self.tab_workspace = TabWorkspace(self.conan_api)
         self.layoutTabWorkspace.addWidget(self.tab_workspace)
+        self.__show_workspace_toolbar(False)
+
+        # Always show index 0 on starting the application
+        # Currently the index 0 is the conan local cache tab
+        self.tabWidgetMain.setCurrentWidget(self.tabCache)
 
         # self.__load_ui_state()
 
     def closeEvent(self, event) -> None:
         self.__save_ui_state()
+
+    @Slot()
+    def on_tabWidgetMain_currentChanged(self):
+        tab_index = self.tabWidgetMain.currentIndex()
+
+        if tab_index == 1:  # Tab Workspace
+            self.__show_workspace_toolbar(True)
+        else:
+            self.__show_workspace_toolbar(False)
 
     @Slot()
     def on_actionViewCache_triggered(self):
@@ -64,43 +78,31 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     @Slot()
     def on_actionConanCreate_triggered(self):
-        self.__execute_conan_create()
+        self.tab_workspace.conan_create()
 
     @Slot()
     def on_actionConanInstall_triggered(self):
-        # TODO: Change view to workspace tab
-        # TODO: Execute the command over the tab widget accordingly
-        pass
+        self.tab_workspace.conan_install()
 
     @Slot()
     def on_actionConanBuild_triggered(self):
-        # TODO: Change view to workspace tab
-        # TODO: Execute the command over the tab widget accordingly
-        pass
+        self.tab_workspace.conan_build()
 
     @Slot()
     def on_actionConanSource_triggered(self):
-        # TODO: Change view to workspace tab
-        # TODO: Execute the command over the tab widget accordingly
-        pass
+        self.tab_workspace.conan_source()
 
     @Slot()
     def on_actionConanPackage_triggered(self):
-        # TODO: Change view to workspace tab
-        # TODO: Execute the command over the tab widget accordingly
-        pass
+        self.tab_workspace.conan_package()
 
     @Slot()
     def on_actionConanExport_triggered(self):
-        # TODO: Change view to workspace tab
-        # TODO: Execute the command over the tab widget accordingly
-        pass
+        self.tab_workspace.conan_export()
 
     @Slot()
     def on_actionConanExportPackage_triggered(self):
-        # TODO: Change view to workspace tab
-        # TODO: Execute the command over the tab widget accordingly
-        pass
+        self.tab_workspace.conan_export_package()
 
     @Slot()
     def on_actionRefresh_triggered(self):
@@ -112,7 +114,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         webbrowser.open("https://conan.io/")
 
-    def __refresh(self):
+    def __show_workspace_toolbar(self, visible: bool):
+        self.actionConanCreate.setVisible(visible)
+        self.actionConanInstall.setVisible(visible)
+        self.actionConanBuild.setVisible(visible)
+        self.actionConanSource.setVisible(visible)
+        self.actionConanPackage.setVisible(visible)
+        self.actionConanExport.setVisible(visible)
+        self.actionConanExportPackage.setVisible(visible)
+
+    def __refresh_all(self):
         # TODO: Refresh all the tabs. The tabs now have the refresh function
         pass
 

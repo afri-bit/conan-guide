@@ -47,7 +47,7 @@ class TabWorkspace(QtWidgets.QWidget, Ui_TabWorkspace):
         self.command_runner.signals.finished.connect(self.on_command_finished)
 
     def on_command_start(self, data: str):
-        self.set_loading_state(True)
+        #self.set_loading_state(True)
         self.log_to_console("\n")
         self.log_to_console("--------------------------------------------", dt=True)
         self.log_to_console(data + "\n")
@@ -59,8 +59,8 @@ class TabWorkspace(QtWidgets.QWidget, Ui_TabWorkspace):
         self.log_to_console(data)
 
     def on_command_finished(self):
-        self.set_loading_state(False)
-        self.__refresh()
+        # self.set_loading_state(False)
+        pass
 
     def on_command_progress(self, data: str):
         self.log_to_console(data)
@@ -86,25 +86,25 @@ class TabWorkspace(QtWidgets.QWidget, Ui_TabWorkspace):
         self.__set_folder_path(self.lineEditPackageExpPath)
 
     def conan_create(self):
-        pass
+        self.__execute_conan_create()
 
     def conan_install(self):
-        pass
+        self.__execute_conan_install()
 
     def conan_build(self):
-        pass
+        self.__execute_conan_build()
 
     def conan_source(self):
-        pass
+        self.__execute_conan_source()
 
     def conan_package(self):
-        pass
+        self.__execute_conan_package()
 
     def conan_export(self):
-        pass
+        self.__execute_conan_export()
 
     def conan_export_package(self):
-        pass
+        self.__execute_conan_export_package()
 
     def run_command(self, cmd):
         self.command_runner.set_command(cmd)

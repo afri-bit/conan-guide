@@ -18,7 +18,7 @@ class Ui_TabWorkspace(object):
     def setupUi(self, TabWorkspace):
         if not TabWorkspace.objectName():
             TabWorkspace.setObjectName(u"TabWorkspace")
-        TabWorkspace.resize(913, 576)
+        TabWorkspace.resize(956, 710)
         self.verticalLayout = QVBoxLayout(TabWorkspace)
         self.verticalLayout.setSpacing(2)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -38,7 +38,7 @@ class Ui_TabWorkspace(object):
         self.horizontalLayout_16.setContentsMargins(0, 0, 0, 0)
         self.toolButtonRefresh = QToolButton(self.frame_7)
         self.toolButtonRefresh.setObjectName(u"toolButtonRefresh")
-        self.toolButtonRefresh.setMinimumSize(QSize(35, 35))
+        self.toolButtonRefresh.setMinimumSize(QSize(25, 25))
         icon = QIcon()
         icon.addFile(u":/icon/light/refresh.png", QSize(), QIcon.Normal, QIcon.Off)
         self.toolButtonRefresh.setIcon(icon)
@@ -47,6 +47,25 @@ class Ui_TabWorkspace(object):
         self.toolButtonRefresh.setAutoRaise(False)
 
         self.horizontalLayout_16.addWidget(self.toolButtonRefresh)
+
+        self.horizontalSpacer = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Minimum)
+
+        self.horizontalLayout_16.addItem(self.horizontalSpacer)
+
+        self.toolButtonSaveConfiguration = QToolButton(self.frame_7)
+        self.toolButtonSaveConfiguration.setObjectName(u"toolButtonSaveConfiguration")
+        self.toolButtonSaveConfiguration.setMinimumSize(QSize(25, 25))
+        icon1 = QIcon()
+        icon1.addFile(u":/icon/light/save.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonSaveConfiguration.setIcon(icon1)
+
+        self.horizontalLayout_16.addWidget(self.toolButtonSaveConfiguration)
+
+        self.toolButtonLoadConfiguration = QToolButton(self.frame_7)
+        self.toolButtonLoadConfiguration.setObjectName(u"toolButtonLoadConfiguration")
+        self.toolButtonLoadConfiguration.setMinimumSize(QSize(25, 25))
+
+        self.horizontalLayout_16.addWidget(self.toolButtonLoadConfiguration)
 
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -60,15 +79,22 @@ class Ui_TabWorkspace(object):
         self.splitter.setOrientation(Qt.Vertical)
         self.frame_24 = QFrame(self.splitter)
         self.frame_24.setObjectName(u"frame_24")
-        self.frame_24.setMaximumSize(QSize(16777215, 228))
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.frame_24.sizePolicy().hasHeightForWidth())
+        self.frame_24.setSizePolicy(sizePolicy1)
+        self.frame_24.setMaximumSize(QSize(16777215, 268))
         self.frame_24.setFrameShape(QFrame.StyledPanel)
         self.frame_24.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.frame_24)
         self.verticalLayout_3.setSpacing(2)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setSizeConstraint(QLayout.SetDefaultConstraint)
         self.verticalLayout_3.setContentsMargins(2, 2, 2, 2)
         self.frame_4 = QFrame(self.frame_24)
         self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setMinimumSize(QSize(0, 30))
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.frame_4)
@@ -83,6 +109,7 @@ class Ui_TabWorkspace(object):
 
         self.lineEditUser = QLineEdit(self.frame_4)
         self.lineEditUser.setObjectName(u"lineEditUser")
+        self.lineEditUser.setMinimumSize(QSize(0, 25))
 
         self.horizontalLayout_5.addWidget(self.lineEditUser)
 
@@ -98,6 +125,7 @@ class Ui_TabWorkspace(object):
 
         self.lineEditChannel = QLineEdit(self.frame_4)
         self.lineEditChannel.setObjectName(u"lineEditChannel")
+        self.lineEditChannel.setMinimumSize(QSize(0, 25))
 
         self.horizontalLayout_5.addWidget(self.lineEditChannel)
 
@@ -106,6 +134,7 @@ class Ui_TabWorkspace(object):
 
         self.frame_8 = QFrame(self.frame_24)
         self.frame_8.setObjectName(u"frame_8")
+        self.frame_8.setMinimumSize(QSize(0, 30))
         self.frame_8.setFrameShape(QFrame.StyledPanel)
         self.frame_8.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_6 = QHBoxLayout(self.frame_8)
@@ -120,19 +149,19 @@ class Ui_TabWorkspace(object):
 
         self.lineEditRecipePath = QLineEdit(self.frame_8)
         self.lineEditRecipePath.setObjectName(u"lineEditRecipePath")
-        self.lineEditRecipePath.setMinimumSize(QSize(0, 0))
+        self.lineEditRecipePath.setMinimumSize(QSize(0, 25))
         self.lineEditRecipePath.setReadOnly(False)
 
         self.horizontalLayout_6.addWidget(self.lineEditRecipePath)
 
         self.toolBtnExplorerRecipePath = QToolButton(self.frame_8)
         self.toolBtnExplorerRecipePath.setObjectName(u"toolBtnExplorerRecipePath")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.toolBtnExplorerRecipePath.sizePolicy().hasHeightForWidth())
-        self.toolBtnExplorerRecipePath.setSizePolicy(sizePolicy1)
-        self.toolBtnExplorerRecipePath.setMinimumSize(QSize(0, 0))
+        sizePolicy2 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.toolBtnExplorerRecipePath.sizePolicy().hasHeightForWidth())
+        self.toolBtnExplorerRecipePath.setSizePolicy(sizePolicy2)
+        self.toolBtnExplorerRecipePath.setMinimumSize(QSize(0, 25))
 
         self.horizontalLayout_6.addWidget(self.toolBtnExplorerRecipePath)
 
@@ -141,6 +170,7 @@ class Ui_TabWorkspace(object):
 
         self.frame_9 = QFrame(self.frame_24)
         self.frame_9.setObjectName(u"frame_9")
+        self.frame_9.setMinimumSize(QSize(0, 30))
         self.frame_9.setFrameShape(QFrame.StyledPanel)
         self.frame_9.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_7 = QHBoxLayout(self.frame_9)
@@ -155,11 +185,13 @@ class Ui_TabWorkspace(object):
 
         self.lineEditInstallPath = QLineEdit(self.frame_9)
         self.lineEditInstallPath.setObjectName(u"lineEditInstallPath")
+        self.lineEditInstallPath.setMinimumSize(QSize(0, 25))
 
         self.horizontalLayout_7.addWidget(self.lineEditInstallPath)
 
         self.toolBtnExplorerInstallPath = QToolButton(self.frame_9)
         self.toolBtnExplorerInstallPath.setObjectName(u"toolBtnExplorerInstallPath")
+        self.toolBtnExplorerInstallPath.setMinimumSize(QSize(0, 25))
 
         self.horizontalLayout_7.addWidget(self.toolBtnExplorerInstallPath)
 
@@ -168,6 +200,12 @@ class Ui_TabWorkspace(object):
 
         self.frame_10 = QFrame(self.frame_24)
         self.frame_10.setObjectName(u"frame_10")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.frame_10.sizePolicy().hasHeightForWidth())
+        self.frame_10.setSizePolicy(sizePolicy3)
+        self.frame_10.setMinimumSize(QSize(0, 30))
         self.frame_10.setFrameShape(QFrame.StyledPanel)
         self.frame_10.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_8 = QHBoxLayout(self.frame_10)
@@ -182,11 +220,13 @@ class Ui_TabWorkspace(object):
 
         self.lineEditBuildPath = QLineEdit(self.frame_10)
         self.lineEditBuildPath.setObjectName(u"lineEditBuildPath")
+        self.lineEditBuildPath.setMinimumSize(QSize(0, 25))
 
         self.horizontalLayout_8.addWidget(self.lineEditBuildPath)
 
         self.toolBtnExplorerBuildPath = QToolButton(self.frame_10)
         self.toolBtnExplorerBuildPath.setObjectName(u"toolBtnExplorerBuildPath")
+        self.toolBtnExplorerBuildPath.setMinimumSize(QSize(0, 25))
 
         self.horizontalLayout_8.addWidget(self.toolBtnExplorerBuildPath)
 
@@ -195,6 +235,7 @@ class Ui_TabWorkspace(object):
 
         self.frame_11 = QFrame(self.frame_24)
         self.frame_11.setObjectName(u"frame_11")
+        self.frame_11.setMinimumSize(QSize(0, 30))
         self.frame_11.setFrameShape(QFrame.StyledPanel)
         self.frame_11.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_9 = QHBoxLayout(self.frame_11)
@@ -209,11 +250,13 @@ class Ui_TabWorkspace(object):
 
         self.lineEditSourcePath = QLineEdit(self.frame_11)
         self.lineEditSourcePath.setObjectName(u"lineEditSourcePath")
+        self.lineEditSourcePath.setMinimumSize(QSize(0, 25))
 
         self.horizontalLayout_9.addWidget(self.lineEditSourcePath)
 
         self.toolBtnExplorerSourcePath = QToolButton(self.frame_11)
         self.toolBtnExplorerSourcePath.setObjectName(u"toolBtnExplorerSourcePath")
+        self.toolBtnExplorerSourcePath.setMinimumSize(QSize(0, 25))
 
         self.horizontalLayout_9.addWidget(self.toolBtnExplorerSourcePath)
 
@@ -222,6 +265,7 @@ class Ui_TabWorkspace(object):
 
         self.frame_13 = QFrame(self.frame_24)
         self.frame_13.setObjectName(u"frame_13")
+        self.frame_13.setMinimumSize(QSize(0, 30))
         self.frame_13.setFrameShape(QFrame.StyledPanel)
         self.frame_13.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_12 = QHBoxLayout(self.frame_13)
@@ -234,13 +278,15 @@ class Ui_TabWorkspace(object):
 
         self.horizontalLayout_12.addWidget(self.label_11)
 
-        self.lineEditPackageExpPath = QLineEdit(self.frame_13)
-        self.lineEditPackageExpPath.setObjectName(u"lineEditPackageExpPath")
+        self.lineEditPackagePath = QLineEdit(self.frame_13)
+        self.lineEditPackagePath.setObjectName(u"lineEditPackagePath")
+        self.lineEditPackagePath.setMinimumSize(QSize(0, 25))
 
-        self.horizontalLayout_12.addWidget(self.lineEditPackageExpPath)
+        self.horizontalLayout_12.addWidget(self.lineEditPackagePath)
 
         self.toolBtnExplorerPackagePath = QToolButton(self.frame_13)
         self.toolBtnExplorerPackagePath.setObjectName(u"toolBtnExplorerPackagePath")
+        self.toolBtnExplorerPackagePath.setMinimumSize(QSize(0, 25))
 
         self.horizontalLayout_12.addWidget(self.toolBtnExplorerPackagePath)
 
@@ -249,6 +295,7 @@ class Ui_TabWorkspace(object):
 
         self.frame_12 = QFrame(self.frame_24)
         self.frame_12.setObjectName(u"frame_12")
+        self.frame_12.setMinimumSize(QSize(0, 30))
         self.frame_12.setFrameShape(QFrame.StyledPanel)
         self.frame_12.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_10 = QHBoxLayout(self.frame_12)
@@ -263,6 +310,7 @@ class Ui_TabWorkspace(object):
 
         self.lineEditAdditionalParams = QLineEdit(self.frame_12)
         self.lineEditAdditionalParams.setObjectName(u"lineEditAdditionalParams")
+        self.lineEditAdditionalParams.setMinimumSize(QSize(0, 25))
 
         self.horizontalLayout_10.addWidget(self.lineEditAdditionalParams)
 
@@ -271,6 +319,7 @@ class Ui_TabWorkspace(object):
 
         self.frame_14 = QFrame(self.frame_24)
         self.frame_14.setObjectName(u"frame_14")
+        self.frame_14.setMinimumSize(QSize(0, 30))
         self.frame_14.setFrameShape(QFrame.StyledPanel)
         self.frame_14.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_13 = QHBoxLayout(self.frame_14)
@@ -286,6 +335,7 @@ class Ui_TabWorkspace(object):
 
         self.comboBoxProfile = QComboBox(self.frame_14)
         self.comboBoxProfile.setObjectName(u"comboBoxProfile")
+        self.comboBoxProfile.setMinimumSize(QSize(0, 25))
 
         self.horizontalLayout_13.addWidget(self.comboBoxProfile)
 
@@ -295,6 +345,11 @@ class Ui_TabWorkspace(object):
         self.splitter.addWidget(self.frame_24)
         self.groupBox_4 = QGroupBox(self.splitter)
         self.groupBox_4.setObjectName(u"groupBox_4")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(2)
+        sizePolicy4.setHeightForWidth(self.groupBox_4.sizePolicy().hasHeightForWidth())
+        self.groupBox_4.setSizePolicy(sizePolicy4)
         self.horizontalLayout = QHBoxLayout(self.groupBox_4)
         self.horizontalLayout.setSpacing(2)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -310,9 +365,9 @@ class Ui_TabWorkspace(object):
         self.toolButtonClearConsole = QToolButton(self.frame_5)
         self.toolButtonClearConsole.setObjectName(u"toolButtonClearConsole")
         self.toolButtonClearConsole.setMinimumSize(QSize(25, 25))
-        icon1 = QIcon()
-        icon1.addFile(u":/icon/light/garbage_can.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonClearConsole.setIcon(icon1)
+        icon2 = QIcon()
+        icon2.addFile(u":/icon/light/garbage_can.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonClearConsole.setIcon(icon2)
         self.toolButtonClearConsole.setCheckable(False)
 
         self.verticalLayout_5.addWidget(self.toolButtonClearConsole)
@@ -320,9 +375,9 @@ class Ui_TabWorkspace(object):
         self.toolButtonConsoleScrollToEnd = QToolButton(self.frame_5)
         self.toolButtonConsoleScrollToEnd.setObjectName(u"toolButtonConsoleScrollToEnd")
         self.toolButtonConsoleScrollToEnd.setMinimumSize(QSize(25, 25))
-        icon2 = QIcon()
-        icon2.addFile(u":/icon/light/scroll_to_end.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonConsoleScrollToEnd.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u":/icon/light/scroll_to_end.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonConsoleScrollToEnd.setIcon(icon3)
         self.toolButtonConsoleScrollToEnd.setCheckable(True)
         self.toolButtonConsoleScrollToEnd.setChecked(True)
 
@@ -363,6 +418,14 @@ class Ui_TabWorkspace(object):
         self.toolButtonRefresh.setToolTip(QCoreApplication.translate("TabWorkspace", u"Refresh", None))
 #endif // QT_CONFIG(tooltip)
         self.toolButtonRefresh.setText("")
+#if QT_CONFIG(tooltip)
+        self.toolButtonSaveConfiguration.setToolTip(QCoreApplication.translate("TabWorkspace", u"Save Configuration", None))
+#endif // QT_CONFIG(tooltip)
+        self.toolButtonSaveConfiguration.setText("")
+#if QT_CONFIG(tooltip)
+        self.toolButtonLoadConfiguration.setToolTip(QCoreApplication.translate("TabWorkspace", u"Load Configuration", None))
+#endif // QT_CONFIG(tooltip)
+        self.toolButtonLoadConfiguration.setText("")
         self.label_4.setText(QCoreApplication.translate("TabWorkspace", u"User", None))
         self.label_14.setText(QCoreApplication.translate("TabWorkspace", u"/", None))
         self.label_13.setText(QCoreApplication.translate("TabWorkspace", u"Channel", None))
