@@ -21,20 +21,6 @@ class TabWorkspace(QtWidgets.QWidget, Ui_TabWorkspace):
         # Fill combobox with profile name
         self.comboBoxProfile.addItems(self.conan_api.profile_list())
 
-        # # Initialize status bar
-        # # Initialize progress bar for the status bar
-        # self.progressBar = QtWidgets.QProgressBar()
-        # self.progressBar.setMaximum(100)
-        # self.progressBar.setMinimum(0)
-        # self.progressBar.setValue(0)
-        # self.progressBar.setMaximumWidth(200)
-        # self.progressBar.setTextVisible(False)
-        # # Initialize status message
-        # self.labelStatusMessage = QtWidgets.QLabel()
-        # # Add permanent widgets to the status bar
-        # self.statusBar.addPermanentWidget(self.labelStatusMessage)
-        # self.statusBar.addPermanentWidget(self.progressBar)
-
         # Initialize console
         self.console.ensureCursorVisible()
 
@@ -47,7 +33,7 @@ class TabWorkspace(QtWidgets.QWidget, Ui_TabWorkspace):
         self.command_runner.signals.finished.connect(self.on_command_finished)
 
     def on_command_start(self, data: str):
-        #self.set_loading_state(True)
+        self.set_loading_state(True)
         self.log_to_console("\n")
         self.log_to_console("--------------------------------------------", dt=True)
         self.log_to_console(data + "\n")
@@ -59,8 +45,7 @@ class TabWorkspace(QtWidgets.QWidget, Ui_TabWorkspace):
         self.log_to_console(data)
 
     def on_command_finished(self):
-        # self.set_loading_state(False)
-        pass
+        self.set_loading_state(False)
 
     def on_command_progress(self, data: str):
         self.log_to_console(data)
@@ -120,6 +105,9 @@ class TabWorkspace(QtWidgets.QWidget, Ui_TabWorkspace):
             self.console.verticalScrollBar().setValue(self.console.verticalScrollBar().maximum())
 
     def set_loading_state(self, state: bool):
+        self.frameWorkspace.setEnabled(not state)
+        self.frameToolbar.setEnabled(not state)
+
         if state:
             self.progressBar.setMaximum(0)
             self.labelStatusMessage.setText("Loading...  ")

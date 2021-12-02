@@ -18,25 +18,25 @@ class Ui_TabWorkspace(object):
     def setupUi(self, TabWorkspace):
         if not TabWorkspace.objectName():
             TabWorkspace.setObjectName(u"TabWorkspace")
-        TabWorkspace.resize(956, 710)
+        TabWorkspace.resize(999, 710)
         self.verticalLayout = QVBoxLayout(TabWorkspace)
         self.verticalLayout.setSpacing(2)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.frame_7 = QFrame(TabWorkspace)
-        self.frame_7.setObjectName(u"frame_7")
+        self.frameToolbar = QFrame(TabWorkspace)
+        self.frameToolbar.setObjectName(u"frameToolbar")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.frame_7.sizePolicy().hasHeightForWidth())
-        self.frame_7.setSizePolicy(sizePolicy)
-        self.frame_7.setFrameShape(QFrame.StyledPanel)
-        self.frame_7.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_16 = QHBoxLayout(self.frame_7)
+        sizePolicy.setHeightForWidth(self.frameToolbar.sizePolicy().hasHeightForWidth())
+        self.frameToolbar.setSizePolicy(sizePolicy)
+        self.frameToolbar.setFrameShape(QFrame.StyledPanel)
+        self.frameToolbar.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_16 = QHBoxLayout(self.frameToolbar)
         self.horizontalLayout_16.setSpacing(0)
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
         self.horizontalLayout_16.setContentsMargins(0, 0, 0, 0)
-        self.toolButtonRefresh = QToolButton(self.frame_7)
+        self.toolButtonRefresh = QToolButton(self.frameToolbar)
         self.toolButtonRefresh.setObjectName(u"toolButtonRefresh")
         self.toolButtonRefresh.setMinimumSize(QSize(25, 25))
         icon = QIcon()
@@ -52,7 +52,7 @@ class Ui_TabWorkspace(object):
 
         self.horizontalLayout_16.addItem(self.horizontalSpacer)
 
-        self.toolButtonSaveConfiguration = QToolButton(self.frame_7)
+        self.toolButtonSaveConfiguration = QToolButton(self.frameToolbar)
         self.toolButtonSaveConfiguration.setObjectName(u"toolButtonSaveConfiguration")
         self.toolButtonSaveConfiguration.setMinimumSize(QSize(25, 25))
         icon1 = QIcon()
@@ -61,7 +61,7 @@ class Ui_TabWorkspace(object):
 
         self.horizontalLayout_16.addWidget(self.toolButtonSaveConfiguration)
 
-        self.toolButtonLoadConfiguration = QToolButton(self.frame_7)
+        self.toolButtonLoadConfiguration = QToolButton(self.frameToolbar)
         self.toolButtonLoadConfiguration.setObjectName(u"toolButtonLoadConfiguration")
         self.toolButtonLoadConfiguration.setMinimumSize(QSize(25, 25))
 
@@ -72,27 +72,27 @@ class Ui_TabWorkspace(object):
         self.horizontalLayout_16.addItem(self.horizontalSpacer_2)
 
 
-        self.verticalLayout.addWidget(self.frame_7)
+        self.verticalLayout.addWidget(self.frameToolbar)
 
         self.splitter = QSplitter(TabWorkspace)
         self.splitter.setObjectName(u"splitter")
         self.splitter.setOrientation(Qt.Vertical)
-        self.frame_24 = QFrame(self.splitter)
-        self.frame_24.setObjectName(u"frame_24")
+        self.frameWorkspace = QFrame(self.splitter)
+        self.frameWorkspace.setObjectName(u"frameWorkspace")
         sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.frame_24.sizePolicy().hasHeightForWidth())
-        self.frame_24.setSizePolicy(sizePolicy1)
-        self.frame_24.setMaximumSize(QSize(16777215, 268))
-        self.frame_24.setFrameShape(QFrame.StyledPanel)
-        self.frame_24.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.frame_24)
+        sizePolicy1.setHeightForWidth(self.frameWorkspace.sizePolicy().hasHeightForWidth())
+        self.frameWorkspace.setSizePolicy(sizePolicy1)
+        self.frameWorkspace.setMaximumSize(QSize(16777215, 268))
+        self.frameWorkspace.setFrameShape(QFrame.StyledPanel)
+        self.frameWorkspace.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_3 = QVBoxLayout(self.frameWorkspace)
         self.verticalLayout_3.setSpacing(2)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setSizeConstraint(QLayout.SetDefaultConstraint)
         self.verticalLayout_3.setContentsMargins(2, 2, 2, 2)
-        self.frame_4 = QFrame(self.frame_24)
+        self.frame_4 = QFrame(self.frameWorkspace)
         self.frame_4.setObjectName(u"frame_4")
         self.frame_4.setMinimumSize(QSize(0, 30))
         self.frame_4.setFrameShape(QFrame.StyledPanel)
@@ -132,7 +132,7 @@ class Ui_TabWorkspace(object):
 
         self.verticalLayout_3.addWidget(self.frame_4)
 
-        self.frame_8 = QFrame(self.frame_24)
+        self.frame_8 = QFrame(self.frameWorkspace)
         self.frame_8.setObjectName(u"frame_8")
         self.frame_8.setMinimumSize(QSize(0, 30))
         self.frame_8.setFrameShape(QFrame.StyledPanel)
@@ -168,7 +168,7 @@ class Ui_TabWorkspace(object):
 
         self.verticalLayout_3.addWidget(self.frame_8)
 
-        self.frame_9 = QFrame(self.frame_24)
+        self.frame_9 = QFrame(self.frameWorkspace)
         self.frame_9.setObjectName(u"frame_9")
         self.frame_9.setMinimumSize(QSize(0, 30))
         self.frame_9.setFrameShape(QFrame.StyledPanel)
@@ -198,7 +198,7 @@ class Ui_TabWorkspace(object):
 
         self.verticalLayout_3.addWidget(self.frame_9)
 
-        self.frame_10 = QFrame(self.frame_24)
+        self.frame_10 = QFrame(self.frameWorkspace)
         self.frame_10.setObjectName(u"frame_10")
         sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy3.setHorizontalStretch(0)
@@ -233,7 +233,7 @@ class Ui_TabWorkspace(object):
 
         self.verticalLayout_3.addWidget(self.frame_10)
 
-        self.frame_11 = QFrame(self.frame_24)
+        self.frame_11 = QFrame(self.frameWorkspace)
         self.frame_11.setObjectName(u"frame_11")
         self.frame_11.setMinimumSize(QSize(0, 30))
         self.frame_11.setFrameShape(QFrame.StyledPanel)
@@ -263,7 +263,7 @@ class Ui_TabWorkspace(object):
 
         self.verticalLayout_3.addWidget(self.frame_11)
 
-        self.frame_13 = QFrame(self.frame_24)
+        self.frame_13 = QFrame(self.frameWorkspace)
         self.frame_13.setObjectName(u"frame_13")
         self.frame_13.setMinimumSize(QSize(0, 30))
         self.frame_13.setFrameShape(QFrame.StyledPanel)
@@ -293,7 +293,7 @@ class Ui_TabWorkspace(object):
 
         self.verticalLayout_3.addWidget(self.frame_13)
 
-        self.frame_12 = QFrame(self.frame_24)
+        self.frame_12 = QFrame(self.frameWorkspace)
         self.frame_12.setObjectName(u"frame_12")
         self.frame_12.setMinimumSize(QSize(0, 30))
         self.frame_12.setFrameShape(QFrame.StyledPanel)
@@ -317,7 +317,7 @@ class Ui_TabWorkspace(object):
 
         self.verticalLayout_3.addWidget(self.frame_12)
 
-        self.frame_14 = QFrame(self.frame_24)
+        self.frame_14 = QFrame(self.frameWorkspace)
         self.frame_14.setObjectName(u"frame_14")
         self.frame_14.setMinimumSize(QSize(0, 30))
         self.frame_14.setFrameShape(QFrame.StyledPanel)
@@ -342,14 +342,11 @@ class Ui_TabWorkspace(object):
 
         self.verticalLayout_3.addWidget(self.frame_14)
 
-        self.splitter.addWidget(self.frame_24)
+        self.splitter.addWidget(self.frameWorkspace)
         self.groupBox_4 = QGroupBox(self.splitter)
         self.groupBox_4.setObjectName(u"groupBox_4")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(2)
-        sizePolicy4.setHeightForWidth(self.groupBox_4.sizePolicy().hasHeightForWidth())
-        self.groupBox_4.setSizePolicy(sizePolicy4)
+        sizePolicy3.setHeightForWidth(self.groupBox_4.sizePolicy().hasHeightForWidth())
+        self.groupBox_4.setSizePolicy(sizePolicy3)
         self.horizontalLayout = QHBoxLayout(self.groupBox_4)
         self.horizontalLayout.setSpacing(2)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -406,6 +403,43 @@ class Ui_TabWorkspace(object):
 
         self.verticalLayout.addWidget(self.splitter)
 
+        self.frameStatusBar = QFrame(TabWorkspace)
+        self.frameStatusBar.setObjectName(u"frameStatusBar")
+        self.frameStatusBar.setMinimumSize(QSize(0, 25))
+        self.frameStatusBar.setMaximumSize(QSize(16777215, 25))
+        self.frameStatusBar.setFrameShape(QFrame.StyledPanel)
+        self.frameStatusBar.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_2 = QHBoxLayout(self.frameStatusBar)
+        self.horizontalLayout_2.setSpacing(2)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(0, 0, 2, 0)
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_3)
+
+        self.labelStatusMessage = QLabel(self.frameStatusBar)
+        self.labelStatusMessage.setObjectName(u"labelStatusMessage")
+
+        self.horizontalLayout_2.addWidget(self.labelStatusMessage)
+
+        self.horizontalSpacer_4 = QSpacerItem(5, 20, QSizePolicy.Minimum, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
+
+        self.progressBar = QProgressBar(self.frameStatusBar)
+        self.progressBar.setObjectName(u"progressBar")
+        self.progressBar.setMinimumSize(QSize(0, 20))
+        self.progressBar.setMaximumSize(QSize(200, 16777215))
+        self.progressBar.setContextMenuPolicy(Qt.DefaultContextMenu)
+        self.progressBar.setValue(0)
+        self.progressBar.setTextVisible(False)
+        self.progressBar.setInvertedAppearance(False)
+
+        self.horizontalLayout_2.addWidget(self.progressBar)
+
+
+        self.verticalLayout.addWidget(self.frameStatusBar)
+
 
         self.retranslateUi(TabWorkspace)
 
@@ -445,5 +479,6 @@ class Ui_TabWorkspace(object):
         self.toolButtonClearConsole.setText("")
         self.toolButtonConsoleScrollToEnd.setText("")
         self.console.setPlainText("")
+        self.labelStatusMessage.setText("")
     # retranslateUi
 
