@@ -90,6 +90,27 @@ class TabWorkspace(QtWidgets.QWidget, Ui_TabWorkspace):
         if config_file[0] != "":
             self.__load_configuration(config_file[0])
 
+    @Slot()
+    def on_toolButtonRefresh_pressed(self):
+        self.refresh()
+
+    def refresh(self):
+        # Refresh the profile list in combo box
+        # Get the current selected profile before refreshing the profile list
+        selected_profile = self.comboBoxProfile.currentText()
+
+        # Renew the profile list is the combobox
+        self.comboBoxProfile.clear()
+        # Fill combobox with profile name
+        self.comboBoxProfile.addItems(self.conan_api.profile_list())
+
+        profile_list = [self.comboBoxProfile.itemText(i) for i in range(self.comboBoxProfile.count())]
+
+        # Check if the previous selected profile exists in the current list
+        # If not the first profile in the combobox will be selected automatically
+        if selected_profile in profile_list:
+            self.comboBoxProfile.setCurrentText(selected_profile)
+
     def conan_create(self):
         self.__execute_conan_create()
 

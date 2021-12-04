@@ -206,7 +206,8 @@
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="actionHelpConanio"/>
+    <addaction name="actionHelpConanIo"/>
+    <addaction name="actionHelpConanDocs"/>
     <addaction name="separator"/>
     <addaction name="actionHelpAbout"/>
    </widget>
@@ -404,7 +405,7 @@
     <string>Alt+1</string>
    </property>
   </action>
-  <action name="actionHelpConanio">
+  <action name="actionHelpConanIo">
    <property name="icon">
     <iconset resource="../resources.qrc">
      <normaloff>:/general/icon/conan_io_icon.png</normaloff>:/general/icon/conan_io_icon.png</iconset>
@@ -413,7 +414,7 @@
     <string>conan.io</string>
    </property>
    <property name="shortcut">
-    <string>F3</string>
+    <string>F1</string>
    </property>
   </action>
   <action name="actionHelpAbout">
@@ -458,6 +459,21 @@
    </property>
    <property name="shortcut">
     <string>Alt+S</string>
+   </property>
+  </action>
+  <action name="actionHelpConanDocs">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/general/icon/conan_io_icon.png</normaloff>:/general/icon/conan_io_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Conan Docs</string>
+   </property>
+   <property name="toolTip">
+    <string>Conan Documentation</string>
+   </property>
+   <property name="shortcut">
+    <string>F3</string>
    </property>
   </action>
  </widget>

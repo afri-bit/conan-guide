@@ -1,3 +1,5 @@
+import webbrowser
+
 from PySide2 import QtWidgets
 from PySide2.QtCore import Slot
 
@@ -106,13 +108,15 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     @Slot()
     def on_actionRefresh_triggered(self):
-        self.__refresh()
+        self.__refresh_all()
 
     @Slot()
-    def on_actionHelpConanio_triggered(self):
-        import webbrowser
-
+    def on_actionHelpConanIo_triggered(self):
         webbrowser.open("https://conan.io/")
+
+    @Slot()
+    def on_actionHelpConanDocs_triggered(self):
+        webbrowser.open("https://docs.conan.io/en/latest/")
 
     def __show_workspace_toolbar(self, visible: bool):
         self.actionConanCreate.setVisible(visible)
@@ -124,8 +128,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.actionConanExportPackage.setVisible(visible)
 
     def __refresh_all(self):
-        # TODO: Refresh all the tabs. The tabs now have the refresh function
-        pass
+        # Refresh all the tabs
+        self.tab_cache.refresh()
+        self.tab_workspace.refresh()
+        self.tab_profile.refresh()
+        self.tab_remote.refresh()
 
     def __save_ui_state(self):
         # TODO: Get all the UI state from all TABS
