@@ -64,6 +64,9 @@ class Ui_TabWorkspace(object):
         self.toolButtonLoadConfiguration = QToolButton(self.frameToolbar)
         self.toolButtonLoadConfiguration.setObjectName(u"toolButtonLoadConfiguration")
         self.toolButtonLoadConfiguration.setMinimumSize(QSize(25, 25))
+        icon2 = QIcon()
+        icon2.addFile(u":/icon/light/open.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonLoadConfiguration.setIcon(icon2)
 
         self.horizontalLayout_16.addWidget(self.toolButtonLoadConfiguration)
 
@@ -362,9 +365,9 @@ class Ui_TabWorkspace(object):
         self.toolButtonClearConsole = QToolButton(self.frame_5)
         self.toolButtonClearConsole.setObjectName(u"toolButtonClearConsole")
         self.toolButtonClearConsole.setMinimumSize(QSize(25, 25))
-        icon2 = QIcon()
-        icon2.addFile(u":/icon/light/garbage_can.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonClearConsole.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u":/icon/light/garbage_can.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonClearConsole.setIcon(icon3)
         self.toolButtonClearConsole.setCheckable(False)
 
         self.verticalLayout_5.addWidget(self.toolButtonClearConsole)
@@ -372,9 +375,9 @@ class Ui_TabWorkspace(object):
         self.toolButtonConsoleScrollToEnd = QToolButton(self.frame_5)
         self.toolButtonConsoleScrollToEnd.setObjectName(u"toolButtonConsoleScrollToEnd")
         self.toolButtonConsoleScrollToEnd.setMinimumSize(QSize(25, 25))
-        icon3 = QIcon()
-        icon3.addFile(u":/icon/light/scroll_to_end.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonConsoleScrollToEnd.setIcon(icon3)
+        icon4 = QIcon()
+        icon4.addFile(u":/icon/light/scroll_to_end.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonConsoleScrollToEnd.setIcon(icon4)
         self.toolButtonConsoleScrollToEnd.setCheckable(True)
         self.toolButtonConsoleScrollToEnd.setChecked(True)
 

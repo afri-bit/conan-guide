@@ -138,6 +138,10 @@
         <property name="text">
          <string/>
         </property>
+        <property name="icon">
+         <iconset resource="../../../../resources.qrc">
+          <normaloff>:/icon/light/open.png</normaloff>:/icon/light/open.png</iconset>
+        </property>
        </widget>
       </item>
       <item>
