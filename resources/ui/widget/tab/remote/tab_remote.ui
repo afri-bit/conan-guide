@@ -118,6 +118,9 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Add Remote</string>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -141,6 +144,9 @@
           <height>25</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Remove Remote</string>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -163,6 +169,9 @@
           <width>25</width>
           <height>25</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>Edit Remote</string>
         </property>
         <property name="text">
          <string/>

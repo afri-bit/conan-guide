@@ -221,7 +221,7 @@
              </size>
             </property>
             <property name="toolTip">
-             <string>Add</string>
+             <string>Add Profile</string>
             </property>
             <property name="text">
              <string/>
@@ -241,7 +241,7 @@
              </size>
             </property>
             <property name="toolTip">
-             <string>Remove</string>
+             <string>Remove Profile</string>
             </property>
             <property name="text">
              <string/>
@@ -261,7 +261,7 @@
              </size>
             </property>
             <property name="toolTip">
-             <string>Rename</string>
+             <string>Rename Profile</string>
             </property>
             <property name="text">
              <string/>
