@@ -1,5 +1,6 @@
 <RCC>
   <qresource>
+    <file>icon/light/edit.png</file>
     <file>icon/light/open.png</file>
     <file>icon/light/save.png</file>
     <file>icon/light/revert.png</file>

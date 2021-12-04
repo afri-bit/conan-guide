@@ -81,6 +81,9 @@ class Ui_TabRemote(object):
         sizePolicy1.setHeightForWidth(self.toolButtonEdit.sizePolicy().hasHeightForWidth())
         self.toolButtonEdit.setSizePolicy(sizePolicy1)
         self.toolButtonEdit.setMinimumSize(QSize(25, 25))
+        icon3 = QIcon()
+        icon3.addFile(u":/icon/light/edit.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonEdit.setIcon(icon3)
 
         self.horizontalLayout_16.addWidget(self.toolButtonEdit)
 
@@ -148,7 +151,7 @@ class Ui_TabRemote(object):
         self.toolButtonRefresh.setText("")
         self.toolButtonAdd.setText("")
         self.toolButtonRemove.setText("")
-        self.toolButtonEdit.setText(QCoreApplication.translate("TabRemote", u"E", None))
+        self.toolButtonEdit.setText("")
         self.groupBox.setTitle(QCoreApplication.translate("TabRemote", u"Remote List", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("TabRemote", u"Recipe Reference", None))
     # re# -*- coding: utf-8 -*-
@@ -234,6 +237,9 @@ class Ui_TabRemote(object):
         sizePolicy1.setHeightForWidth(self.toolButtonEdit.sizePolicy().hasHeightForWidth())
         self.toolButtonEdit.setSizePolicy(sizePolicy1)
         self.toolButtonEdit.setMinimumSize(QSize(25, 25))
+        icon3 = QIcon()
+        icon3.addFile(u":/icon/light/edit.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonEdit.setIcon(icon3)
 
         self.horizontalLayout_16.addWidget(self.toolButtonEdit)
 
@@ -301,7 +307,7 @@ class Ui_TabRemote(object):
         self.toolButtonRefresh.setText("")
         self.toolButtonAdd.setText("")
         self.toolButtonRemove.setText("")
-        self.toolButtonEdit.setText(QCoreApplication.translate("TabRemote", u"E", None))
+        self.toolButtonEdit.setText("")
         self.groupBox.setTitle(QCoreApplication.translate("TabRemote", u"Remote List", None))
         self.groupBox_2.setTitle(QCoreApplication.translate("TabRemote", u"Recipe Reference", None))
     # retranslateUi

@@ -82,7 +82,7 @@ class TabProfile(QtWidgets.QWidget, Ui_TabProfile):
         selected_data = self.listViewProfile.currentIndex().data()
         if selected_data is not None:
             reply = QtWidgets.QMessageBox.question(self, f"Profile - {selected_data}",
-                                                   "Are you sure to delete the profile",
+                                                   f"Are you sure to delete the profile '{selected_data}?",
                                                    QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
                                                    QtWidgets.QMessageBox.No)
             if reply == QtWidgets.QMessageBox.Yes:
@@ -98,7 +98,16 @@ class TabProfile(QtWidgets.QWidget, Ui_TabProfile):
     def on_toolButtonProfileAdd_clicked(self):
         self._add_new_profile()
 
-    def update(self):
+    @Slot()
+    def on_toolButtonProfileRename_clicked(self):
+        self._rename_profile()
+
+    @Slot()
+    def on_toolButtonRefresh_clicked(self):
+        self.refresh()
+
+    def refresh(self):
+        self._clear_view()
         self.ctrl_listview_conan_profile.update()
 
     def _rename_profile(self):
@@ -110,7 +119,7 @@ class TabProfile(QtWidgets.QWidget, Ui_TabProfile):
         if res == QtWidgets.QDialog.Accepted:
             profile_name_new = dialog.text
             self.conan_api.rename_profile(profile_name, profile_name_new)
-            self.update()
+            self.refresh()
 
     def _add_new_profile(self):
         profile_list = self.ctrl_listview_conan_profile.items
@@ -118,7 +127,7 @@ class TabProfile(QtWidgets.QWidget, Ui_TabProfile):
         res = dialog.exec()
         if res == QtWidgets.QDialog.Accepted:
             self.conan_api.create_profile(dialog.text)
-            self.update()
+            self.refresh()
 
     def _show_selected_profile(self):
         try:

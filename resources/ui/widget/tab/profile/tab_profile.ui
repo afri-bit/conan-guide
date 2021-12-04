@@ -253,6 +253,26 @@
            </widget>
           </item>
           <item>
+           <widget class="QToolButton" name="toolButtonProfileRename">
+            <property name="minimumSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Rename</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../../../resources.qrc">
+              <normaloff>:/icon/light/edit.png</normaloff>:/icon/light/edit.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QToolButton" name="toolButtonSaveChange">
             <property name="minimumSize">
              <size>

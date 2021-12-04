@@ -105,21 +105,30 @@ class Ui_TabProfile(object):
 
         self.horizontalLayout_19.addWidget(self.toolButtonProfileRemove)
 
+        self.toolButtonProfileRename = QToolButton(self.frame_18)
+        self.toolButtonProfileRename.setObjectName(u"toolButtonProfileRename")
+        self.toolButtonProfileRename.setMinimumSize(QSize(25, 25))
+        icon5 = QIcon()
+        icon5.addFile(u":/icon/light/edit.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonProfileRename.setIcon(icon5)
+
+        self.horizontalLayout_19.addWidget(self.toolButtonProfileRename)
+
         self.toolButtonSaveChange = QToolButton(self.frame_18)
         self.toolButtonSaveChange.setObjectName(u"toolButtonSaveChange")
         self.toolButtonSaveChange.setMinimumSize(QSize(25, 25))
-        icon5 = QIcon()
-        icon5.addFile(u":/icon/light/save.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonSaveChange.setIcon(icon5)
+        icon6 = QIcon()
+        icon6.addFile(u":/icon/light/save.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonSaveChange.setIcon(icon6)
 
         self.horizontalLayout_19.addWidget(self.toolButtonSaveChange)
 
         self.toolButtonRevertChange = QToolButton(self.frame_18)
         self.toolButtonRevertChange.setObjectName(u"toolButtonRevertChange")
         self.toolButtonRevertChange.setMinimumSize(QSize(25, 25))
-        icon6 = QIcon()
-        icon6.addFile(u":/icon/light/revert.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonRevertChange.setIcon(icon6)
+        icon7 = QIcon()
+        icon7.addFile(u":/icon/light/revert.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonRevertChange.setIcon(icon7)
 
         self.horizontalLayout_19.addWidget(self.toolButtonRevertChange)
 
@@ -234,6 +243,10 @@ class Ui_TabProfile(object):
         self.toolButtonProfileRemove.setToolTip(QCoreApplication.translate("TabProfile", u"Remove", None))
 #endif // QT_CONFIG(tooltip)
         self.toolButtonProfileRemove.setText("")
+#if QT_CONFIG(tooltip)
+        self.toolButtonProfileRename.setToolTip(QCoreApplication.translate("TabProfile", u"Rename", None))
+#endif // QT_CONFIG(tooltip)
+        self.toolButtonProfileRename.setText("")
 #if QT_CONFIG(tooltip)
         self.toolButtonSaveChange.setToolTip(QCoreApplication.translate("TabProfile", u"Save Changes", None))
 #endif // QT_CONFIG(tooltip)
