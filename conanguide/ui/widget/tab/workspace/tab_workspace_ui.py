@@ -20,7 +20,7 @@ class Ui_TabWorkspace(object):
             TabWorkspace.setObjectName(u"TabWorkspace")
         TabWorkspace.resize(999, 710)
         self.verticalLayout = QVBoxLayout(TabWorkspace)
-        self.verticalLayout.setSpacing(2)
+        self.verticalLayout.setSpacing(5)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.frameToolbar = QFrame(TabWorkspace)
@@ -35,7 +35,7 @@ class Ui_TabWorkspace(object):
         self.horizontalLayout_16 = QHBoxLayout(self.frameToolbar)
         self.horizontalLayout_16.setSpacing(0)
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
-        self.horizontalLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_16.setContentsMargins(2, 2, 0, 0)
         self.toolButtonRefresh = QToolButton(self.frameToolbar)
         self.toolButtonRefresh.setObjectName(u"toolButtonRefresh")
         self.toolButtonRefresh.setMinimumSize(QSize(25, 25))
@@ -48,7 +48,7 @@ class Ui_TabWorkspace(object):
 
         self.horizontalLayout_16.addWidget(self.toolButtonRefresh)
 
-        self.horizontalSpacer = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(10, 20, QSizePolicy.Minimum, QSizePolicy.Minimum)
 
         self.horizontalLayout_16.addItem(self.horizontalSpacer)
 
