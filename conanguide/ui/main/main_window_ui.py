@@ -122,348 +122,36 @@ class Ui_MainWindow(object):
         self.tabWidgetMain.addTab(self.tabCache, icon15, "")
         self.tabWorkspace = QWidget()
         self.tabWorkspace.setObjectName(u"tabWorkspace")
-        self.verticalLayout_6 = QVBoxLayout(self.tabWorkspace)
-        self.verticalLayout_6.setSpacing(0)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.splitter_8 = QSplitter(self.tabWorkspace)
-        self.splitter_8.setObjectName(u"splitter_8")
-        self.splitter_8.setOrientation(Qt.Vertical)
-        self.frame_24 = QFrame(self.splitter_8)
-        self.frame_24.setObjectName(u"frame_24")
-        self.frame_24.setMaximumSize(QSize(16777215, 228))
-        self.frame_24.setFrameShape(QFrame.StyledPanel)
-        self.frame_24.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.frame_24)
-        self.verticalLayout_3.setSpacing(2)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(2, 2, 2, 2)
-        self.frame_4 = QFrame(self.frame_24)
-        self.frame_4.setObjectName(u"frame_4")
-        self.frame_4.setFrameShape(QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_5 = QHBoxLayout(self.frame_4)
-        self.horizontalLayout_5.setSpacing(5)
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.horizontalLayout_5.setContentsMargins(2, 2, 2, 2)
-        self.label_4 = QLabel(self.frame_4)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setMinimumSize(QSize(75, 0))
-
-        self.horizontalLayout_5.addWidget(self.label_4)
-
-        self.lineEditUser = QLineEdit(self.frame_4)
-        self.lineEditUser.setObjectName(u"lineEditUser")
-
-        self.horizontalLayout_5.addWidget(self.lineEditUser)
-
-        self.label_14 = QLabel(self.frame_4)
-        self.label_14.setObjectName(u"label_14")
-
-        self.horizontalLayout_5.addWidget(self.label_14)
-
-        self.label_13 = QLabel(self.frame_4)
-        self.label_13.setObjectName(u"label_13")
-
-        self.horizontalLayout_5.addWidget(self.label_13)
-
-        self.lineEditChannel = QLineEdit(self.frame_4)
-        self.lineEditChannel.setObjectName(u"lineEditChannel")
-
-        self.horizontalLayout_5.addWidget(self.lineEditChannel)
-
-
-        self.verticalLayout_3.addWidget(self.frame_4)
-
-        self.frame_8 = QFrame(self.frame_24)
-        self.frame_8.setObjectName(u"frame_8")
-        self.frame_8.setFrameShape(QFrame.StyledPanel)
-        self.frame_8.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_6 = QHBoxLayout(self.frame_8)
-        self.horizontalLayout_6.setSpacing(5)
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.horizontalLayout_6.setContentsMargins(2, 2, 2, 2)
-        self.label_5 = QLabel(self.frame_8)
-        self.label_5.setObjectName(u"label_5")
-        self.label_5.setMinimumSize(QSize(75, 0))
-
-        self.horizontalLayout_6.addWidget(self.label_5)
-
-        self.lineEditRecipePath = QLineEdit(self.frame_8)
-        self.lineEditRecipePath.setObjectName(u"lineEditRecipePath")
-        self.lineEditRecipePath.setMinimumSize(QSize(0, 0))
-        self.lineEditRecipePath.setReadOnly(False)
-
-        self.horizontalLayout_6.addWidget(self.lineEditRecipePath)
-
-        self.toolBtnExplorerRecipePath = QToolButton(self.frame_8)
-        self.toolBtnExplorerRecipePath.setObjectName(u"toolBtnExplorerRecipePath")
-        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.toolBtnExplorerRecipePath.sizePolicy().hasHeightForWidth())
-        self.toolBtnExplorerRecipePath.setSizePolicy(sizePolicy)
-        self.toolBtnExplorerRecipePath.setMinimumSize(QSize(0, 0))
-
-        self.horizontalLayout_6.addWidget(self.toolBtnExplorerRecipePath)
-
-
-        self.verticalLayout_3.addWidget(self.frame_8)
-
-        self.frame_9 = QFrame(self.frame_24)
-        self.frame_9.setObjectName(u"frame_9")
-        self.frame_9.setFrameShape(QFrame.StyledPanel)
-        self.frame_9.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_7 = QHBoxLayout(self.frame_9)
-        self.horizontalLayout_7.setSpacing(5)
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.horizontalLayout_7.setContentsMargins(2, 2, 2, 2)
-        self.label_6 = QLabel(self.frame_9)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setMinimumSize(QSize(75, 0))
-
-        self.horizontalLayout_7.addWidget(self.label_6)
-
-        self.lineEditInstallPath = QLineEdit(self.frame_9)
-        self.lineEditInstallPath.setObjectName(u"lineEditInstallPath")
-
-        self.horizontalLayout_7.addWidget(self.lineEditInstallPath)
-
-        self.toolBtnExplorerInstallPath = QToolButton(self.frame_9)
-        self.toolBtnExplorerInstallPath.setObjectName(u"toolBtnExplorerInstallPath")
-
-        self.horizontalLayout_7.addWidget(self.toolBtnExplorerInstallPath)
-
-
-        self.verticalLayout_3.addWidget(self.frame_9)
-
-        self.frame_10 = QFrame(self.frame_24)
-        self.frame_10.setObjectName(u"frame_10")
-        self.frame_10.setFrameShape(QFrame.StyledPanel)
-        self.frame_10.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_8 = QHBoxLayout(self.frame_10)
-        self.horizontalLayout_8.setSpacing(5)
-        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.horizontalLayout_8.setContentsMargins(2, 2, 2, 2)
-        self.label_7 = QLabel(self.frame_10)
-        self.label_7.setObjectName(u"label_7")
-        self.label_7.setMinimumSize(QSize(75, 0))
-
-        self.horizontalLayout_8.addWidget(self.label_7)
-
-        self.lineEditBuildPath = QLineEdit(self.frame_10)
-        self.lineEditBuildPath.setObjectName(u"lineEditBuildPath")
-
-        self.horizontalLayout_8.addWidget(self.lineEditBuildPath)
-
-        self.toolBtnExplorerBuildPath = QToolButton(self.frame_10)
-        self.toolBtnExplorerBuildPath.setObjectName(u"toolBtnExplorerBuildPath")
-
-        self.horizontalLayout_8.addWidget(self.toolBtnExplorerBuildPath)
-
-
-        self.verticalLayout_3.addWidget(self.frame_10)
-
-        self.frame_11 = QFrame(self.frame_24)
-        self.frame_11.setObjectName(u"frame_11")
-        self.frame_11.setFrameShape(QFrame.StyledPanel)
-        self.frame_11.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_9 = QHBoxLayout(self.frame_11)
-        self.horizontalLayout_9.setSpacing(5)
-        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.horizontalLayout_9.setContentsMargins(2, 2, 2, 2)
-        self.label_8 = QLabel(self.frame_11)
-        self.label_8.setObjectName(u"label_8")
-        self.label_8.setMinimumSize(QSize(75, 0))
-
-        self.horizontalLayout_9.addWidget(self.label_8)
-
-        self.lineEditSourcePath = QLineEdit(self.frame_11)
-        self.lineEditSourcePath.setObjectName(u"lineEditSourcePath")
-
-        self.horizontalLayout_9.addWidget(self.lineEditSourcePath)
-
-        self.toolBtnExplorerSourcePath = QToolButton(self.frame_11)
-        self.toolBtnExplorerSourcePath.setObjectName(u"toolBtnExplorerSourcePath")
-
-        self.horizontalLayout_9.addWidget(self.toolBtnExplorerSourcePath)
-
-
-        self.verticalLayout_3.addWidget(self.frame_11)
-
-        self.frame_13 = QFrame(self.frame_24)
-        self.frame_13.setObjectName(u"frame_13")
-        self.frame_13.setFrameShape(QFrame.StyledPanel)
-        self.frame_13.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_12 = QHBoxLayout(self.frame_13)
-        self.horizontalLayout_12.setSpacing(5)
-        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
-        self.horizontalLayout_12.setContentsMargins(2, 2, 2, 2)
-        self.label_11 = QLabel(self.frame_13)
-        self.label_11.setObjectName(u"label_11")
-        self.label_11.setMinimumSize(QSize(75, 0))
-
-        self.horizontalLayout_12.addWidget(self.label_11)
-
-        self.lineEditPackageExpPath = QLineEdit(self.frame_13)
-        self.lineEditPackageExpPath.setObjectName(u"lineEditPackageExpPath")
-
-        self.horizontalLayout_12.addWidget(self.lineEditPackageExpPath)
-
-        self.toolBtnExplorerPackagePath = QToolButton(self.frame_13)
-        self.toolBtnExplorerPackagePath.setObjectName(u"toolBtnExplorerPackagePath")
-
-        self.horizontalLayout_12.addWidget(self.toolBtnExplorerPackagePath)
-
-
-        self.verticalLayout_3.addWidget(self.frame_13)
-
-        self.frame_12 = QFrame(self.frame_24)
-        self.frame_12.setObjectName(u"frame_12")
-        self.frame_12.setFrameShape(QFrame.StyledPanel)
-        self.frame_12.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_10 = QHBoxLayout(self.frame_12)
-        self.horizontalLayout_10.setSpacing(5)
-        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
-        self.horizontalLayout_10.setContentsMargins(2, 2, 2, 2)
-        self.label_9 = QLabel(self.frame_12)
-        self.label_9.setObjectName(u"label_9")
-        self.label_9.setMinimumSize(QSize(75, 0))
-
-        self.horizontalLayout_10.addWidget(self.label_9)
-
-        self.lineEditAdditionalParams = QLineEdit(self.frame_12)
-        self.lineEditAdditionalParams.setObjectName(u"lineEditAdditionalParams")
-
-        self.horizontalLayout_10.addWidget(self.lineEditAdditionalParams)
-
-
-        self.verticalLayout_3.addWidget(self.frame_12)
-
-        self.frame_14 = QFrame(self.frame_24)
-        self.frame_14.setObjectName(u"frame_14")
-        self.frame_14.setFrameShape(QFrame.StyledPanel)
-        self.frame_14.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_13 = QHBoxLayout(self.frame_14)
-        self.horizontalLayout_13.setSpacing(5)
-        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
-        self.horizontalLayout_13.setContentsMargins(2, 2, 2, 2)
-        self.label_12 = QLabel(self.frame_14)
-        self.label_12.setObjectName(u"label_12")
-        self.label_12.setMinimumSize(QSize(75, 0))
-        self.label_12.setMaximumSize(QSize(50, 16777215))
-
-        self.horizontalLayout_13.addWidget(self.label_12)
-
-        self.comboBoxProfile = QComboBox(self.frame_14)
-        self.comboBoxProfile.setObjectName(u"comboBoxProfile")
-
-        self.horizontalLayout_13.addWidget(self.comboBoxProfile)
-
-
-        self.verticalLayout_3.addWidget(self.frame_14)
-
-        self.splitter_8.addWidget(self.frame_24)
-        self.frame_25 = QFrame(self.splitter_8)
-        self.frame_25.setObjectName(u"frame_25")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(1)
-        sizePolicy1.setHeightForWidth(self.frame_25.sizePolicy().hasHeightForWidth())
-        self.frame_25.setSizePolicy(sizePolicy1)
-        self.frame_25.setFrameShape(QFrame.StyledPanel)
-        self.frame_25.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_17 = QHBoxLayout(self.frame_25)
-        self.horizontalLayout_17.setSpacing(0)
-        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
-        self.horizontalLayout_17.setContentsMargins(0, 0, 0, 0)
-        self.groupBox_4 = QGroupBox(self.frame_25)
-        self.groupBox_4.setObjectName(u"groupBox_4")
-        self.horizontalLayout_18 = QHBoxLayout(self.groupBox_4)
-        self.horizontalLayout_18.setSpacing(2)
-        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
-        self.horizontalLayout_18.setContentsMargins(2, 2, 2, 2)
-        self.frame_5 = QFrame(self.groupBox_4)
-        self.frame_5.setObjectName(u"frame_5")
-        self.frame_5.setFrameShape(QFrame.StyledPanel)
-        self.frame_5.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_5 = QVBoxLayout(self.frame_5)
-        self.verticalLayout_5.setSpacing(0)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.toolButtonClearConsole = QToolButton(self.frame_5)
-        self.toolButtonClearConsole.setObjectName(u"toolButtonClearConsole")
-        self.toolButtonClearConsole.setMinimumSize(QSize(25, 25))
+        self.layoutTabWorkspace = QVBoxLayout(self.tabWorkspace)
+        self.layoutTabWorkspace.setSpacing(0)
+        self.layoutTabWorkspace.setObjectName(u"layoutTabWorkspace")
+        self.layoutTabWorkspace.setContentsMargins(0, 0, 0, 0)
         icon16 = QIcon()
-        icon16.addFile(u":/icon/light/garbage_can.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonClearConsole.setIcon(icon16)
-        self.toolButtonClearConsole.setCheckable(False)
-
-        self.verticalLayout_5.addWidget(self.toolButtonClearConsole)
-
-        self.toolButtonConsoleScrollToEnd = QToolButton(self.frame_5)
-        self.toolButtonConsoleScrollToEnd.setObjectName(u"toolButtonConsoleScrollToEnd")
-        self.toolButtonConsoleScrollToEnd.setMinimumSize(QSize(25, 25))
-        icon17 = QIcon()
-        icon17.addFile(u":/icon/light/scroll_to_end.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonConsoleScrollToEnd.setIcon(icon17)
-        self.toolButtonConsoleScrollToEnd.setCheckable(True)
-        self.toolButtonConsoleScrollToEnd.setChecked(True)
-
-        self.verticalLayout_5.addWidget(self.toolButtonConsoleScrollToEnd)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_5.addItem(self.verticalSpacer_2)
-
-
-        self.horizontalLayout_18.addWidget(self.frame_5)
-
-        self.console = QPlainTextEdit(self.groupBox_4)
-        self.console.setObjectName(u"console")
-        font = QFont()
-        font.setFamily(u"Consolas")
-        font.setPointSize(8)
-        self.console.setFont(font)
-        self.console.setReadOnly(True)
-        self.console.setTextInteractionFlags(Qt.TextSelectableByMouse)
-        self.console.setCenterOnScroll(False)
-
-        self.horizontalLayout_18.addWidget(self.console)
-
-
-        self.horizontalLayout_17.addWidget(self.groupBox_4)
-
-        self.splitter_8.addWidget(self.frame_25)
-
-        self.verticalLayout_6.addWidget(self.splitter_8)
-
-        icon18 = QIcon()
-        icon18.addFile(u":/icon/light/tab_workspace.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.tabWidgetMain.addTab(self.tabWorkspace, icon18, "")
+        icon16.addFile(u":/icon/light/tab_workspace.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tabWidgetMain.addTab(self.tabWorkspace, icon16, "")
         self.tabProfile = QWidget()
         self.tabProfile.setObjectName(u"tabProfile")
         self.layoutTabProfile = QHBoxLayout(self.tabProfile)
         self.layoutTabProfile.setSpacing(0)
         self.layoutTabProfile.setObjectName(u"layoutTabProfile")
         self.layoutTabProfile.setContentsMargins(0, 0, 0, 0)
-        icon19 = QIcon()
-        icon19.addFile(u":/icon/light/tab_conan_profile.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.tabWidgetMain.addTab(self.tabProfile, icon19, "")
+        icon17 = QIcon()
+        icon17.addFile(u":/icon/light/tab_conan_profile.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tabWidgetMain.addTab(self.tabProfile, icon17, "")
         self.tabRemote = QWidget()
         self.tabRemote.setObjectName(u"tabRemote")
         self.layoutTabRemote = QVBoxLayout(self.tabRemote)
         self.layoutTabRemote.setSpacing(2)
         self.layoutTabRemote.setObjectName(u"layoutTabRemote")
         self.layoutTabRemote.setContentsMargins(2, 2, 2, 2)
-        icon20 = QIcon()
-        icon20.addFile(u":/icon/light/tab_conan_remote.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.tabWidgetMain.addTab(self.tabRemote, icon20, "")
+        icon18 = QIcon()
+        icon18.addFile(u":/icon/light/tab_conan_remote.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tabWidgetMain.addTab(self.tabRemote, icon18, "")
         self.tabSettings = QWidget()
         self.tabSettings.setObjectName(u"tabSettings")
-        icon21 = QIcon()
-        icon21.addFile(u":/icon/light/tab_settings.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.tabWidgetMain.addTab(self.tabSettings, icon21, "")
+        icon19 = QIcon()
+        icon19.addFile(u":/icon/light/tab_settings.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tabWidgetMain.addTab(self.tabSettings, icon19, "")
 
         self.verticalLayout_12.addWidget(self.tabWidgetMain)
 
@@ -477,15 +165,12 @@ class Ui_MainWindow(object):
         self.menuFile.setObjectName(u"menuFile")
         self.menuHelp = QMenu(self.menubar)
         self.menuHelp.setObjectName(u"menuHelp")
-        self.menuConan = QMenu(self.menubar)
-        self.menuConan.setObjectName(u"menuConan")
         MainWindow.setMenuBar(self.menubar)
-        self.statusBar = QStatusBar(MainWindow)
-        self.statusBar.setObjectName(u"statusBar")
-        self.statusBar.setMaximumSize(QSize(16777215, 16777215))
-        MainWindow.setStatusBar(self.statusBar)
         self.toolBar = QToolBar(MainWindow)
         self.toolBar.setObjectName(u"toolBar")
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.toolBar.sizePolicy().hasHeightForWidth())
         self.toolBar.setSizePolicy(sizePolicy)
         self.toolBar.setMinimumSize(QSize(0, 0))
@@ -498,7 +183,6 @@ class Ui_MainWindow(object):
 
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuView.menuAction())
-        self.menubar.addAction(self.menuConan.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
         self.menuView.addAction(self.actionViewCache)
         self.menuView.addAction(self.actionViewWorkspace)
@@ -512,17 +196,9 @@ class Ui_MainWindow(object):
         self.menuHelp.addAction(self.actionHelpConanio)
         self.menuHelp.addSeparator()
         self.menuHelp.addAction(self.actionHelpAbout)
-        self.menuConan.addAction(self.actionConanCreate)
-        self.menuConan.addAction(self.actionConanInstall)
-        self.menuConan.addAction(self.actionConanBuild)
-        self.menuConan.addAction(self.actionConanSource)
-        self.menuConan.addAction(self.actionConanPackage)
-        self.menuConan.addAction(self.actionConanExport)
-        self.menuConan.addAction(self.actionConanExportPackage)
         self.toolBar.addAction(self.actionRefresh)
         self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionConanCreate)
-        self.toolBar.addSeparator()
         self.toolBar.addAction(self.actionConanInstall)
         self.toolBar.addAction(self.actionConanBuild)
         self.toolBar.addAction(self.actionConanSource)
@@ -532,7 +208,6 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.actionFileExit.triggered.connect(MainWindow.close)
-        self.toolButtonClearConsole.pressed.connect(self.console.clear)
 
         self.tabWidgetMain.setCurrentIndex(0)
 
@@ -550,9 +225,9 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(shortcut)
         self.actionFileExit.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+Q", None))
 #endif // QT_CONFIG(shortcut)
-        self.actionRefresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
+        self.actionRefresh.setText(QCoreApplication.translate("MainWindow", u"Refresh All", None))
 #if QT_CONFIG(shortcut)
-        self.actionRefresh.setShortcut(QCoreApplication.translate("MainWindow", u"F5", None))
+        self.actionRefresh.setShortcut(QCoreApplication.translate("MainWindow", u"Shift+F5", None))
 #endif // QT_CONFIG(shortcut)
         self.actionConanCreate.setText(QCoreApplication.translate("MainWindow", u"Create", None))
 #if QT_CONFIG(shortcut)
@@ -610,25 +285,6 @@ class Ui_MainWindow(object):
         self.actionViewSettings.setShortcut(QCoreApplication.translate("MainWindow", u"Alt+S", None))
 #endif // QT_CONFIG(shortcut)
         self.tabWidgetMain.setTabText(self.tabWidgetMain.indexOf(self.tabCache), QCoreApplication.translate("MainWindow", u"Cache", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"User", None))
-        self.label_14.setText(QCoreApplication.translate("MainWindow", u"/", None))
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Channel", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Recipe Path", None))
-        self.toolBtnExplorerRecipePath.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"Install Path", None))
-        self.toolBtnExplorerInstallPath.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Build Path", None))
-        self.toolBtnExplorerBuildPath.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Source Path", None))
-        self.toolBtnExplorerSourcePath.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Package Path", None))
-        self.toolBtnExplorerPackagePath.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Parameter", None))
-        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Profile", None))
-        self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"Console", None))
-        self.toolButtonClearConsole.setText("")
-        self.toolButtonConsoleScrollToEnd.setText("")
-        self.console.setPlainText("")
         self.tabWidgetMain.setTabText(self.tabWidgetMain.indexOf(self.tabWorkspace), QCoreApplication.translate("MainWindow", u"Workspace", None))
         self.tabWidgetMain.setTabText(self.tabWidgetMain.indexOf(self.tabProfile), QCoreApplication.translate("MainWindow", u"Profile", None))
         self.tabWidgetMain.setTabText(self.tabWidgetMain.indexOf(self.tabRemote), QCoreApplication.translate("MainWindow", u"Remote", None))
@@ -636,7 +292,6 @@ class Ui_MainWindow(object):
         self.menuView.setTitle(QCoreApplication.translate("MainWindow", u"View", None))
         self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
         self.menuHelp.setTitle(QCoreApplication.translate("MainWindow", u"Help", None))
-        self.menuConan.setTitle(QCoreApplication.translate("MainWindow", u"Conan", None))
         self.toolBar.setWindowTitle(QCoreApplication.translate("MainWindow", u"toolBar", None))
     # retranslateUi
 
