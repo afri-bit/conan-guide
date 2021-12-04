@@ -1,5 +1,6 @@
 import os
 import datetime
+import json
 
 from PySide2 import QtWidgets
 from PySide2.QtCore import Slot
@@ -69,6 +70,25 @@ class TabWorkspace(QtWidgets.QWidget, Ui_TabWorkspace):
     @Slot()
     def on_toolBtnExplorerPackagePath_pressed(self):
         self.__set_folder_path(self.lineEditPackageExpPath)
+
+    @Slot()
+    def on_toolButtonSaveConfiguration_pressed(self):
+        config_file: tuple = QtWidgets.QFileDialog.getSaveFileName(self,
+                                                                   "Save Configuration File",
+                                                                   "",
+                                                                   "Config File (*.cgjson)")
+        if config_file[0] != "":
+            self.__save_configuration(config_file[0])
+
+    @Slot()
+    def on_toolButtonLoadConfiguration_pressed(self):
+        config_file: tuple = QtWidgets.QFileDialog.getOpenFileName(self,
+                                                                   "Open Configuration File",
+                                                                   "",
+                                                                   "Config File (*.cgjson)")
+
+        if config_file[0] != "":
+            self.__load_configuration(config_file[0])
 
     def conan_create(self):
         self.__execute_conan_create()
@@ -181,3 +201,55 @@ class TabWorkspace(QtWidgets.QWidget, Ui_TabWorkspace):
 
         if folder_path != "":
             view.setText(os.path.abspath(folder_path))
+
+    def __save_configuration(self, config_file: str) -> None:
+        try:
+            config_dict = dict()
+            content_dict = dict()
+
+            config_dict["cg_workspace"] = content_dict
+
+            content_dict["user"] = self.lineEditUser.text()
+            content_dict["channel"] = self.lineEditChannel.text()
+            content_dict["recipe_path"] = self.lineEditRecipePath.text()
+            content_dict["install_path"] = self.lineEditInstallPath.text()
+            content_dict["build_path"] = self.lineEditBuildPath.text()
+            content_dict["source_path"] = self.lineEditSourcePath.text()
+            content_dict["package_path"] = self.lineEditPackagePath.text()
+            content_dict["parameter"] = self.lineEditAdditionalParams.text()
+            content_dict["profile"] = self.comboBoxProfile.currentText()
+
+            with open(config_file, "w+") as f:
+                f.write(json.dumps(config_dict, indent=2))
+        except:
+            QtWidgets.QMessageBox.critical(self, "Error on Saving File", "Unable to save configuration file!")
+
+    def __load_configuration(self, config_file: str) -> None:
+        if os.path.isfile(config_file):
+            try:
+                config_dict = dict()
+                with open(config_file, "r") as f:
+                    config_dict = json.loads(f.read())
+
+                config_content = config_dict["cg_workspace"]
+
+                self.lineEditUser.setText(config_content["user"])
+                self.lineEditChannel.setText(config_content["channel"])
+                self.lineEditRecipePath.setText(config_content["recipe_path"])
+                self.lineEditInstallPath.setText(config_content["install_path"])
+                self.lineEditBuildPath.setText(config_content["build_path"])
+                self.lineEditSourcePath.setText(config_content["source_path"])
+                self.lineEditPackagePath.setText(config_content["package_path"])
+                self.lineEditAdditionalParams.setText(config_content["parameter"])
+
+                profile_list = [self.comboBoxProfile.itemText(i) for i in range(self.comboBoxProfile.count())]
+
+                if config_content["profile"] in profile_list:
+                    self.comboBoxProfile.setCurrentText(config_content["profile"])
+            except:
+                QtWidgets.QMessageBox.critical(self,
+                                               "Error on Loading File",
+                                               "Unable to load the configuration file! Please check the configuration file")
+
+        else:
+            QtWidgets.QMessageBox.critical(self, "Error on Loading File", "Unable to locate the configuration file!")
