@@ -1,12 +1,42 @@
 <RCC>
   <qresource>
-    <file>icon/conan_create.png</file>
-    <file>icon/conan_install.png</file>
-    <file>icon/conan_build.png</file>
-    <file>icon/conan_source.png</file>
-    <file>icon/conan_export.png</file>
-    <file>icon/conan_package.png</file>
-    <file>icon/conan_package_export.png</file>
-    <file>icon/ws_refresh.png</file>
+    <file>icon/light/edit.png</file>
+    <file>icon/light/open.png</file>
+    <file>icon/light/save.png</file>
+    <file>icon/light/revert.png</file>
+    <file>icon/light/sort_ascending.png</file>
+    <file>icon/light/sort_descending.png</file>
+    <file>icon/light/tab_conan_profile.png</file>
+    <file>icon/light/tab_conan_remote.png</file>
+    <file>icon/light/tab_settings.png</file>
+    <file>icon/light/tab_workspace.png</file>
+    <file>icon/light/add.png</file>
+    <file>icon/light/conan_profile.png</file>
+    <file>icon/light/conan_build.png</file>
+    <file>icon/light/conan_create.png</file>
+    <file>icon/light/conan_export.png</file>
+    <file>icon/light/conan_install.png</file>
+    <file>icon/light/conan_package.png</file>
+    <file>icon/light/tab_cache.png</file>
+    <file>icon/light/conan_package_export.png</file>
+    <file>icon/light/conan_remote.png</file>
+    <file>icon/light/conan_source.png</file>
+    <file>icon/light/copy.png</file>
+    <file>icon/light/garbage_can.png</file>
+    <file>icon/light/open_folder.png</file>
+    <file>icon/light/package.png</file>
+    <file>icon/light/refresh.png</file>
+    <file>icon/light/remove.png</file>
+    <file>icon/light/directory_tree.png</file>
+    <file>icon/light/scroll_to_end.png</file>
+    <file>icon/light/settings.png</file>
+    <file>icon/light/workspace.png</file>
   </qresource>
+  <qresource prefix="general">
+    <file>icon/python_icon.png</file>
+    <file>icon/conan_guide_icon.png</file>
+    <file>icon/qt_icon.png</file>
+    <file>icon/conan_io_icon.png</file>
+  </qresource>
+  <qresource prefix="dark"/>
 </RCC>
