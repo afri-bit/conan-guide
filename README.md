@@ -1,4 +1,8 @@
 # Conan GUIde
+
+![](https://img.shields.io/pypi/v/conan-guide)
+![](https://img.shields.io/pypi/pyversions/conan-guide)
+
 **Conan GUIde** is Qt based Graphical User Interface (GUI) to interact with local cache of conan package manager. **Conan GUIde** provides user an easy overview of the information from the local cache without any further effort of typing in the terminal. User can find, copy and even open the path of the package with minimal effort and clicks.
 
 With **Conan GUIde** user has also possibility to add, edit and remove local profiles and remotes of the conan package manager.
