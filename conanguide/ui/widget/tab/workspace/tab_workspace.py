@@ -91,6 +91,10 @@ class TabWorkspace(QtWidgets.QWidget, Ui_TabWorkspace):
             self.__load_configuration(config_file[0])
 
     @Slot()
+    def on_toolButtonClearConsole_pressed(self):
+        self.console.clear()
+
+    @Slot()
     def on_toolButtonRefresh_pressed(self):
         self.refresh()
 

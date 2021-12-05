@@ -821,6 +821,9 @@
               <height>25</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Clear Console</string>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -840,6 +843,9 @@
               <width>25</width>
               <height>25</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Scroll to End</string>
             </property>
             <property name="text">
              <string/>
