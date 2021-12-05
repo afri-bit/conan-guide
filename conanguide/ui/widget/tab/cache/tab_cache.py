@@ -1,5 +1,3 @@
-import pyperclip
-
 from PySide2 import QtWidgets, QtGui
 from PySide2.QtCore import Slot, QUrl
 
@@ -101,7 +99,7 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
     def on_treeViewRecipe_doubleClicked(self):
         if self.lineEditDataPath.text() != "":
             if self.checkBoxCopyClipboard.isChecked():
-                pyperclip.copy(self.lineEditDataPath.text())
+                QtWidgets.QApplication.clipboard().setText(self.lineEditDataPath.text())
 
             if self.checkBoxOpenExplorer.isChecked():
                 QtGui.QDesktopServices.openUrl(QUrl.fromLocalFile(self.lineEditDataPath.text()))
@@ -110,25 +108,25 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
     def on_listViewPackage_doubleClicked(self):
         if self.lineEditPackagePath.text() != "":
             if self.checkBoxCopyClipboard.isChecked():
-                pyperclip.copy(self.lineEditPackagePath.text())
+                QtWidgets.QApplication.clipboard().setText(self.lineEditPackagePath.text())
 
             if self.checkBoxOpenExplorer.isChecked():
                 QtGui.QDesktopServices.openUrl(QUrl.fromLocalFile(self.lineEditPackagePath.text()))
 
     @Slot()
     def on_btnCopyCachePath_pressed(self):
-        if self.lineEditConanPath.text() != "":
-            pyperclip.copy(self.lineEditConanPath.text())
+        if self.lineEditCachePath.text() != "":
+            QtWidgets.QApplication.clipboard().setText(self.lineEditCachePath.text())
 
     @Slot()
     def on_btnCopyDataPath_pressed(self):
         if self.lineEditDataPath.text() != "":
-            pyperclip.copy(self.lineEditDataPath.text())
+            QtWidgets.QApplication.clipboard().setText(self.lineEditDataPath.text())
 
     @Slot()
     def on_btnCopyRealPath_pressed(self):
         if self.lineEditRealPath.text() != "":
-            pyperclip.copy(self.lineEditRealPath.text())
+            QtWidgets.QApplication.clipboard().setText(self.lineEditRealPath.text())
 
     @Slot()
     def on_btnCopyPackagePath_pressed(self):
