@@ -18,7 +18,7 @@ class Ui_TabCache(object):
     def setupUi(self, TabCache):
         if not TabCache.objectName():
             TabCache.setObjectName(u"TabCache")
-        TabCache.resize(959, 649)
+        TabCache.resize(1233, 825)
         self.horizontalLayout_4 = QHBoxLayout(TabCache)
         self.horizontalLayout_4.setSpacing(5)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
@@ -39,7 +39,7 @@ class Ui_TabCache(object):
         self.verticalLayout_3 = QVBoxLayout(self.frame_6)
         self.verticalLayout_3.setSpacing(3)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 1)
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 3)
         self.frame_16 = QFrame(self.frame_6)
         self.frame_16.setObjectName(u"frame_16")
         self.frame_16.setLayoutDirection(Qt.LeftToRight)
@@ -89,6 +89,19 @@ class Ui_TabCache(object):
 
         self.horizontalLayout_15.addWidget(self.checkBoxCopyClipboard)
 
+        self.checkBoxShowDirectory = QToolButton(self.frame_16)
+        self.checkBoxShowDirectory.setObjectName(u"checkBoxShowDirectory")
+        self.checkBoxShowDirectory.setMinimumSize(QSize(25, 25))
+        self.checkBoxShowDirectory.setMaximumSize(QSize(25, 25))
+        icon3 = QIcon()
+        icon3.addFile(u":/icon/light/directory_tree.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.checkBoxShowDirectory.setIcon(icon3)
+        self.checkBoxShowDirectory.setIconSize(QSize(18, 18))
+        self.checkBoxShowDirectory.setCheckable(True)
+        self.checkBoxShowDirectory.setChecked(True)
+
+        self.horizontalLayout_15.addWidget(self.checkBoxShowDirectory)
+
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_15.addItem(self.horizontalSpacer)
@@ -122,9 +135,9 @@ class Ui_TabCache(object):
         self.toolButtonSortAscending = QToolButton(self.layoutWidget)
         self.toolButtonSortAscending.setObjectName(u"toolButtonSortAscending")
         self.toolButtonSortAscending.setMinimumSize(QSize(25, 25))
-        icon3 = QIcon()
-        icon3.addFile(u":/icon/light/sort_ascending.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonSortAscending.setIcon(icon3)
+        icon4 = QIcon()
+        icon4.addFile(u":/icon/light/sort_ascending.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonSortAscending.setIcon(icon4)
         self.toolButtonSortAscending.setCheckable(True)
         self.toolButtonSortAscending.setChecked(True)
         self.toolButtonSortAscending.setAutoRaise(False)
@@ -134,9 +147,9 @@ class Ui_TabCache(object):
         self.toolButtonSortDescending = QToolButton(self.layoutWidget)
         self.toolButtonSortDescending.setObjectName(u"toolButtonSortDescending")
         self.toolButtonSortDescending.setMinimumSize(QSize(25, 25))
-        icon4 = QIcon()
-        icon4.addFile(u":/icon/light/sort_descending.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonSortDescending.setIcon(icon4)
+        icon5 = QIcon()
+        icon5.addFile(u":/icon/light/sort_descending.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonSortDescending.setIcon(icon5)
         self.toolButtonSortDescending.setCheckable(True)
 
         self.verticalLayout.addWidget(self.toolButtonSortDescending)
@@ -144,9 +157,9 @@ class Ui_TabCache(object):
         self.toolButtonRemoveRecipe = QToolButton(self.layoutWidget)
         self.toolButtonRemoveRecipe.setObjectName(u"toolButtonRemoveRecipe")
         self.toolButtonRemoveRecipe.setMinimumSize(QSize(25, 25))
-        icon5 = QIcon()
-        icon5.addFile(u":/icon/light/remove.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toolButtonRemoveRecipe.setIcon(icon5)
+        icon6 = QIcon()
+        icon6.addFile(u":/icon/light/remove.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.toolButtonRemoveRecipe.setIcon(icon6)
 
         self.verticalLayout.addWidget(self.toolButtonRemoveRecipe)
 
@@ -181,7 +194,7 @@ class Ui_TabCache(object):
         self.toolButtonRemovePackage = QToolButton(self.layoutWidget1)
         self.toolButtonRemovePackage.setObjectName(u"toolButtonRemovePackage")
         self.toolButtonRemovePackage.setMinimumSize(QSize(25, 25))
-        self.toolButtonRemovePackage.setIcon(icon5)
+        self.toolButtonRemovePackage.setIcon(icon6)
 
         self.verticalLayout_2.addWidget(self.toolButtonRemovePackage)
 
@@ -220,30 +233,18 @@ class Ui_TabCache(object):
         self.verticalLayout_13.setSpacing(5)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.verticalLayout_13.setContentsMargins(2, 2, 2, 2)
-        self.splitter_6 = QSplitter(self.frame_15)
-        self.splitter_6.setObjectName(u"splitter_6")
-        self.splitter_6.setContextMenuPolicy(Qt.DefaultContextMenu)
-        self.splitter_6.setFrameShape(QFrame.NoFrame)
-        self.splitter_6.setFrameShadow(QFrame.Plain)
-        self.splitter_6.setLineWidth(1)
-        self.splitter_6.setOrientation(Qt.Vertical)
-        self.splitter_6.setHandleWidth(5)
-        self.frame_19 = QFrame(self.splitter_6)
-        self.frame_19.setObjectName(u"frame_19")
-        self.frame_19.setMaximumSize(QSize(16777215, 135))
-        self.frame_19.setFrameShape(QFrame.StyledPanel)
-        self.frame_19.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_14 = QVBoxLayout(self.frame_19)
-        self.verticalLayout_14.setSpacing(0)
-        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
-        self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
-        self.groupBox = QGroupBox(self.frame_19)
+        self.splitter_4 = QSplitter(self.frame_15)
+        self.splitter_4.setObjectName(u"splitter_4")
+        self.splitter_4.setOrientation(Qt.Vertical)
+        self.groupBox = QGroupBox(self.splitter_4)
         self.groupBox.setObjectName(u"groupBox")
         sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
         self.groupBox.setSizePolicy(sizePolicy2)
+        self.groupBox.setMinimumSize(QSize(0, 137))
+        self.groupBox.setMaximumSize(QSize(16777215, 137))
         self.verticalLayout_8 = QVBoxLayout(self.groupBox)
         self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
@@ -404,26 +405,29 @@ class Ui_TabCache(object):
 
         self.verticalLayout_8.addWidget(self.frame_3)
 
-
-        self.verticalLayout_14.addWidget(self.groupBox)
-
-        self.splitter_6.addWidget(self.frame_19)
-        self.frameWebView = QFrame(self.splitter_6)
-        self.frameWebView.setObjectName(u"frameWebView")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        self.splitter_4.addWidget(self.groupBox)
+        self.tabWidgetOthers = QTabWidget(self.splitter_4)
+        self.tabWidgetOthers.setObjectName(u"tabWidgetOthers")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(1)
-        sizePolicy3.setHeightForWidth(self.frameWebView.sizePolicy().hasHeightForWidth())
-        self.frameWebView.setSizePolicy(sizePolicy3)
-        self.frameWebView.setFrameShape(QFrame.StyledPanel)
-        self.frameWebView.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_7 = QVBoxLayout(self.frameWebView)
-        self.verticalLayout_7.setSpacing(5)
-        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.verticalLayout_7.setContentsMargins(2, 2, 2, 2)
-        self.splitter_6.addWidget(self.frameWebView)
+        sizePolicy3.setHeightForWidth(self.tabWidgetOthers.sizePolicy().hasHeightForWidth())
+        self.tabWidgetOthers.setSizePolicy(sizePolicy3)
+        self.tabDirectory = QWidget()
+        self.tabDirectory.setObjectName(u"tabDirectory")
+        self.verticalLayout_4 = QVBoxLayout(self.tabDirectory)
+        self.verticalLayout_4.setSpacing(5)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.treeViewDirectory = QTreeView(self.tabDirectory)
+        self.treeViewDirectory.setObjectName(u"treeViewDirectory")
 
-        self.verticalLayout_13.addWidget(self.splitter_6)
+        self.verticalLayout_4.addWidget(self.treeViewDirectory)
+
+        self.tabWidgetOthers.addTab(self.tabDirectory, "")
+        self.splitter_4.addWidget(self.tabWidgetOthers)
+
+        self.verticalLayout_13.addWidget(self.splitter_4)
 
         self.splitter_5.addWidget(self.frame_15)
 
@@ -431,6 +435,9 @@ class Ui_TabCache(object):
 
 
         self.retranslateUi(TabCache)
+
+        self.tabWidgetOthers.setCurrentIndex(0)
+
 
         QMetaObject.connectSlotsByName(TabCache)
     # setupUi
@@ -449,6 +456,10 @@ class Ui_TabCache(object):
         self.checkBoxCopyClipboard.setToolTip(QCoreApplication.translate("TabCache", u"Copy Path", None))
 #endif // QT_CONFIG(tooltip)
         self.checkBoxCopyClipboard.setText(QCoreApplication.translate("TabCache", u"...", None))
+#if QT_CONFIG(tooltip)
+        self.checkBoxShowDirectory.setToolTip(QCoreApplication.translate("TabCache", u"Show Directory", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkBoxShowDirectory.setText(QCoreApplication.translate("TabCache", u"...", None))
 #if QT_CONFIG(whatsthis)
         self.lineEditSearchRecipe.setWhatsThis("")
 #endif // QT_CONFIG(whatsthis)
@@ -482,5 +493,6 @@ class Ui_TabCache(object):
         self.label_3.setText(QCoreApplication.translate("TabCache", u"Package Path", None))
         self.btnCopyPackagePath.setText(QCoreApplication.translate("TabCache", u"Copy", None))
         self.btnOpenPackagePath.setText(QCoreApplication.translate("TabCache", u" Open", None))
+        self.tabWidgetOthers.setTabText(self.tabWidgetOthers.indexOf(self.tabDirectory), QCoreApplication.translate("TabCache", u"Directory", None))
     # retranslateUi
 

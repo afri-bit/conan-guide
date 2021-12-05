@@ -10,6 +10,7 @@ from conanguide.ui.controller.tab.cache.conan_recipe import ConanRecipeControlle
 from conanguide.ui.controller.tab.cache.conan_recipe_inspect import ConanRecipeInspectController
 from conanguide.ui.controller.tab.cache.conan_package import ConanPackageController
 from conanguide.ui.controller.tab.cache.conan_package_inspect import ConanPackageInspectController
+from conanguide.ui.controller.tab.cache.directory_tree import DirectoryTreeController
 
 
 class TabCache(QtWidgets.QWidget, Ui_TabCache):
@@ -28,14 +29,20 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
                                                                 self.conan_api)
         self.ctrl_treeview_conan_recipe.update()
 
+        # Treeview initialization for the conan recipe inspect
         self.ctrl_treeview_conan_recipe_inspect = ConanRecipeInspectController(self.treeViewRecipeInspect,
                                                                                self.conan_api)
 
+        # Listview initialization for the conan package
         self.ctrl_listview_conan_package = ConanPackageController(self.listViewPackage,
                                                                   self.conan_api)
 
+        # Treeview initialization for the conan package inspect
         self.ctrl_treeview_conan_package_inspect = ConanPackageInspectController(self.treeViewPackageInspect,
                                                                                  self.conan_api)
+
+        # Treeview initialization for directory path
+        self.ctrl_treeview_directory_tree = DirectoryTreeController(self.treeViewDirectory)
 
         self.lineEditSearchRecipe.textChanged.connect(lambda: self.ctrl_treeview_conan_recipe.filter(
             self.lineEditSearchRecipe.text()))
@@ -59,6 +66,10 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
         # Step 4: Set the conan package inspect treeview to initial state
         self.ctrl_treeview_conan_package_inspect.initialize()
 
+        # Step 5: Show the directory tree
+        if self.checkBoxShowDirectory.isChecked():
+            self.ctrl_treeview_directory_tree.show(data_path)
+
     @Slot()
     def on_listViewPackage_clicked(self):
         recipe_id = self.ctrl_treeview_conan_recipe.get_selected_item()
@@ -75,6 +86,10 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
 
         # ========== Section to inspect the package
         self.ctrl_treeview_conan_package_inspect.inspect(recipe_id, package_id)
+
+        # Show the directory path
+        if self.checkBoxShowDirectory.isChecked():
+            self.ctrl_treeview_directory_tree.show(package_path)
 
     @Slot()
     def on_treeViewRecipe_doubleClicked(self):
@@ -149,6 +164,11 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
         self.ctrl_treeview_conan_recipe.sort_descending()
 
     @Slot()
+    def on_checkBoxShowDirectory_toggled(self):
+        if not self.checkBoxShowDirectory.isChecked():
+            self.ctrl_treeview_directory_tree.clear()
+
+    @Slot()
     def on_toolButtonRemoveRecipe_clicked(self):
         recipe_id = self.ctrl_treeview_conan_recipe.get_selected_item()
         if recipe_id is not None:
@@ -169,8 +189,6 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
 
                 self.ctrl_listview_conan_package.clear()
                 self.ctrl_treeview_conan_package_inspect.initialize()
-
-
 
     @Slot()
     def on_toolButtonRemovePackage_clicked(self):
@@ -198,3 +216,5 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
         self.ctrl_treeview_conan_recipe_inspect.initialize()
         self.ctrl_listview_conan_package.clear()
         self.ctrl_treeview_conan_package_inspect.initialize()
+
+        self.ctrl_treeview_directory_tree.clear()
