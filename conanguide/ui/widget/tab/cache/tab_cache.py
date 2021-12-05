@@ -1,8 +1,7 @@
-import os
 import pyperclip
 
-from PySide2 import QtWidgets
-from PySide2.QtCore import Slot
+from PySide2 import QtWidgets, QtGui
+from PySide2.QtCore import Slot, QUrl
 
 from conanguide.api.conan_api import ConanApi
 from conanguide.ui.widget.tab.cache.tab_cache_ui import Ui_TabCache
@@ -105,7 +104,7 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
                 pyperclip.copy(self.lineEditDataPath.text())
 
             if self.checkBoxOpenExplorer.isChecked():
-                os.startfile(self.lineEditDataPath.text())
+                QtGui.QDesktopServices.openUrl(QUrl.fromLocalFile(self.lineEditDataPath.text()))
 
     @Slot()
     def on_listViewPackage_doubleClicked(self):
@@ -114,7 +113,7 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
                 pyperclip.copy(self.lineEditPackagePath.text())
 
             if self.checkBoxOpenExplorer.isChecked():
-                os.startfile(self.lineEditPackagePath.text())
+                QtGui.QDesktopServices.openUrl(QUrl.fromLocalFile(self.lineEditPackagePath.text()))
 
     @Slot()
     def on_btnCopyCachePath_pressed(self):
@@ -134,27 +133,27 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
     @Slot()
     def on_btnCopyPackagePath_pressed(self):
         if self.lineEditPackagePath.text() != "":
-            pyperclip.copy(self.lineEditPackagePath.text())
+            QtGui.QDesktopServices.openUrl(QUrl.fromLocalFile(self.lineEditPackagePath.text()))
 
     @Slot()
     def on_btnOpenCachePath_pressed(self):
         if self.lineEditCachePath.text() != "":
-            os.startfile(self.lineEditCachePath.text())
+            QtGui.QDesktopServices.openUrl(QUrl.fromLocalFile(self.lineEditCachePath.text()))
 
     @Slot()
     def on_btnOpenDataPath_pressed(self):
         if self.lineEditDataPath.text() != "":
-            os.startfile(self.lineEditDataPath.text())
+            QtGui.QDesktopServices.openUrl(QUrl.fromLocalFile(self.lineEditDataPath.text()))
 
     @Slot()
     def on_btnOpenRealPath_pressed(self):
         if self.lineEditRealPath.text() != "":
-            os.startfile(self.lineEditRealPath.text())
+            QtGui.QDesktopServices.openUrl(QUrl.fromLocalFile(self.lineEditRealPath.text()))
 
     @Slot()
     def on_btnOpenPackagePath_pressed(self):
         if self.lineEditPackagePath.text() != "":
-            os.startfile(self.lineEditPackagePath.text())
+            QtGui.QDesktopServices.openUrl(QUrl.fromLocalFile(self.lineEditPackagePath.text()))
 
     @Slot()
     def on_toolButtonSortAscending_clicked(self):
@@ -212,6 +211,10 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
                 self.ctrl_listview_conan_package.remove_selected_package(recipe_id)
                 self.ctrl_treeview_conan_package_inspect.initialize()
                 self.refresh()
+
+    @Slot()
+    def on_treeViewDirectory_doubleClicked(self):
+        self.ctrl_treeview_directory_tree.open_selected_item()
 
     @Slot()
     def on_toolButtonRefresh_clicked(self):

@@ -1,5 +1,6 @@
-from PySide2 import QtCore, QtWidgets
-from PySide2.QtGui import QStandardItemModel, QStandardItem
+import os
+
+from PySide2 import QtCore, QtWidgets, QtGui
 
 
 class DirectoryTreeController:
@@ -18,3 +19,9 @@ class DirectoryTreeController:
 
     def clear(self):
         self.view.setModel(None)
+
+    def open_selected_item(self):
+        item_path = self.model.filePath(self.view.currentIndex())
+
+        if os.path.isfile(item_path):
+            QtGui.QDesktopServices.openUrl(QtCore.QUrl.fromLocalFile(item_path))
