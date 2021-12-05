@@ -23,7 +23,9 @@ ui_files = [
     {"from": "../resources/ui/dialog/edit_name.ui",
      "to": "../conanguide/ui/dialog/edit/name/edit_name_ui.py"},
     {"from": "../resources/ui/dialog/edit_remote.ui",
-     "to": "../conanguide/ui/dialog/edit/remote/edit_remote_ui.py"}
+     "to": "../conanguide/ui/dialog/edit/remote/edit_remote_ui.py"},
+    {"from": "../resources/ui/dialog/about.ui",
+     "to": "../conanguide/ui/dialog/about/about_ui.py"}
 ]
 
 # List of resource files to be generated, the path must be relative to this path or absolute path
@@ -84,3 +86,4 @@ refactor_resource_import(ui_files[4]["to"], "from  . import resources_rc", "from
 refactor_resource_import(ui_files[5]["to"], "from  . import resources_rc", "from conanguide.ui.res import resources_rc")
 refactor_resource_import(ui_files[6]["to"], "from  . import resources_rc", "from conanguide.ui.res import resources_rc")
 refactor_resource_import(ui_files[7]["to"], "from  . import resources_rc", "from conanguide.ui.res import resources_rc")
+refactor_resource_import(ui_files[8]["to"], "from  . import resources_rc", "from conanguide.ui.res import resources_rc")

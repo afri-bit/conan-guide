@@ -32,7 +32,9 @@
     <file>icon/light/workspace.png</file>
   </qresource>
   <qresource prefix="general">
+    <file>icon/python_icon.png</file>
     <file>icon/conan_guide_icon.png</file>
+    <file>icon/qt_icon.png</file>
     <file>icon/conan_io_icon.png</file>
   </qresource>
   <qresource prefix="dark"/>

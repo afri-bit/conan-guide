@@ -1,6 +1,6 @@
 import webbrowser
 
-from PySide2 import QtWidgets
+from PySide2 import QtWidgets, QtCore
 from PySide2.QtCore import Slot
 
 from conanguide.api.conan_api import ConanApi
@@ -10,6 +10,7 @@ from conanguide.ui.widget.tab.cache.tab_cache import TabCache
 from conanguide.ui.widget.tab.profile.tab_profile import TabProfile
 from conanguide.ui.widget.tab.remote.tab_remote import TabRemote
 from conanguide.ui.widget.tab.workspace.tab_workspace import TabWorkspace
+from conanguide.ui.dialog.about.about import DialogAbout
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -117,6 +118,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     @Slot()
     def on_actionHelpConanDocs_triggered(self):
         webbrowser.open("https://docs.conan.io/en/latest/")
+
+    @Slot()
+    def on_actionHelpAbout_triggered(self):
+        dialog = DialogAbout()
+        dialog.setWindowFlags(QtCore.Qt.Tool | QtCore.Qt.FramelessWindowHint)
+        dialog.exec()
 
     def __show_workspace_toolbar(self, visible: bool):
         self.actionConanCreate.setVisible(visible)
