@@ -11,6 +11,23 @@ from conanguide.utils.cmd.command_builder import ConanCommandBuilder
 from conanguide.ui.widget.tab.workspace.tab_workspace_ui import Ui_TabWorkspace
 
 
+class TabWorkspaceSettings:
+    def __init__(self, user: str, channel: str, recipe_path: str,
+                 install_path: str, build_path: str, source_path: str,
+                 package_path: str, parameter: str, profile: str,
+                 scroll_to_end: bool):
+        self.user = user
+        self.channel = channel
+        self.recipe_path = recipe_path
+        self.install_path = install_path
+        self.build_path = build_path
+        self.source_path = source_path
+        self.package_path = package_path
+        self.parameter = parameter
+        self.profile = profile
+        self.scroll_to_end = scroll_to_end
+
+
 class TabWorkspace(QtWidgets.QWidget, Ui_TabWorkspace):
     def __init__(self, conan_api: ConanApi, *args, obj=None, **kwargs):
         super(TabWorkspace, self).__init__(*args, **kwargs)
@@ -97,6 +114,37 @@ class TabWorkspace(QtWidgets.QWidget, Ui_TabWorkspace):
     @Slot()
     def on_toolButtonRefresh_pressed(self):
         self.refresh()
+
+    def get_settings(self) -> TabWorkspaceSettings:
+        return TabWorkspaceSettings(
+            user=self.lineEditUser.text(),
+            channel=self.lineEditChannel.text(),
+            recipe_path=self.lineEditRecipePath.text(),
+            install_path=self.lineEditInstallPath.text(),
+            build_path=self.lineEditBuildPath.text(),
+            source_path=self.lineEditSourcePath.text(),
+            package_path=self.lineEditPackagePath.text(),
+            parameter=self.lineEditAdditionalParams.text(),
+            profile=self.comboBoxProfile.currentText(),
+            scroll_to_end=self.toolButtonConsoleScrollToEnd.isChecked()
+        )
+
+    def set_settings(self, settings: TabWorkspaceSettings):
+        self.lineEditUser.setText(settings.user)
+        self.lineEditChannel.setText(settings.channel)
+        self.lineEditRecipePath.setText(settings.recipe_path)
+        self.lineEditInstallPath.setText(settings.install_path)
+        self.lineEditBuildPath.setText(settings.build_path)
+        self.lineEditSourcePath.setText(settings.source_path)
+        self.lineEditPackagePath.setText(settings.package_path)
+        self.lineEditAdditionalParams.setText(settings.parameter)
+
+        profile_list = [self.comboBoxProfile.itemText(i) for i in range(self.comboBoxProfile.count())]
+
+        if settings.profile in profile_list:
+            self.comboBoxProfile.setCurrentText(settings.profile)
+
+        self.toolButtonConsoleScrollToEnd.setChecked(settings.scroll_to_end)
 
     def refresh(self):
         # Refresh the profile list in combo box

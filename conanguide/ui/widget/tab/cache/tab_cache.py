@@ -13,6 +13,13 @@ from conanguide.ui.controller.tab.cache.conan_package_inspect import ConanPackag
 from conanguide.ui.controller.tab.cache.directory_tree import DirectoryTreeController
 
 
+class TabCacheSettings:
+    def __init__(self, toggle_open_path: bool, toggle_copy_path: bool, toggle_show_directory: bool):
+        self.toggle_open_path = toggle_open_path
+        self.toggle_copy_path = toggle_copy_path
+        self.toggle_show_directory = toggle_show_directory
+
+
 class TabCache(QtWidgets.QWidget, Ui_TabCache):
     def __init__(self, conan_api: ConanApi, *args, obj=None, **kwargs):
         super(TabCache, self).__init__(*args, **kwargs)
@@ -209,6 +216,18 @@ class TabCache(QtWidgets.QWidget, Ui_TabCache):
     @Slot()
     def on_toolButtonRefresh_clicked(self):
         self.refresh()
+
+    def get_settings(self) -> TabCacheSettings:
+        return TabCacheSettings(
+            toggle_open_path=self.checkBoxOpenExplorer.isChecked(),
+            toggle_copy_path=self.checkBoxCopyClipboard.isChecked(),
+            toggle_show_directory=self.checkBoxShowDirectory.isChecked(),
+        )
+
+    def set_settings(self, settings: TabCacheSettings):
+        self.checkBoxOpenExplorer.setChecked(settings.toggle_open_path)
+        self.checkBoxCopyClipboard.setChecked(settings.toggle_copy_path)
+        self.checkBoxShowDirectory.setChecked(settings.toggle_show_directory)
 
     def refresh(self):
         self.ctrl_treeview_conan_recipe.update()

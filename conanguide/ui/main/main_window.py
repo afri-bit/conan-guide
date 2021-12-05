@@ -6,10 +6,10 @@ from PySide2.QtCore import Slot
 from conanguide.api.conan_api import ConanApi
 from conanguide.ui.config.ui_config import UIConfiguration
 from conanguide.ui.main.main_window_ui import Ui_MainWindow
-from conanguide.ui.widget.tab.cache.tab_cache import TabCache
+from conanguide.ui.widget.tab.cache.tab_cache import TabCache, TabCacheSettings
+from conanguide.ui.widget.tab.workspace.tab_workspace import TabWorkspace, TabWorkspaceSettings
 from conanguide.ui.widget.tab.profile.tab_profile import TabProfile
 from conanguide.ui.widget.tab.remote.tab_remote import TabRemote
-from conanguide.ui.widget.tab.workspace.tab_workspace import TabWorkspace
 from conanguide.ui.dialog.about.about import DialogAbout
 
 
@@ -45,7 +45,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # Currently the index 0 is the conan local cache tab
         self.tabWidgetMain.setCurrentWidget(self.tabCache)
 
-        # self.__load_ui_state()
+        self.__load_ui_state()
 
     def closeEvent(self, event) -> None:
         self.__save_ui_state()
@@ -142,65 +142,49 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tab_remote.refresh()
 
     def __save_ui_state(self):
-        # TODO: Get all the UI state from all TABS
-
-        # TODO: Write to file
+        tab_cache_settings = self.tab_cache.get_settings()
+        tab_workspace_settings = self.tab_workspace.get_settings()
 
         # Configuration
-        # self.ui_config.add_value("user", self.lineEditUser.text())
-        # self.ui_config.add_value("channel", self.lineEditChannel.text())
-        # self.ui_config.add_value("recipe_path", self.lineEditRecipePath.text())
-        # self.ui_config.add_value("install_path", self.lineEditInstallPath.text())
-        # self.ui_config.add_value("build_path", self.lineEditBuildPath.text())
-        # self.ui_config.add_value("source_path", self.lineEditSourcePath.text())
-        # self.ui_config.add_value("package_path", self.lineEditPackageExpPath.text())
-        # self.ui_config.add_value("parameter", self.lineEditAdditionalParams.text())
-        # self.ui_config.add_value("profile", self.comboBoxProfile.currentText())
-        #
-        # # Main Window
-        # self.ui_config.add_header("main_window")
-        # self.ui_config.add_value("x", self.pos().x(), "main_window")
-        # self.ui_config.add_value("y", self.pos().y() + 30, "main_window")
-        # self.ui_config.add_value("width", self.width(), "main_window")
-        # self.ui_config.add_value("height", self.height(), "main_window")
-        #
-        # # DockWidget - Recipe
-        # # self.ui_config.add_header("dock_recipe")
-        # # self.ui_config.add_value("open_explorer", self.checkBoxOpenExplorer.isChecked(), "dock_recipe")
-        # # self.ui_config.add_value("copy_clipboard", self.checkBoxCopyClipboard.isChecked(), "dock_recipe")
-        #
-        # # DockWidget - Console
-        # self.ui_config.add_header("dock_console")
-        # self.ui_config.add_value("scroll_end", self.toolButtonConsoleScrollToEnd.isChecked(), "dock_console")
-        #
-        # self.ui_config.save_config()
-        pass
+        self.ui_config.add_header("main_window")
+        self.ui_config.add_value("width", self.width(), "main_window")
+        self.ui_config.add_value("height", self.height(), "main_window")
+
+        self.ui_config.add_value("tab_cache", tab_cache_settings.__dict__)
+        self.ui_config.add_value("tab_workspace", tab_workspace_settings.__dict__)
+
+        self.ui_config.save_config()
 
     def __load_ui_state(self):
-        # TODO: Load UI State and distribute to all TABS
-        # config = self.ui_config.load_config()
-        # if config is not None:
-        #     # Configuration
-        #     self.lineEditUser.setText(config["user"])
-        #     self.lineEditChannel.setText(config["channel"])
-        #     self.lineEditRecipePath.setText(config["recipe_path"])
-        #     self.lineEditInstallPath.setText(config["install_path"])
-        #     self.lineEditBuildPath.setText(config["build_path"])
-        #     self.lineEditSourcePath.setText(config["source_path"])
-        #     self.lineEditPackageExpPath.setText(config["package_path"])
-        #     self.lineEditAdditionalParams.setText(config["parameter"])
-        #     self.comboBoxProfile.setCurrentText(config["profile"])
-        #
-        #     # Window
-        #     self.setGeometry(config["main_window"]["x"],
-        #                      config["main_window"]["y"],
-        #                      config["main_window"]["width"],
-        #                      config["main_window"]["height"])
-        #
-        #     # DockWidget - Recipe
-        #     self.checkBoxOpenExplorer.setChecked(config["dock_recipe"]["open_explorer"])
-        #     self.checkBoxCopyClipboard.setChecked(config["dock_recipe"]["copy_clipboard"])
-        #
-        #     # DockWidget - Console
-        #     self.toolButtonConsoleScrollToEnd.setChecked(config["dock_console"]["scroll_end"])
-        pass
+        config = self.ui_config.load_config()
+        if config is not None:
+            try:
+                # Window
+                self.resize(config["main_window"]["width"], config["main_window"]["height"])
+
+                tab_cache_config = config["tab_cache"]
+                self.tab_cache.set_settings(TabCacheSettings(
+                    toggle_open_path=bool(tab_cache_config["toggle_open_path"]),
+                    toggle_copy_path=bool(tab_cache_config["toggle_copy_path"]),
+                    toggle_show_directory=bool(tab_cache_config["toggle_show_directory"])
+                ))
+
+                tab_workspace_config = config["tab_workspace"]
+                self.tab_workspace.set_settings(TabWorkspaceSettings(
+                    user=tab_workspace_config["user"],
+                    channel=tab_workspace_config["channel"],
+                    recipe_path=tab_workspace_config["recipe_path"],
+                    install_path=tab_workspace_config["install_path"],
+                    build_path=tab_workspace_config["build_path"],
+                    source_path=tab_workspace_config["source_path"],
+                    package_path=tab_workspace_config["package_path"],
+                    parameter=tab_workspace_config["parameter"],
+                    profile=tab_workspace_config["profile"],
+                    scroll_to_end=bool(tab_workspace_config["scroll_to_end"]),
+                ))
+
+            except:
+                QtWidgets.QMessageBox.warning(self,
+                                              "Warning - Reload UI Settings!",
+                                              "Unable to reload UI configuration!\n"
+                                              "Please check the configuration file or delete it completely.")

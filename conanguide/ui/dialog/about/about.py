@@ -15,7 +15,6 @@ class DialogAbout(QtWidgets.QDialog, Ui_DialogAbout):
         super(DialogAbout, self).__init__(*args, **kwargs)
         self.setupUi(self)
 
-        # TODO: Make it dynamic
         self.labelConanGuideVersion.setText(conanguide.info.__version__)
         self.labelPythonVersion.setText(platform.python_version())
         self.labelConanVersion.setText(conan_api.client_version)
